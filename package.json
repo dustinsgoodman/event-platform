@@ -20,5 +20,11 @@
   "prisma": {
     "seed": "yarn rw exec seed"
   },
-  "packageManager": "yarn@3.6.1"
+  "packageManager": "yarn@3.6.1",
+  "scripts": {
+    "infrastructure:up": "docker compose up -d",
+		"infrastructure:down": "docker compose down",
+		"infrastructure:start": "docker compose start",
+		"infrastructure:stop": "docker compose stop"
+  }
 }
