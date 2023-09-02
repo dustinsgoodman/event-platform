@@ -54,7 +54,7 @@ model EventRegistrant {
   language       String         @default("en-US")
   // internal admin fields
   ipAddress      String
-  notes          String
+  notes          String?
   // general timestamps
   createdAt      DateTime       @default(now())
   updatedAt      DateTime       @default(now()) @updatedAt
@@ -93,6 +93,10 @@ model EventSpeaker {
   company        String?
   profilePicture String?
   bio            String
+  dateOfBirth    DateTime         @db.Date
+  language       String           @default("en-US")
+  // internal admin fields
+  ipAddress      String
   // general timestamps
   createdAt      DateTime         @default(now())
   updatedAt      DateTime         @default(now()) @updatedAt
@@ -101,7 +105,7 @@ model EventSpeaker {
   eventId        String
   sessions       EventSession[]
   registrant     EventRegistrant? @relation(fields: [registrantId], references: [id])
-  registrantId   String           @unique
+  registrantId   String?          @unique
 }
 
 enum EventVenueType {
