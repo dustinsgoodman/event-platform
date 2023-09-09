@@ -5,6 +5,7 @@ import { useMutation } from '@redwoodjs/web';
 import { toast } from '@redwoodjs/web/toast';
 
 import { QUERY } from 'src/components/Event/EventsCell';
+import Pagination from 'src/components/Pagination/Pagination';
 import { timeTag } from 'src/lib/formatters';
 
 const DELETE_EVENT_MUTATION = gql`
@@ -37,8 +38,8 @@ const EventsList = ({ events }: FindEvents) => {
   };
 
   return (
-    <div className="container mx-auto">
-      <div className="rounded-lg overflow-hidden w-full border border-gray-200 overflow-x-auto">
+    <>
+      <div className="rounded-lg overflow-hidden w-full border border-gray-200 overflow-x-auto mb-4">
         <table className="w-full text-sm">
           <thead>
             <tr className="bg-gray-200 text-gray-600 text-left">
@@ -99,8 +100,13 @@ const EventsList = ({ events }: FindEvents) => {
           </tbody>
         </table>
       </div>
-      Add pagination component here
-    </div>
+      <Pagination
+        prevPage={routes.events({ page: events.pagination.page - 1 })}
+        nextPage={routes.events({ page: events.pagination.page + 1 })}
+        totalPages={events.pagination.totalPages}
+        currentPage={events.pagination.page}
+      />
+    </>
   );
 };
 

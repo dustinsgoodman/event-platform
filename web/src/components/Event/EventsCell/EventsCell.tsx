@@ -6,8 +6,8 @@ import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web';
 import Events from 'src/components/Event/Events';
 
 export const QUERY = gql`
-  query FindEvents {
-    events {
+  query FindEvents($pagination: PaginationInput) {
+    events(pagination: $pagination) {
       nodes {
         id
         name
@@ -16,9 +16,25 @@ export const QUERY = gql`
         registrationStartAt
         registrationEndAt
       }
+      pagination {
+        totalPages
+        page
+        perPage
+      }
     }
   }
 `;
+
+export const beforeQuery = ({ page }) => {
+  return {
+    variables: {
+      pagination: {
+        page: page ? parseInt(page, 10) : 1,
+        perPage: 5,
+      },
+    },
+  };
+};
 
 export const Loading = () => <div>Loading...</div>;
 
