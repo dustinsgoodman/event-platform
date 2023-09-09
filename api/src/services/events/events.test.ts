@@ -11,9 +11,9 @@ import type { StandardScenario } from './events.scenarios';
 
 describe('events', () => {
   scenario('returns all events', async (scenario: StandardScenario) => {
-    const result = await events();
+    const result = await events({});
 
-    expect(result.length).toEqual(Object.keys(scenario.event).length);
+    expect(result.nodes.length).toEqual(Object.keys(scenario.event).length);
   });
 
   scenario('returns a single event', async (scenario: StandardScenario) => {
