@@ -7,7 +7,9 @@
     ]
   },
   "devDependencies": {
-    "@redwoodjs/core": "6.1.0"
+    "@redwoodjs/core": "6.1.0",
+    "prettier": "^3.0.3",
+    "prettier-plugin-tailwindcss": "^0.5.4"
   },
   "eslintConfig": {
     "extends": "@redwoodjs/eslint-config",
@@ -23,8 +25,8 @@
   "packageManager": "yarn@3.6.1",
   "scripts": {
     "infrastructure:up": "docker compose up -d",
-		"infrastructure:down": "docker compose down",
-		"infrastructure:start": "docker compose start",
-		"infrastructure:stop": "docker compose stop"
+    "infrastructure:down": "docker compose down",
+    "infrastructure:start": "docker compose start",
+    "infrastructure:stop": "docker compose stop"
   }
 }
