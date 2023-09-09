@@ -7,6 +7,11 @@ type HeaderLinkProps = {
   label: string;
 };
 
+type SiteHeaderProps = {
+  showLogin: boolean;
+  links?: HeaderLinkProps[];
+};
+
 const HeaderLink: FC<HeaderLinkProps> = ({ link, label }) => {
   return (
     <Link
@@ -17,9 +22,8 @@ const HeaderLink: FC<HeaderLinkProps> = ({ link, label }) => {
     </Link>
   );
 };
-const SiteHeader = () => {
+const SiteHeader: FC<SiteHeaderProps> = ({ showLogin, links = [] }) => {
   const [navbarOpen, setNavbarOpen] = useState<boolean>(false);
-  const headerLinks: HeaderLinkProps[] = [];
 
   return (
     <header className="w-full z-50">
@@ -55,16 +59,18 @@ const SiteHeader = () => {
           }
         >
           <div className="md:ml-auto md:mr-auto font-4 pt-1 md:pl-14 pl-1 flex flex-wrap items-center md:text-base text-1xl md:justify-center justify-items-start">
-            {headerLinks.map((headerLink) => (
-              <HeaderLink key={headerLink.label} {...headerLink} />
+            {links.map((link) => (
+              <HeaderLink key={link.label} {...link} />
             ))}
           </div>
-          <Link
-            to={routes.events()}
-            className="inline-flex items-center px-14 py-3 mt-2 ml-2 border rounded-lg font-semibold tracking-tighter text-white transition duration-500 ease-in-out transform bg-transparent bg-gradient-to-r from-blue-500 to-blue-800 text-md focus:shadow-outline"
-          >
-            Login
-          </Link>
+          {showLogin && (
+            <Link
+              to={routes.events()}
+              className="inline-flex items-center px-14 py-3 mt-2 ml-2 border rounded-lg font-semibold tracking-tighter text-white transition duration-500 ease-in-out transform bg-transparent bg-gradient-to-r from-blue-500 to-blue-800 text-md focus:shadow-outline"
+            >
+              Login
+            </Link>
+          )}
         </div>
       </div>
     </header>

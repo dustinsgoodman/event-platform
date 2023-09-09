@@ -29,7 +29,7 @@ const HomePage = () => {
         description="Homepage for a demo app for an event platform"
       />
 
-      <SiteHeader />
+      <SiteHeader showLogin={true} />
 
       <section className="text-gray-900 body-font">
         <div className="max-w-5xl pt-52 pb-24 mx-auto">
