@@ -39,6 +39,9 @@ describe('eventSpeakers', () => {
         bio: 'String',
         eventId: scenario.eventSpeaker.two.eventId,
         registrantId: scenario.eventSpeaker.two.registrantId,
+        dateOfBirth: '2023-09-02T18:07:00.691Z',
+        ipAddress: 'String',
+        language: 'en_US',
       },
     });
 

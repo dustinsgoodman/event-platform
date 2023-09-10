@@ -9,12 +9,6 @@ import {
 } from './eventRegistrants';
 import type { StandardScenario } from './eventRegistrants.scenarios';
 
-// Generated boilerplate tests do not account for all circumstances
-// and can fail without adjustments, e.g. Float.
-//           Please refer to the RedwoodJS Testing Docs:
-//       https://redwoodjs.com/docs/testing#testing-services
-// https://redwoodjs.com/docs/testing#jest-expect-type-considerations
-
 describe('eventRegistrants', () => {
   scenario(
     'returns all eventRegistrants',
@@ -47,6 +41,7 @@ describe('eventRegistrants', () => {
         dateOfBirth: '2023-09-02T18:07:00.678Z',
         ipAddress: 'String',
         notes: 'String',
+        language: 'en_US',
         eventId: scenario.eventRegistrant.two.eventId,
       },
     });
@@ -54,7 +49,7 @@ describe('eventRegistrants', () => {
     expect(result.email).toEqual('String');
     expect(result.firstName).toEqual('String');
     expect(result.lastName).toEqual('String');
-    expect(result.dateOfBirth).toEqual(new Date('2023-09-02T18:07:00.678Z'));
+    expect(result.dateOfBirth).toEqual(new Date('2023-09-02T00:00:00.000Z'));
     expect(result.ipAddress).toEqual('String');
     expect(result.notes).toEqual('String');
     expect(result.eventId).toEqual(scenario.eventRegistrant.two.eventId);

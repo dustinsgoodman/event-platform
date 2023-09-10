@@ -7,6 +7,9 @@ export const schema = gql`
     company: String
     profilePicture: String
     bio: String!
+    dateOfBirth: DateTime!
+    ipAddress: String!
+    language: String!
     createdAt: DateTime!
     updatedAt: DateTime!
     event: Event!
@@ -28,6 +31,9 @@ export const schema = gql`
     company: String
     profilePicture: String
     bio: String!
+    dateOfBirth: DateTime!
+    ipAddress: String!
+    language: String!
     eventId: String!
     registrantId: String!
   }

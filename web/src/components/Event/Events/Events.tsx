@@ -101,8 +101,7 @@ const EventsList = ({ events }: FindEvents) => {
         </table>
       </div>
       <Pagination
-        prevPage={routes.events({ page: events.pagination.page - 1 })}
-        nextPage={routes.events({ page: events.pagination.page + 1 })}
+        route={routes.events}
         totalPages={events.pagination.totalPages}
         currentPage={events.pagination.page}
       />
