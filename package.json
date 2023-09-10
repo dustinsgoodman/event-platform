@@ -7,10 +7,13 @@
     ]
   },
   "devDependencies": {
+    "@babel/eslint-plugin": "^7.22.10",
     "@redwoodjs/cli-storybook": "6.2.0",
     "@redwoodjs/core": "6.2.0",
+    "babel-plugin-graphql-tag": "^3.3.0",
+    "eslint-plugin-prettier": "^5.0.0",
     "prettier": "^3.0.3",
-    "prettier-plugin-tailwindcss": "^0.5.4"
+    "prettier-plugin-tailwindcss": "0.4.1"
   },
   "eslintConfig": {
     "extends": "@redwoodjs/eslint-config",
