@@ -6,8 +6,29 @@ import type {
 
 import { db } from 'src/lib/db';
 
-export const eventSessions: QueryResolvers['eventSessions'] = ({ eventId }) => {
-  return db.eventSession.findMany({ where: { eventId }});
+export const eventSessions: QueryResolvers['eventSessions'] = async ({ eventId, pagination }) => {
+  const page = pagination?.page ?? 1;
+  const perPage = pagination?.perPage ?? 25;
+
+  const [sessions, count] = await db.$transaction([
+    db.eventSession.findMany({
+      where: { eventId },
+      take: perPage,
+      skip: (page - 1) * perPage,
+      orderBy: { startAt: 'asc' },
+    }),
+    db.eventSession.count(),
+  ]);
+
+  return {
+    nodes: sessions,
+    pagination: {
+      page,
+      perPage,
+      total: count,
+      totalPages: Math.ceil(count / perPage),
+    },
+  };
 };
 
 export const eventSession: QueryResolvers['eventSession'] = ({ id }) => {

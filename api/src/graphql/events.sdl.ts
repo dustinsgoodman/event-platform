@@ -25,8 +25,8 @@ export const schema = gql`
   }
 
   type EventConnection {
-    nodes: [Event]!
-    pagination: Pagination
+    nodes: [Event!]!
+    pagination: Pagination!
   }
 
   enum EventVenueType {
@@ -36,7 +36,7 @@ export const schema = gql`
   }
 
   type Query {
-    events(pagination: PaginationInput): EventConnection @requireAuth
+    events(pagination: PaginationInput): EventConnection! @requireAuth
     event(id: String!): Event @requireAuth
   }
 
