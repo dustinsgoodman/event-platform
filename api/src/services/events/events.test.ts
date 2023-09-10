@@ -30,6 +30,9 @@ describe('events', () => {
         endAt: '2023-09-02T18:06:26.220Z',
         registrationStartAt: '2023-09-02T18:06:26.220Z',
         registrationEndAt: '2023-09-02T18:06:26.220Z',
+        timezone: 'America/New_York',
+        currency: 'USD',
+        venueType: 'ONLINE',
       },
     });
 

@@ -8,7 +8,7 @@ import SiteHeader from './SiteHeader';
 describe('SiteHeader', () => {
   it('renders successfully', () => {
     expect(() => {
-      render(<SiteHeader />);
+      render(<SiteHeader showLogin={true} />);
     }).not.toThrow();
   });
 });
