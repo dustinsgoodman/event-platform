@@ -26,13 +26,13 @@ export const standard: () => FindEvents = () => ({
         endAt: new Date('October 26, 2025 05:00:00').toString(),
         registrationStartAt: new Date('May 1, 2025 08:00:00').toString(),
         registrationEndAt: new Date('September 15, 2025 23:59:59').toString(),
-      }
+      },
     ],
     pagination: {
       totalPages: 3,
       page: 1,
       perPage: 3,
       total: 7,
-    }
+    },
   },
 });

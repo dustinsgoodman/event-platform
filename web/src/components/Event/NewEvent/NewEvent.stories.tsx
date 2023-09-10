@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react';
 
-import NewEvent from "./NewEvent";
+import NewEvent from './NewEvent';
 
 const meta: Meta<typeof NewEvent> = {
   component: NewEvent,

@@ -61,7 +61,7 @@ const UPDATE_EVENT_MUTATION = gql`
 export const Loading = () => <div>Loading...</div>;
 
 export const Failure = ({ error }: CellFailureProps) => (
-  <div className="text-sm font-semibold p-4 bg-red-50 text-red-600 border border-red-100 rounded my-4">
+  <div className="my-4 rounded border border-red-100 bg-red-50 p-4 text-sm font-semibold text-red-600">
     {error?.message}
   </div>
 );
@@ -85,9 +85,9 @@ export const Success = ({ event }: CellSuccessProps<EditEventById>) => {
   };
 
   return (
-    <div className="rounded-lg overflow-hidden w-full border border-gray-200">
-      <header className="bg-gray-200 text-gray-700 py-3 px-4">
-        <h2 className="font-semibold text-sm">Edit Event {event?.name}</h2>
+    <div className="w-full overflow-hidden rounded-lg border border-gray-200">
+      <header className="bg-gray-200 px-4 py-3 text-gray-700">
+        <h2 className="text-sm font-semibold">Edit Event {event?.name}</h2>
       </header>
       <div className="bg-gray-100 p-4">
         <EventForm

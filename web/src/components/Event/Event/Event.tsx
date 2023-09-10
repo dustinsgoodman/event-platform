@@ -40,9 +40,9 @@ const Event = ({ event }: Props) => {
 
   return (
     <div className="container mx-auto">
-      <div className="rounded-lg overflow-hidden w-full border border-gray-200">
-        <header className="bg-gray-200 text-gray-700 py-3 px-4">
-          <h2 className="font-semibold text-sm">Event Details</h2>
+      <div className="w-full overflow-hidden rounded-lg border border-gray-200">
+        <header className="bg-gray-200 px-4 py-3 text-gray-700">
+          <h2 className="text-sm font-semibold">Event Details</h2>
         </header>
         <table className="w-full text-sm">
           <tbody>
@@ -127,16 +127,16 @@ const Event = ({ event }: Props) => {
           </tbody>
         </table>
       </div>
-      <nav className="flex justify-center my-3 mx-2">
+      <nav className="mx-2 my-3 flex justify-center">
         <Link
           to={routes.editEvent({ id: event.id })}
-          className="flex justify-center py-1 px-4 mx-1 border-0 rounded bg-blue-500 text-white hover:bg-blue-700 text-xs font-semibold uppercase tracking-wide leading-loose no-underline cursor-pointer transition duration-100"
+          className="mx-1 flex cursor-pointer justify-center rounded border-0 bg-blue-500 px-4 py-1 text-xs font-semibold uppercase leading-loose tracking-wide text-white no-underline transition duration-100 hover:bg-blue-700"
         >
           Edit
         </Link>
         <button
           type="button"
-          className="flex justify-center py-1 px-4 mx-1 border-0 rounded bg-red-500 text-white hover:bg-red-700 text-xs font-semibold uppercase tracking-wide leading-loose no-underline cursor-pointer transition duration-100"
+          className="mx-1 flex cursor-pointer justify-center rounded border-0 bg-red-500 px-4 py-1 text-xs font-semibold uppercase leading-loose tracking-wide text-white no-underline transition duration-100 hover:bg-red-700"
           onClick={() => onDeleteClick(event.id, event.name)}
         >
           Delete

@@ -1,7 +1,7 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react';
 
-import EventForm from "./EventForm";
-import { standard } from "./EventForm.mock";
+import EventForm from './EventForm';
+import { standard } from './EventForm.mock';
 
 const meta: Meta<typeof EventForm> = {
   component: EventForm,

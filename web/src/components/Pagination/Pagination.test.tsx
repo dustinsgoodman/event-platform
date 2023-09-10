@@ -1,17 +1,13 @@
-import { render } from "@redwoodjs/testing/web";
-import { routes } from "@redwoodjs/router";
+import { routes } from '@redwoodjs/router';
+import { render } from '@redwoodjs/testing/web';
 
-import Pagination from "./Pagination";
+import Pagination from './Pagination';
 
-describe("Pagination", () => {
-  it("renders successfully", () => {
+describe('Pagination', () => {
+  it('renders successfully', () => {
     expect(() => {
       render(
-        <Pagination
-          route={routes.events}
-          totalPages={4}
-          currentPage={1}
-        />
+        <Pagination route={routes.events} totalPages={4} currentPage={1} />
       );
     }).not.toThrow();
   });

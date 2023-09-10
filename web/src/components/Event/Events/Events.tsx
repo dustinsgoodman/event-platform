@@ -39,10 +39,10 @@ const EventsList = ({ events }: FindEvents) => {
 
   return (
     <>
-      <div className="rounded-lg overflow-hidden w-full border border-gray-200 overflow-x-auto mb-4">
+      <div className="mb-4 w-full overflow-hidden overflow-x-auto rounded-lg border border-gray-200">
         <table className="w-full text-sm">
           <thead>
-            <tr className="bg-gray-200 text-gray-600 text-left">
+            <tr className="bg-gray-200 text-left text-gray-600">
               <th className="p-3">Name</th>
               <th className="p-3">Event Starts At</th>
               <th className="p-3">Event Ends At</th>
@@ -55,7 +55,7 @@ const EventsList = ({ events }: FindEvents) => {
             {events.nodes.map((event) => (
               <tr
                 key={event.id}
-                className="odd:bg-gray-50 border-t border-gray-200"
+                className="border-t border-gray-200 odd:bg-gray-50"
               >
                 <td className="p-3">
                   <Link
@@ -70,25 +70,25 @@ const EventsList = ({ events }: FindEvents) => {
                 <td className="p-3">{timeTag(event.registrationStartAt)}</td>
                 <td className="p-3">{timeTag(event.registrationEndAt)}</td>
                 <td className="p-3">
-                  <nav className="flex justify-end items-center h-4 pr-1">
+                  <nav className="flex h-4 items-center justify-end pr-1">
                     <Link
                       to={routes.event({ id: event.id })}
                       title={'Show event ' + event.id + ' detail'}
-                      className="bg-transparent hover:bg-gray-500 hover:text-white text-xs rounded-sm py-1 px-2"
+                      className="rounded-sm bg-transparent px-2 py-1 text-xs hover:bg-gray-500 hover:text-white"
                     >
                       Show
                     </Link>
                     <Link
                       to={routes.editEvent({ id: event.id })}
                       title={'Edit event ' + event.id}
-                      className="text-blue-500 hover:bg-blue-500 hover:text-white bg-transparent text-xs rounded-sm py-1 px-2 rw-button-blue"
+                      className="rw-button-blue rounded-sm bg-transparent px-2 py-1 text-xs text-blue-500 hover:bg-blue-500 hover:text-white"
                     >
                       Edit
                     </Link>
                     <button
                       type="button"
                       title={'Delete event ' + event.id}
-                      className="text-red-600 bg-transparent hover:bg-red-600 hover:text-white text-xs rounded-sm py-1 px-2 rw-button-red"
+                      className="rw-button-red rounded-sm bg-transparent px-2 py-1 text-xs text-red-600 hover:bg-red-600 hover:text-white"
                       onClick={() => onDeleteClick(event.id, event.name)}
                     >
                       Delete
