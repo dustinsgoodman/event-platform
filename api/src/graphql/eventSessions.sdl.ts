@@ -15,7 +15,7 @@ export const schema = gql`
   }
 
   type Query {
-    eventSessions: [EventSession!]! @requireAuth
+    eventSessions(eventId: String!): [EventSession!]! @requireAuth
     eventSession(id: String!): EventSession @requireAuth
   }
 
