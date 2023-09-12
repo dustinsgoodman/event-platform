@@ -11,7 +11,6 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
   return (
     <>
       <SiteHeader
-        showLogin={false}
         links={[]}
       />
       {children}

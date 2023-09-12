@@ -129,13 +129,7 @@ const Event = ({ event }: Props) => {
       </div>
       <nav className="flex justify-center my-3 mx-2">
         <Link
-          to={routes.eventSessions({ eventId: event.id })}
-          className="flex justify-center py-1 px-4 mx-1 border-0 rounded bg-blue-500 text-white hover:bg-blue-700 text-xs font-semibold uppercase tracking-wide leading-loose no-underline cursor-pointer transition duration-100"
-        >
-          Sessions
-        </Link>
-        <Link
-          to={routes.editEvent({ id: event.id })}
+          to={routes.editEvent({ eventId: event.id })}
           className="flex justify-center py-1 px-4 mx-1 border-0 rounded bg-blue-500 text-white hover:bg-blue-700 text-xs font-semibold uppercase tracking-wide leading-loose no-underline cursor-pointer transition duration-100"
         >
           Edit
