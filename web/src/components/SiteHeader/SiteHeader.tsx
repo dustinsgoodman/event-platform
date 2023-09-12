@@ -8,6 +8,8 @@ type HeaderLinkProps = {
 };
 
 type SiteHeaderProps = {
+  title?: string;
+  titleTo?: string;
   showLogin: boolean;
   links?: HeaderLinkProps[];
 };
@@ -22,18 +24,18 @@ const HeaderLink: FC<HeaderLinkProps> = ({ link, label }) => {
     </Link>
   );
 };
-const SiteHeader: FC<SiteHeaderProps> = ({ showLogin, links = [] }) => {
+const SiteHeader: FC<SiteHeaderProps> = ({ showLogin, title = 'Event Platform', titleTo = routes.home(), links = [] }) => {
   const [navbarOpen, setNavbarOpen] = useState<boolean>(false);
 
   return (
     <header className="w-full z-50">
-      <div className="max-w-5xl mx-auto flex flex-wrap p-5 flex-col md:flex-row">
+      <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row">
         <div className="flex flex-row items-center justify-between p-3 md:p-1">
           <Link
-            to={routes.home()}
+            to={titleTo}
             className="flex text-3xl font-medium mb-4 md:mb-0"
           >
-            Event Platform
+            {title}
           </Link>
           <button
             className="text-black pb-4 cursor-pointer leading-none px-3 py-1 md:hidden outline-none focus:outline-none content-end ml-auto"
