@@ -3,15 +3,15 @@ import { MetaTags } from "@redwoodjs/web";
 import EventCell from 'src/components/Event/EventCell';
 
 type EventPageProps = {
-  id: string;
+  eventId: string;
 };
 
-const EventPage = ({ id }: EventPageProps) => {
+const EventPage = ({ eventId }: EventPageProps) => {
   return (
     <>
       <MetaTags title="Event" description="Event page" />
 
-      <EventCell id={id} />
+      <EventCell id={eventId} />
     </>
   );
 };
