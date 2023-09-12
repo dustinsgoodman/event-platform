@@ -12,11 +12,16 @@ const Routes = () => {
         <Route path="/events/{eventId}/sessions/{id}/edit" page={EventSessionEditEventSessionPage} name="editEventSession" />
         <Route path="/events/{eventId}/session/{id}" page={EventSessionEventSessionPage} name="eventSession" />
         <Route path="/events/{eventId}/sessions" page={EventSessionEventSessionsPage} name="eventSessions" />
+
+        <Route path="/events/{eventId}/speakers" page={EventSpeakerEventSpeakersPage} name="eventSpeakers" />
+
+        <Route path="/events/{eventId}/registrants" page={EventRegistrantEventRegistrantsPage} name="eventRegistrants" />
+
+        <Route path="/events/{eventId}/edit" page={EventEditEventPage} name="editEvent" />
+        <Route path="/events/{eventId}" page={EventEventPage} name="event" />
       </Set>
       <Set wrap={ScaffoldLayout} title="Events" titleTo="events" buttonLabel="New Event" buttonTo="newEvent">
         <Route path="/events/new" page={EventNewEventPage} name="newEvent" />
-        <Route path="/events/{id}/edit" page={EventEditEventPage} name="editEvent" />
-        <Route path="/events/{id}" page={EventEventPage} name="event" />
         <Route path="/events" page={EventEventsPage} name="events" />
       </Set>
       <Route path="/" page={HomePage} name="home" />
