@@ -7,7 +7,7 @@ type EventSessionPageProps = {
   id: string;
 };
 
-const EventSessionPage = ({ eventId, id }: EventSessionPageProps) => {
+const EventSessionPage = ({ id }: EventSessionPageProps) => {
   return (
     <>
       <MetaTags title="EventSession" description="EventSession page" />

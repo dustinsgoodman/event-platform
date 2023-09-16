@@ -2,7 +2,6 @@ import { Router, Route, Set } from '@redwoodjs/router';
 
 import AdminLayout from 'src/layouts/AdminLayout/AdminLayout';
 import EventAdminLayout from 'src/layouts/EventAdminLayout/EventAdminLayout';
-import ScaffoldLayout from 'src/layouts/ScaffoldLayout';
 
 const Routes = () => {
   return (

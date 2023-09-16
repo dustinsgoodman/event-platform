@@ -23,7 +23,7 @@ export const standard = () => ({
     }),
     columnHelper.display({
       id: 'actions',
-      cell: (info) => <button>press me</button>,
+      cell: () => <button>press me</button>,
     }),
   ],
 });
