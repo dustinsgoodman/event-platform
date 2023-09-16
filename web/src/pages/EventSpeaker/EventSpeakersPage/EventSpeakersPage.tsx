@@ -1,5 +1,5 @@
-import { Link, routes } from "@redwoodjs/router";
-import { MetaTags } from "@redwoodjs/web";
+import { Link, routes } from '@redwoodjs/router';
+import { MetaTags } from '@redwoodjs/web';
 
 const EventSpeakersPage = () => {
   return (
@@ -8,7 +8,7 @@ const EventSpeakersPage = () => {
 
       <h1>EventSpeakersPage</h1>
       <p>
-        Find me in{" "}
+        Find me in{' '}
         <code>./web/src/pages/EventSpeakersPage/EventSpeakersPage.tsx</code>
       </p>
       <p>

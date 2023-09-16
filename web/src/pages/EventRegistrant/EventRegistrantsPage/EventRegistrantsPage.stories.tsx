@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react';
 
-import EventRegistrantsPage from "./EventRegistrantsPage";
+import EventRegistrantsPage from './EventRegistrantsPage';
 
 const meta: Meta<typeof EventRegistrantsPage> = {
   component: EventRegistrantsPage,

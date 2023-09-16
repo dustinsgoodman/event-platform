@@ -6,7 +6,10 @@ import type {
 
 import { db } from 'src/lib/db';
 
-export const eventSessions: QueryResolvers['eventSessions'] = async ({ eventId, pagination }) => {
+export const eventSessions: QueryResolvers['eventSessions'] = async ({
+  eventId,
+  pagination,
+}) => {
   const page = pagination?.page ?? 1;
   const perPage = pagination?.perPage ?? 25;
 

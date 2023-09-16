@@ -1,11 +1,11 @@
-import { render } from "@redwoodjs/testing/web";
+import { render } from '@redwoodjs/testing/web';
 
-import EventSessions from "./EventSessions";
-import { standard } from "../EventSessionsCell/EventSessionsCell.mock";
+import { standard } from '../EventSessionsCell/EventSessionsCell.mock';
 
+import EventSessions from './EventSessions';
 
-describe("EventSessions", () => {
-  it("renders successfully", () => {
+describe('EventSessions', () => {
+  it('renders successfully', () => {
     expect(() => {
       render(<EventSessions eventSessions={standard().eventSessions} />);
     }).not.toThrow();

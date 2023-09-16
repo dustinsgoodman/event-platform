@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react';
 
-import EventAdminLayout from "./EventAdminLayout";
+import EventAdminLayout from './EventAdminLayout';
 
 const meta: Meta<typeof EventAdminLayout> = {
   component: EventAdminLayout,

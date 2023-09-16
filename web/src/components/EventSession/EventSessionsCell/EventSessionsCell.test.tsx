@@ -1,6 +1,7 @@
-import { render } from "@redwoodjs/testing/web";
-import { Loading, Empty, Failure, Success } from "./EventSessionsCell";
-import { standard } from "./EventSessionsCell.mock";
+import { render } from '@redwoodjs/testing/web';
+
+import { Loading, Empty, Failure, Success } from './EventSessionsCell';
+import { standard } from './EventSessionsCell.mock';
 
 // Generated boilerplate tests do not account for all circumstances
 // and can fail without adjustments, e.g. Float and DateTime types.
@@ -8,22 +9,22 @@ import { standard } from "./EventSessionsCell.mock";
 //        https://redwoodjs.com/docs/testing#testing-cells
 // https://redwoodjs.com/docs/testing#jest-expect-type-considerations
 
-describe("EventSessionsCell", () => {
-  it("renders Loading successfully", () => {
+describe('EventSessionsCell', () => {
+  it('renders Loading successfully', () => {
     expect(() => {
       render(<Loading />);
     }).not.toThrow();
   });
 
-  it("renders Empty successfully", async () => {
+  it('renders Empty successfully', async () => {
     expect(() => {
       render(<Empty />);
     }).not.toThrow();
   });
 
-  it("renders Failure successfully", async () => {
+  it('renders Failure successfully', async () => {
     expect(() => {
-      render(<Failure error={new Error("Oh no")} />);
+      render(<Failure error={new Error('Oh no')} />);
     }).not.toThrow();
   });
 
@@ -33,7 +34,7 @@ describe("EventSessionsCell", () => {
   // 1. import { screen } from '@redwoodjs/testing/web'
   // 2. Add test: expect(screen.getByText('Hello, world')).toBeInTheDocument()
 
-  it("renders Success successfully", async () => {
+  it('renders Success successfully', async () => {
     expect(() => {
       render(<Success eventSessions={standard().eventSessions} />);
     }).not.toThrow();

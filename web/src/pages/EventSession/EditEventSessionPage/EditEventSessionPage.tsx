@@ -1,5 +1,5 @@
-import { Link, routes } from "@redwoodjs/router";
-import { MetaTags } from "@redwoodjs/web";
+import { Link, routes } from '@redwoodjs/router';
+import { MetaTags } from '@redwoodjs/web';
 
 const EditEventSessionPage = () => {
   return (
@@ -8,7 +8,7 @@ const EditEventSessionPage = () => {
 
       <h1>EditEventSessionPage</h1>
       <p>
-        Find me in{" "}
+        Find me in{' '}
         <code>
           ./web/src/pages/EditEventSessionPage/EditEventSessionPage.tsx
         </code>

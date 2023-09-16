@@ -11,7 +11,9 @@ import type { StandardScenario } from './eventSessions.scenarios';
 
 describe('eventSessions', () => {
   scenario('returns all eventSessions', async (scenario: StandardScenario) => {
-    const result = await eventSessions({ eventId: scenario.eventSession.one.eventId });
+    const result = await eventSessions({
+      eventId: scenario.eventSession.one.eventId,
+    });
 
     expect(result.nodes.length).toEqual(1);
   });

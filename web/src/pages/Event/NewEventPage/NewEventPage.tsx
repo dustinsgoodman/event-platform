@@ -1,4 +1,4 @@
-import { MetaTags } from "@redwoodjs/web";
+import { MetaTags } from '@redwoodjs/web';
 
 import NewEvent from 'src/components/Event/NewEvent';
 

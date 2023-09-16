@@ -1,4 +1,4 @@
-import { createColumnHelper } from '@tanstack/react-table'
+import { createColumnHelper } from '@tanstack/react-table';
 
 export type TableData = {
   id: number;
@@ -15,15 +15,15 @@ export const standard = () => ({
   columns: [
     columnHelper.accessor('id', {
       header: () => 'ID',
-      cell: info => info.getValue(),
+      cell: (info) => info.getValue(),
     }),
     columnHelper.accessor('name', {
       header: () => 'Name',
-      cell: info => info.getValue(),
+      cell: (info) => info.getValue(),
     }),
     columnHelper.display({
       id: 'actions',
-      cell: info => (<button>press me</button>)
+      cell: (info) => <button>press me</button>,
     }),
   ],
 });

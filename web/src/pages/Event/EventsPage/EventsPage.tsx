@@ -1,5 +1,6 @@
 import { FC } from 'react';
-import { MetaTags } from "@redwoodjs/web";
+
+import { MetaTags } from '@redwoodjs/web';
 
 import EventsCell from 'src/components/Event/EventsCell';
 

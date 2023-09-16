@@ -20,7 +20,10 @@ export const schema = gql`
   }
 
   type Query {
-    eventSessions(eventId: String!, pagination: PaginationInput): EventSessionConnection! @requireAuth
+    eventSessions(
+      eventId: String!
+      pagination: PaginationInput
+    ): EventSessionConnection! @requireAuth
     eventSession(id: String!): EventSession @requireAuth
   }
 

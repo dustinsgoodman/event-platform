@@ -1,23 +1,24 @@
-import { render } from "@redwoodjs/testing/web";
-import { Loading, Empty, Failure, Success } from "./EventSessionCell";
-import { standard } from "./EventSessionCell.mock";
+import { render } from '@redwoodjs/testing/web';
 
-describe("EventSessionCell", () => {
-  it("renders Loading successfully", () => {
+import { Loading, Empty, Failure, Success } from './EventSessionCell';
+import { standard } from './EventSessionCell.mock';
+
+describe('EventSessionCell', () => {
+  it('renders Loading successfully', () => {
     expect(() => {
       render(<Loading />);
     }).not.toThrow();
   });
 
-  it("renders Empty successfully", async () => {
+  it('renders Empty successfully', async () => {
     expect(() => {
       render(<Empty />);
     }).not.toThrow();
   });
 
-  it("renders Failure successfully", async () => {
+  it('renders Failure successfully', async () => {
     expect(() => {
-      render(<Failure error={new Error("Oh no")} />);
+      render(<Failure error={new Error('Oh no')} />);
     }).not.toThrow();
   });
 
@@ -27,7 +28,7 @@ describe("EventSessionCell", () => {
   // 1. import { screen } from '@redwoodjs/testing/web'
   // 2. Add test: expect(screen.getByText('Hello, world')).toBeInTheDocument()
 
-  it("renders Success successfully", async () => {
+  it('renders Success successfully', async () => {
     expect(() => {
       render(<Success eventSession={standard().eventSession} />);
     }).not.toThrow();

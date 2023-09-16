@@ -1,6 +1,6 @@
-import { MetaTags } from "@redwoodjs/web";
+import { MetaTags } from '@redwoodjs/web';
 
-import EventSessionCell from "src/components/EventSession/EventSessionCell";
+import EventSessionCell from 'src/components/EventSession/EventSessionCell';
 
 type EventSessionPageProps = {
   eventId: string;

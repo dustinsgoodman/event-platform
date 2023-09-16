@@ -35,7 +35,7 @@ const EventForm = (props: EventFormProps) => {
   };
 
   return (
-    <div className="text-sm -mt-4">
+    <div className="-mt-4 text-sm">
       <Form<FormEvent> onSubmit={onSubmit} error={props.error}>
         <FormError
           error={props.error}
@@ -46,7 +46,7 @@ const EventForm = (props: EventFormProps) => {
 
         <Label
           name="name"
-          className="block mt-6 text-gray-600 font-semibold text-left"
+          className="mt-6 block text-left font-semibold text-gray-600"
           errorClassName="block mt-6 text-gray-600 font-semibold text-left text-red-600"
         >
           Name
@@ -54,18 +54,18 @@ const EventForm = (props: EventFormProps) => {
         <TextField
           name="name"
           defaultValue={props.event?.name}
-          className="block mt-2 w-full p-2 bg-white border border-gray-200 rounded outline-none"
+          className="mt-2 block w-full rounded border border-gray-200 bg-white p-2 outline-none"
           errorClassName="block mt-2 w-full p-2 bg-white border border-gray-200 rounded outline-none border-red-600 text-red-600 focus:border-red-600 focus:text-red-600"
           validation={{ required: true }}
         />
         <FieldError
           name="name"
-          className="block mt-1 font-semibold text-xs text-red-600 uppercase"
+          className="mt-1 block text-xs font-semibold uppercase text-red-600"
         />
 
         <Label
           name="description"
-          className="block mt-6 text-gray-600 font-semibold text-left"
+          className="mt-6 block text-left font-semibold text-gray-600"
           errorClassName="block mt-6 text-gray-600 font-semibold text-left text-red-600"
         >
           Description
@@ -73,17 +73,17 @@ const EventForm = (props: EventFormProps) => {
         <TextAreaField
           name="description"
           defaultValue={props.event?.description}
-          className="block mt-2 w-full p-2 bg-white border border-gray-200 rounded outline-none"
+          className="mt-2 block w-full rounded border border-gray-200 bg-white p-2 outline-none"
           errorClassName="block mt-2 w-full p-2 bg-white border border-gray-200 rounded outline-none border-red-600 text-red-600 focus:border-red-600 focus:text-red-600"
         />
         <FieldError
           name="description"
-          className="block mt-1 font-semibold text-xs text-red-600 uppercase"
+          className="mt-1 block text-xs font-semibold uppercase text-red-600"
         />
 
         <Label
           name="timezone"
-          className="block mt-6 text-gray-600 font-semibold text-left"
+          className="mt-6 block text-left font-semibold text-gray-600"
           errorClassName="block mt-6 text-gray-600 font-semibold text-left text-red-600"
         >
           Timezone
@@ -91,7 +91,7 @@ const EventForm = (props: EventFormProps) => {
         <SelectField
           name="timezone"
           defaultValue={props.event?.timezone || 'America/New_York'}
-          className="block mt-2 w-full p-2 bg-white border border-gray-200 rounded outline-none"
+          className="mt-2 block w-full rounded border border-gray-200 bg-white p-2 outline-none"
           errorClassName="block mt-2 w-full p-2 bg-white border border-gray-200 rounded outline-none border-red-600 text-red-600 focus:border-red-600 focus:text-red-600"
           validation={{ required: true }}
           disabled={true}
@@ -101,12 +101,12 @@ const EventForm = (props: EventFormProps) => {
         </SelectField>
         <FieldError
           name="timezone"
-          className="block mt-1 font-semibold text-xs text-red-600 uppercase"
+          className="mt-1 block text-xs font-semibold uppercase text-red-600"
         />
 
         <Label
           name="startAt"
-          className="block mt-6 text-gray-600 font-semibold text-left"
+          className="mt-6 block text-left font-semibold text-gray-600"
           errorClassName="block mt-6 text-gray-600 font-semibold text-left text-red-600"
         >
           Event Starts At
@@ -114,18 +114,18 @@ const EventForm = (props: EventFormProps) => {
         <DatetimeLocalField
           name="startAt"
           defaultValue={formatDatetime(props.event?.startAt)}
-          className="block mt-2 w-full p-2 bg-white border border-gray-200 rounded outline-none"
+          className="mt-2 block w-full rounded border border-gray-200 bg-white p-2 outline-none"
           errorClassName="block mt-2 w-full p-2 bg-white border border-gray-200 rounded outline-none border-red-600 text-red-600 focus:border-red-600 focus:text-red-600"
           validation={{ required: true }}
         />
         <FieldError
           name="startAt"
-          className="block mt-1 font-semibold text-xs text-red-600 uppercase"
+          className="mt-1 block text-xs font-semibold uppercase text-red-600"
         />
 
         <Label
           name="endAt"
-          className="block mt-6 text-gray-600 font-semibold text-left"
+          className="mt-6 block text-left font-semibold text-gray-600"
           errorClassName="block mt-6 text-gray-600 font-semibold text-left text-red-600"
         >
           Event Ends At
@@ -133,18 +133,18 @@ const EventForm = (props: EventFormProps) => {
         <DatetimeLocalField
           name="endAt"
           defaultValue={formatDatetime(props.event?.endAt)}
-          className="block mt-2 w-full p-2 bg-white border border-gray-200 rounded outline-none"
+          className="mt-2 block w-full rounded border border-gray-200 bg-white p-2 outline-none"
           errorClassName="block mt-2 w-full p-2 bg-white border border-gray-200 rounded outline-none border-red-600 text-red-600 focus:border-red-600 focus:text-red-600"
           validation={{ required: true }}
         />
         <FieldError
           name="endAt"
-          className="block mt-1 font-semibold text-xs text-red-600 uppercase"
+          className="mt-1 block text-xs font-semibold uppercase text-red-600"
         />
 
         <Label
           name="registrationStartAt"
-          className="block mt-6 text-gray-600 font-semibold text-left"
+          className="mt-6 block text-left font-semibold text-gray-600"
           errorClassName="block mt-6 text-gray-600 font-semibold text-left text-red-600"
         >
           Registration Starts At
@@ -152,18 +152,18 @@ const EventForm = (props: EventFormProps) => {
         <DatetimeLocalField
           name="registrationStartAt"
           defaultValue={formatDatetime(props.event?.registrationStartAt)}
-          className="block mt-2 w-full p-2 bg-white border border-gray-200 rounded outline-none"
+          className="mt-2 block w-full rounded border border-gray-200 bg-white p-2 outline-none"
           errorClassName="block mt-2 w-full p-2 bg-white border border-gray-200 rounded outline-none border-red-600 text-red-600 focus:border-red-600 focus:text-red-600"
           validation={{ required: true }}
         />
         <FieldError
           name="registrationStartAt"
-          className="block mt-1 font-semibold text-xs text-red-600 uppercase"
+          className="mt-1 block text-xs font-semibold uppercase text-red-600"
         />
 
         <Label
           name="registrationEndAt"
-          className="block mt-6 text-gray-600 font-semibold text-left"
+          className="mt-6 block text-left font-semibold text-gray-600"
           errorClassName="block mt-6 text-gray-600 font-semibold text-left text-red-600"
         >
           Registration Ends At
@@ -171,18 +171,18 @@ const EventForm = (props: EventFormProps) => {
         <DatetimeLocalField
           name="registrationEndAt"
           defaultValue={formatDatetime(props.event?.registrationEndAt)}
-          className="block mt-2 w-full p-2 bg-white border border-gray-200 rounded outline-none"
+          className="mt-2 block w-full rounded border border-gray-200 bg-white p-2 outline-none"
           errorClassName="block mt-2 w-full p-2 bg-white border border-gray-200 rounded outline-none border-red-600 text-red-600 focus:border-red-600 focus:text-red-600"
           validation={{ required: true }}
         />
         <FieldError
           name="registrationEndAt"
-          className="block mt-1 font-semibold text-xs text-red-600 uppercase"
+          className="mt-1 block text-xs font-semibold uppercase text-red-600"
         />
 
         <Label
           name="venueType"
-          className="block mt-6 text-gray-600 font-semibold text-left"
+          className="mt-6 block text-left font-semibold text-gray-600"
           errorClassName="block mt-6 text-gray-600 font-semibold text-left text-red-600"
         >
           Venue type
@@ -190,7 +190,7 @@ const EventForm = (props: EventFormProps) => {
         <SelectField
           name="venueType"
           defaultValue={props.event?.venueType}
-          className="block mt-2 w-full p-2 bg-white border border-gray-200 rounded outline-none"
+          className="mt-2 block w-full rounded border border-gray-200 bg-white p-2 outline-none"
           errorClassName="block mt-2 w-full p-2 bg-white border border-gray-200 rounded outline-none border-red-600 text-red-600 focus:border-red-600 focus:text-red-600"
           validation={{ required: true }}
         >
@@ -201,12 +201,12 @@ const EventForm = (props: EventFormProps) => {
         </SelectField>
         <FieldError
           name="venueType"
-          className="block mt-1 font-semibold text-xs text-red-600 uppercase"
+          className="mt-1 block text-xs font-semibold uppercase text-red-600"
         />
 
         <Label
           name="venueName"
-          className="block mt-6 text-gray-600 font-semibold text-left"
+          className="mt-6 block text-left font-semibold text-gray-600"
           errorClassName="block mt-6 text-gray-600 font-semibold text-left text-red-600"
         >
           Venue name
@@ -214,17 +214,17 @@ const EventForm = (props: EventFormProps) => {
         <TextField
           name="venueName"
           defaultValue={props.event?.venueName}
-          className="block mt-2 w-full p-2 bg-white border border-gray-200 rounded outline-none"
+          className="mt-2 block w-full rounded border border-gray-200 bg-white p-2 outline-none"
           errorClassName="block mt-2 w-full p-2 bg-white border border-gray-200 rounded outline-none border-red-600 text-red-600 focus:border-red-600 focus:text-red-600"
         />
         <FieldError
           name="venueName"
-          className="block mt-1 font-semibold text-xs text-red-600 uppercase"
+          className="mt-1 block text-xs font-semibold uppercase text-red-600"
         />
 
         <Label
           name="address"
-          className="block mt-6 text-gray-600 font-semibold text-left"
+          className="mt-6 block text-left font-semibold text-gray-600"
           errorClassName="block mt-6 text-gray-600 font-semibold text-left text-red-600"
         >
           Address
@@ -232,17 +232,17 @@ const EventForm = (props: EventFormProps) => {
         <TextField
           name="address"
           defaultValue={props.event?.address}
-          className="block mt-2 w-full p-2 bg-white border border-gray-200 rounded outline-none"
+          className="mt-2 block w-full rounded border border-gray-200 bg-white p-2 outline-none"
           errorClassName="block mt-2 w-full p-2 bg-white border border-gray-200 rounded outline-none border-red-600 text-red-600 focus:border-red-600 focus:text-red-600"
         />
         <FieldError
           name="address"
-          className="block mt-1 font-semibold text-xs text-red-600 uppercase"
+          className="mt-1 block text-xs font-semibold uppercase text-red-600"
         />
 
         <Label
           name="country"
-          className="block mt-6 text-gray-600 font-semibold text-left"
+          className="mt-6 block text-left font-semibold text-gray-600"
           errorClassName="block mt-6 text-gray-600 font-semibold text-left text-red-600"
         >
           Country
@@ -250,17 +250,17 @@ const EventForm = (props: EventFormProps) => {
         <TextField
           name="country"
           defaultValue={props.event?.country}
-          className="block mt-2 w-full p-2 bg-white border border-gray-200 rounded outline-none"
+          className="mt-2 block w-full rounded border border-gray-200 bg-white p-2 outline-none"
           errorClassName="block mt-2 w-full p-2 bg-white border border-gray-200 rounded outline-none border-red-600 text-red-600 focus:border-red-600 focus:text-red-600"
         />
         <FieldError
           name="country"
-          className="block mt-1 font-semibold text-xs text-red-600 uppercase"
+          className="mt-1 block text-xs font-semibold uppercase text-red-600"
         />
 
         <Label
           name="city"
-          className="block mt-6 text-gray-600 font-semibold text-left"
+          className="mt-6 block text-left font-semibold text-gray-600"
           errorClassName="block mt-6 text-gray-600 font-semibold text-left text-red-600"
         >
           City
@@ -268,17 +268,17 @@ const EventForm = (props: EventFormProps) => {
         <TextField
           name="city"
           defaultValue={props.event?.city}
-          className="block mt-2 w-full p-2 bg-white border border-gray-200 rounded outline-none"
+          className="mt-2 block w-full rounded border border-gray-200 bg-white p-2 outline-none"
           errorClassName="block mt-2 w-full p-2 bg-white border border-gray-200 rounded outline-none border-red-600 text-red-600 focus:border-red-600 focus:text-red-600"
         />
         <FieldError
           name="city"
-          className="block mt-1 font-semibold text-xs text-red-600 uppercase"
+          className="mt-1 block text-xs font-semibold uppercase text-red-600"
         />
 
         <Label
           name="stateOrProvince"
-          className="block mt-6 text-gray-600 font-semibold text-left"
+          className="mt-6 block text-left font-semibold text-gray-600"
           errorClassName="block mt-6 text-gray-600 font-semibold text-left text-red-600"
         >
           State/Province
@@ -286,17 +286,17 @@ const EventForm = (props: EventFormProps) => {
         <TextField
           name="stateOrProvince"
           defaultValue={props.event?.stateOrProvince}
-          className="block mt-2 w-full p-2 bg-white border border-gray-200 rounded outline-none"
+          className="mt-2 block w-full rounded border border-gray-200 bg-white p-2 outline-none"
           errorClassName="block mt-2 w-full p-2 bg-white border border-gray-200 rounded outline-none border-red-600 text-red-600 focus:border-red-600 focus:text-red-600"
         />
         <FieldError
           name="stateOrProvince"
-          className="block mt-1 font-semibold text-xs text-red-600 uppercase"
+          className="mt-1 block text-xs font-semibold uppercase text-red-600"
         />
 
         <Label
           name="postalCode"
-          className="block mt-6 text-gray-600 font-semibold text-left"
+          className="mt-6 block text-left font-semibold text-gray-600"
           errorClassName="block mt-6 text-gray-600 font-semibold text-left text-red-600"
         >
           Postal Code
@@ -304,17 +304,17 @@ const EventForm = (props: EventFormProps) => {
         <TextField
           name="postalCode"
           defaultValue={props.event?.postalCode}
-          className="block mt-2 w-full p-2 bg-white border border-gray-200 rounded outline-none"
+          className="mt-2 block w-full rounded border border-gray-200 bg-white p-2 outline-none"
           errorClassName="block mt-2 w-full p-2 bg-white border border-gray-200 rounded outline-none border-red-600 text-red-600 focus:border-red-600 focus:text-red-600"
         />
         <FieldError
           name="postalCode"
-          className="block mt-1 font-semibold text-xs text-red-600 uppercase"
+          className="mt-1 block text-xs font-semibold uppercase text-red-600"
         />
 
         <Label
           name="currency"
-          className="block mt-6 text-gray-600 font-semibold text-left"
+          className="mt-6 block text-left font-semibold text-gray-600"
           errorClassName="block mt-6 text-gray-600 font-semibold text-left text-red-600"
         >
           Currency
@@ -322,7 +322,7 @@ const EventForm = (props: EventFormProps) => {
         <SelectField
           name="currency"
           defaultValue={props.event?.currency || 'USD'}
-          className="block mt-2 w-full p-2 bg-white border border-gray-200 rounded outline-none"
+          className="mt-2 block w-full rounded border border-gray-200 bg-white p-2 outline-none"
           errorClassName="block mt-2 w-full p-2 bg-white border border-gray-200 rounded outline-none border-red-600 text-red-600 focus:border-red-600 focus:text-red-600"
           validation={{ required: true }}
           disabled={true}
@@ -331,12 +331,12 @@ const EventForm = (props: EventFormProps) => {
         </SelectField>
         <FieldError
           name="currency"
-          className="block mt-1 font-semibold text-xs text-red-600 uppercase"
+          className="mt-1 block text-xs font-semibold uppercase text-red-600"
         />
 
         <Label
           name="capacity"
-          className="block mt-6 text-gray-600 font-semibold text-left"
+          className="mt-6 block text-left font-semibold text-gray-600"
           errorClassName="block mt-6 text-gray-600 font-semibold text-left text-red-600"
         >
           Capacity
@@ -344,18 +344,18 @@ const EventForm = (props: EventFormProps) => {
         <NumberField
           name="capacity"
           defaultValue={props.event?.capacity}
-          className="block mt-2 w-full p-2 bg-white border border-gray-200 rounded outline-none"
+          className="mt-2 block w-full rounded border border-gray-200 bg-white p-2 outline-none"
           errorClassName="block mt-2 w-full p-2 bg-white border border-gray-200 rounded outline-none border-red-600 text-red-600 focus:border-red-600 focus:text-red-600"
         />
         <FieldError
           name="capacity"
-          className="block mt-1 font-semibold text-xs text-red-600 uppercase"
+          className="mt-1 block text-xs font-semibold uppercase text-red-600"
         />
 
-        <div className="flex my-3 mx-2 mt-8">
+        <div className="mx-2 my-3 mt-8 flex">
           <Submit
             disabled={props.loading}
-            className="flex justify-center py-1 px-4 border-0 rounded bg-blue-500 text-white hover:bg-blue-700 text-xs font-semibold uppercase tracking-wide leading-loose no-underline cursor-pointer transition duration-100 mx-1"
+            className="mx-1 flex cursor-pointer justify-center rounded border-0 bg-blue-500 px-4 py-1 text-xs font-semibold uppercase leading-loose tracking-wide text-white no-underline transition duration-100 hover:bg-blue-700"
           >
             Save
           </Submit>
