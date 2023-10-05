@@ -1,11 +1,15 @@
 import { Router, Route, Set } from '@redwoodjs/router';
 
 import ScaffoldLayout from 'src/layouts/ScaffoldLayout';
+import AdminLayout from './layouts/AdminLayout/AdminLayout';
 
 const Routes = () => {
   return (
     <Router>
       <Set wrap={AdminLayout}>
+        <Route path="/events/{eventId}/sessions/new" page={EventSessionNewEventSessionPage} name="newEventSession" />
+        <Route path="/events/{eventId}/sessions/{id}/edit" page={EventSessionEditEventSessionPage} name="editEventSession" />
+        <Route path="/events/{eventId}/session/{id}" page={EventSessionEventSessionPage} name="eventSession" />
         <Route path="/events/{eventId}/sessions" page={EventSessionEventSessionsPage} name="eventSessions" />
       </Set>
       <Set wrap={ScaffoldLayout} title="Events" titleTo="events" buttonLabel="New Event" buttonTo="newEvent">
