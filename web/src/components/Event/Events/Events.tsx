@@ -89,7 +89,7 @@ const EventsList = ({ events }: FindEvents) => {
           </Link>
           <button
             type="button"
-            title={`{Delete event ${info.row.original.id}`}
+            title={`Delete event ${info.row.original.id}`}
             className="text-red-600 bg-transparent hover:bg-red-600 hover:text-white text-xs rounded-sm py-1 px-2 rw-button-red"
             onClick={() => onDeleteClick(info.row.original.id, info.row.original.name)}
           >
