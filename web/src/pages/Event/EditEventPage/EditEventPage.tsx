@@ -1,3 +1,5 @@
+import { MetaTags } from "@redwoodjs/web";
+
 import EditEventCell from 'src/components/Event/EditEventCell';
 
 type EventPageProps = {
@@ -6,9 +8,13 @@ type EventPageProps = {
 
 const EditEventPage = ({ id }: EventPageProps) => {
   return (
-    <div className="container mx-auto">
-      <EditEventCell id={id} />
-    </div>
+    <>
+      <MetaTags title="Edit Event" description="Edit Event page" />
+
+      <div className="container mx-auto">
+        <EditEventCell id={id} />
+      </div>
+    </>
   );
 };
 

@@ -1,3 +1,5 @@
+import { MetaTags } from "@redwoodjs/web";
+
 import EventCell from 'src/components/Event/EventCell';
 
 type EventPageProps = {
@@ -5,7 +7,13 @@ type EventPageProps = {
 };
 
 const EventPage = ({ id }: EventPageProps) => {
-  return <EventCell id={id} />;
+  return (
+    <>
+      <MetaTags title="Event" description="Event page" />
+
+      <EventCell id={id} />
+    </>
+  );
 };
 
 export default EventPage;

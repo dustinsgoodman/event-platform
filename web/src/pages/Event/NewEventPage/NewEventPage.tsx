@@ -1,10 +1,16 @@
+import { MetaTags } from "@redwoodjs/web";
+
 import NewEvent from 'src/components/Event/NewEvent';
 
 const NewEventPage = () => {
   return (
-    <div className="container mx-auto">
-      <NewEvent />
-    </div>
+    <>
+      <MetaTags title="New Event" description="New Event page" />
+
+      <div className="container mx-auto">
+        <NewEvent />
+      </div>
+    </>
   );
 };
 
