@@ -18,7 +18,7 @@ const Table = <T,>({ columns, data }: TableProps<T>) => {
   });
 
   return (
-    <div className="mb-4 w-full overflow-hidden overflow-x-auto rounded-lg border border-gray-200">
+    <div className="mb-4 w-full rounded-lg border border-gray-200">
       <table className="w-full text-sm">
         <thead>
           {table.getHeaderGroups().map((headerGroup) => (
