@@ -7,6 +7,10 @@ import EventAdminLayout from 'src/layouts/EventAdminLayout/EventAdminLayout';
 const Routes = () => {
   return (
     <Router>
+      <Set wrap={ScaffoldLayout} title="Events" titleTo="events" buttonLabel="New Event" buttonTo="newEvent">
+        <Route path="/events/new" page={EventNewEventPage} name="newEvent" />
+        <Route path="/events" page={EventEventsPage} name="events" />
+      </Set>
       <Set wrap={EventAdminLayout}>
         <Route path="/events/{eventId}/sessions/new" page={EventSessionNewEventSessionPage} name="newEventSession" />
         <Route path="/events/{eventId}/sessions/{id}/edit" page={EventSessionEditEventSessionPage} name="editEventSession" />
@@ -19,10 +23,6 @@ const Routes = () => {
 
         <Route path="/events/{eventId}/edit" page={EventEditEventPage} name="editEvent" />
         <Route path="/events/{eventId}" page={EventEventPage} name="event" />
-      </Set>
-      <Set wrap={ScaffoldLayout} title="Events" titleTo="events" buttonLabel="New Event" buttonTo="newEvent">
-        <Route path="/events/new" page={EventNewEventPage} name="newEvent" />
-        <Route path="/events" page={EventEventsPage} name="events" />
       </Set>
       <Route path="/" page={HomePage} name="home" />
       <Route notfound page={NotFoundPage} />
