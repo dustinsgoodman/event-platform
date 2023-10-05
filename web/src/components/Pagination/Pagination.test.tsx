@@ -1,14 +1,18 @@
 import { render } from "@redwoodjs/testing/web";
+import { routes } from "@redwoodjs/router";
 
 import Pagination from "./Pagination";
-
-//   Improve this test with help from the Redwood Testing Doc:
-//    https://redwoodjs.com/docs/testing#testing-components
 
 describe("Pagination", () => {
   it("renders successfully", () => {
     expect(() => {
-      render(<Pagination />);
+      render(
+        <Pagination
+          route={routes.events}
+          totalPages={4}
+          currentPage={1}
+        />
+      );
     }).not.toThrow();
   });
 });

@@ -9,6 +9,8 @@ export const standard = defineScenario<Prisma.EventSpeakerCreateArgs>({
         firstName: 'String',
         lastName: 'String',
         bio: 'String',
+        dateOfBirth: '2023-09-02T18:07:00.691Z',
+        ipAddress: 'String',
         event: {
           create: {
             name: 'String',
@@ -25,6 +27,8 @@ export const standard = defineScenario<Prisma.EventSpeakerCreateArgs>({
         firstName: 'String',
         lastName: 'String',
         bio: 'String',
+        dateOfBirth: '2023-09-02T18:07:00.691Z',
+        ipAddress: 'String',
         event: {
           create: {
             name: 'String',

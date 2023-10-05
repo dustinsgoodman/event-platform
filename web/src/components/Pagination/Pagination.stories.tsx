@@ -1,16 +1,5 @@
-// Pass props to your component by passing an `args` object to your story
-//
-// ```jsx
-// export const Primary: Story = {
-//  args: {
-//    propName: propValue
-//  }
-// }
-// ```
-//
-// See https://storybook.js.org/docs/react/writing-stories/args.
-
 import type { Meta, StoryObj } from "@storybook/react";
+import { routes } from "@redwoodjs/router";
 
 import Pagination from "./Pagination";
 
@@ -22,4 +11,24 @@ export default meta;
 
 type Story = StoryObj<typeof Pagination>;
 
-export const Primary: Story = {};
+export const FirstPage: Story = {
+  args: {
+    route: routes.events,
+    totalPages: 4,
+    currentPage: 1,
+  }
+};
+
+export const MiddlePage: Story = {
+  args: {
+    ...FirstPage.args,
+    currentPage: 2,
+  }
+};
+
+export const LastPage: Story = {
+  args: {
+    ...FirstPage.args,
+    currentPage: 4,
+  }
+};

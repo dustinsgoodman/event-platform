@@ -3,7 +3,7 @@ import { FC } from 'react';
 import EventsCell from 'src/components/Event/EventsCell';
 
 type Props = {
-  page: number;
+  page?: number;
 };
 
 const EventsPage: FC<Props> = ({ page }) => {
