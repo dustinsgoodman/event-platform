@@ -8,9 +8,6 @@ import {
 import { Link, routes } from '@redwoodjs/router';
 import { MetaTags } from '@redwoodjs/web';
 
-import SiteFooter from 'src/components/SiteFooter/SiteFooter';
-import SiteHeader from 'src/components/SiteHeader/SiteHeader';
-
 import placeholder from './placeholder.png';
 
 interface EmailSubscribeFormValues {
@@ -28,8 +25,6 @@ const HomePage = () => {
         title="Welcome"
         description="Homepage for a demo app for an event platform"
       />
-
-      <SiteHeader ctaLabel="Login" ctaLink={routes.events()} />
 
       <section className="body-font text-gray-900">
         <div className="mx-auto max-w-5xl pb-24 pt-52">
@@ -136,8 +131,6 @@ const HomePage = () => {
           </div>
         </section>
       </section>
-
-      <SiteFooter />
     </>
   );
 };

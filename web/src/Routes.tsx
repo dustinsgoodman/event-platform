@@ -3,6 +3,8 @@ import { Router, Route, Set } from '@redwoodjs/router';
 import AdminLayout from 'src/layouts/AdminLayout/AdminLayout';
 import EventAdminLayout from 'src/layouts/EventAdminLayout/EventAdminLayout';
 
+import PublicLayout from './layouts/PublicLayout/PublicLayout';
+
 const Routes = () => {
   return (
     <Router>
@@ -23,7 +25,9 @@ const Routes = () => {
         <Route path="/events/{eventId}/edit" page={EventEditEventPage} name="editEvent" />
         <Route path="/events/{eventId}" page={EventEventPage} name="event" />
       </Set>
-      <Route path="/" page={HomePage} name="home" />
+      <Set wrap={PublicLayout}>
+        <Route path="/" page={HomePage} name="home" />
+      </Set>
       <Route notfound page={NotFoundPage} />
     </Router>
   );
