@@ -1,6 +1,6 @@
 import { routes } from '@redwoodjs/router';
 
-import SiteHeader from 'src/components/SiteHeader/SiteHeader';
+import AdminHeader from 'src/components/AdminHeader/AdminHeader';
 
 type AdminLayoutProps = {
   children?: React.ReactNode;
@@ -9,11 +9,9 @@ type AdminLayoutProps = {
 const AdminLayout = ({ children }: AdminLayoutProps) => {
   return (
     <>
-      <SiteHeader
+      <AdminHeader
         title="Event Platform"
         titleTo={routes.events()}
-        ctaLabel="Log out"
-        ctaLink={routes.home()}
         links={[
           {
             label: 'Create New Event',

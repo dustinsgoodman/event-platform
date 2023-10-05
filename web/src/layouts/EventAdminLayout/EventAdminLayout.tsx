@@ -1,6 +1,6 @@
 import { routes, useParams } from '@redwoodjs/router';
 
-import SiteHeader from 'src/components/SiteHeader/SiteHeader';
+import AdminHeader from 'src/components/AdminHeader/AdminHeader';
 
 type EventAdminLayoutProps = {
   children?: React.ReactNode;
@@ -10,11 +10,9 @@ const EventAdminLayout = ({ children }: EventAdminLayoutProps) => {
   const { eventId } = useParams();
   return (
     <>
-      <SiteHeader
+      <AdminHeader
         title="Event Dashboard"
         titleTo={routes.event({ eventId: eventId })}
-        ctaLabel="Back to Events"
-        ctaLink={routes.events()}
         links={[
           {
             label: 'Sessions',
