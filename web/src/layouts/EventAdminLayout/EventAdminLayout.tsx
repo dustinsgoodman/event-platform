@@ -11,24 +11,27 @@ const EventAdminLayout = ({ children }: EventAdminLayoutProps) => {
     <>
       <SiteHeader
         title="Event Dashboard"
-        titleTo={routes.event({ id: eventId })}
-        showLogin={false}
+        titleTo={routes.event({ eventId: eventId })}
+        ctaLabel="Back to Events"
+        ctaLink={routes.events()}
         links={[
           {
             label: 'Sessions',
             link: routes.eventSessions({ eventId: eventId })
           },
-          // {
-          //   label: 'Speakers',
-          //   link: routes.eventSpeakers({ eventId: eventId })
-          // },
-          // {
-          //   label: 'Registrants',
-          //   link: routes.eventRegistrants({ eventId: eventId })
-          // }
+          {
+            label: 'Speakers',
+            link: routes.eventSpeakers({ eventId: eventId })
+          },
+          {
+            label: 'Registrants',
+            link: routes.eventRegistrants({ eventId: eventId })
+          }
         ]}
       />
-      {children}
+      <div className="container mx-auto">
+        {children}
+      </div>
     </>
   );
 };

@@ -10,7 +10,8 @@ type HeaderLinkProps = {
 type SiteHeaderProps = {
   title?: string;
   titleTo?: string;
-  showLogin: boolean;
+  ctaLabel?: string;
+  ctaLink?: string;
   links?: HeaderLinkProps[];
 };
 
@@ -24,7 +25,7 @@ const HeaderLink: FC<HeaderLinkProps> = ({ link, label }) => {
     </Link>
   );
 };
-const SiteHeader: FC<SiteHeaderProps> = ({ showLogin, title = 'Event Platform', titleTo = routes.home(), links = [] }) => {
+const SiteHeader: FC<SiteHeaderProps> = ({ title = 'Event Platform', titleTo = routes.home(), links = [], ctaLabel, ctaLink }) => {
   const [navbarOpen, setNavbarOpen] = useState<boolean>(false);
 
   return (
@@ -65,14 +66,16 @@ const SiteHeader: FC<SiteHeaderProps> = ({ showLogin, title = 'Event Platform', 
               <HeaderLink key={link.label} {...link} />
             ))}
           </div>
-          {showLogin && (
-            <Link
-              to={routes.events()}
-              className="inline-flex items-center px-14 py-3 mt-2 ml-2 border rounded-lg font-semibold tracking-tighter text-white transition duration-500 ease-in-out transform bg-transparent bg-gradient-to-r from-blue-500 to-blue-800 text-md focus:shadow-outline"
-            >
-              Login
-            </Link>
-          )}
+          <span className="inline-flex items-center mt-2 ml-2">
+            {Boolean(ctaLabel) && (
+              <Link
+                to={ctaLink}
+                className="px-14 py-3 border rounded-lg font-semibold tracking-tighter text-white transition duration-500 ease-in-out transform bg-transparent bg-gradient-to-r from-blue-500 to-blue-800 text-md focus:shadow-outline"
+              >
+                {ctaLabel}
+              </Link>
+            )}
+          </span>
         </div>
       </div>
     </header>
