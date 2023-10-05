@@ -5,9 +5,9 @@ export const schema = gql`
   }
 
   type Pagination {
-    page: Int
-    perPage: Int
-    total: Int
-    totalPages: Int
+    page: Int!
+    perPage: Int!
+    total: Int!
+    totalPages: Int!
   }
 `;

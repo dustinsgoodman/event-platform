@@ -107,11 +107,7 @@ const EventsList = ({ events }: FindEvents) => {
         columns={columns}
         data={events.nodes}
       />
-      <Pagination
-        route={routes.events}
-        totalPages={events.pagination.totalPages}
-        currentPage={events.pagination.page}
-      />
+      <Pagination route={routes.events} paginationInfo={events.pagination} />
     </>
   );
 };

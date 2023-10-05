@@ -119,8 +119,7 @@ const EventSessionsList = ({ eventSessions }: EventSessionsQuery) => {
       />
       <Pagination
         route={routes.eventSessions}
-        totalPages={eventSessions.pagination.totalPages}
-        currentPage={eventSessions.pagination.page}
+        paginationInfo={eventSessions.pagination}
       />
     </>
   );

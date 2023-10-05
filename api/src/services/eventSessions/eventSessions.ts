@@ -20,7 +20,9 @@ export const eventSessions: QueryResolvers['eventSessions'] = async ({
       skip: (page - 1) * perPage,
       orderBy: { startAt: 'asc' },
     }),
-    db.eventSession.count(),
+    db.eventSession.count({
+      where: { eventId },
+    }),
   ]);
 
   return {
@@ -29,7 +31,7 @@ export const eventSessions: QueryResolvers['eventSessions'] = async ({
       page,
       perPage,
       total: count,
-      totalPages: Math.ceil(count / perPage),
+      totalPages: Math.max(1, Math.ceil(count / perPage)),
     },
   };
 };

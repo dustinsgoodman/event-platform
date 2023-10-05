@@ -5,8 +5,8 @@ import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web';
 import EventSessions from '../EventSessions/EventSessions';
 
 export const QUERY = gql`
-  query EventSessionsQuery($eventId: String!) {
-    eventSessions(eventId: $eventId) {
+  query EventSessionsQuery($eventId: String!, $pagination: PaginationInput) {
+    eventSessions(eventId: $eventId, pagination: $pagination) {
       nodes {
         id
         eventId
@@ -22,12 +22,25 @@ export const QUERY = gql`
       }
       pagination {
         totalPages
+        total
         page
         perPage
       }
     }
   }
 `;
+
+export const beforeQuery = ({ eventId, page }) => {
+  return {
+    variables: {
+      eventId,
+      pagination: {
+        page: page ? parseInt(page, 10) : 1,
+        perPage: 25,
+      },
+    },
+  };
+};
 
 export const Loading = () => <div>Loading...</div>;
 

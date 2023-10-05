@@ -25,7 +25,7 @@ export const events: QueryResolvers['events'] = async ({ pagination }) => {
       page,
       perPage,
       total: count,
-      totalPages: Math.ceil(count / perPage),
+      totalPages: Math.max(1, Math.ceil(count / perPage)),
     },
   };
 };

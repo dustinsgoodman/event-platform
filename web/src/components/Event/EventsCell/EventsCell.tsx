@@ -18,6 +18,7 @@ export const QUERY = gql`
       }
       pagination {
         totalPages
+        total
         page
         perPage
       }
@@ -30,7 +31,7 @@ export const beforeQuery = ({ page }) => {
     variables: {
       pagination: {
         page: page ? parseInt(page, 10) : 1,
-        perPage: 5,
+        perPage: 25,
       },
     },
   };

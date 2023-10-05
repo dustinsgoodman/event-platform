@@ -15,21 +15,35 @@ type Story = StoryObj<typeof Pagination>;
 export const FirstPage: Story = {
   args: {
     route: routes.events,
-    totalPages: 4,
-    currentPage: 1,
+    paginationInfo: {
+      totalPages: 4,
+      total: 78,
+      page: 1,
+      perPage: 25,
+    },
   },
 };
 
 export const MiddlePage: Story = {
   args: {
     ...FirstPage.args,
-    currentPage: 2,
+    paginationInfo: {
+      totalPages: 4,
+      total: 78,
+      page: 2,
+      perPage: 25,
+    },
   },
 };
 
 export const LastPage: Story = {
   args: {
     ...FirstPage.args,
-    currentPage: 4,
+    paginationInfo: {
+      totalPages: 4,
+      total: 78,
+      page: 4,
+      perPage: 25,
+    },
   },
 };

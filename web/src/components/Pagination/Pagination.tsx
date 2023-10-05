@@ -4,40 +4,53 @@ import { navigate } from '@redwoodjs/router';
 
 type PaginationProps = {
   route: (params: Record<string | number, unknown>) => string;
-  totalPages: number;
-  currentPage: number;
+  paginationInfo: {
+    totalPages: number;
+    total: number;
+    page: number;
+    perPage: number;
+  };
+  hideButtons?: boolean;
 };
 
 const Pagination: FC<PaginationProps> = ({
   route,
-  totalPages,
-  currentPage,
+  paginationInfo,
+  hideButtons,
 }) => {
-  const showButtons = totalPages !== 1;
+  const { totalPages, total, page: currentPage, perPage } = paginationInfo;
+  const showButtons = !hideButtons && totalPages !== 1;
+
+  let displayCount = perPage;
+  if (currentPage === totalPages) {
+    displayCount = total % perPage;
+  }
 
   return (
-    <div className="flex items-center justify-center gap-4">
-      {showButtons && (
-        <button
-          onClick={() => navigate(route({ page: currentPage - 1 }))}
-          className="mx-1 flex cursor-pointer justify-center rounded border-0 bg-blue-500 px-4 py-1 text-xs font-semibold uppercase leading-loose tracking-wide text-white no-underline transition duration-100 hover:bg-blue-700 disabled:opacity-50"
-          disabled={currentPage <= 1}
-        >
-          Prev
-        </button>
-      )}
-      <div className="text-sm">
-        Page {currentPage} of {totalPages}
+    <div className="flex items-center justify-between gap-4">
+      <div>
+        {showButtons && (
+          <button
+            onClick={() => navigate(route({ page: currentPage - 1 }))}
+            className="mx-1 cursor-pointer justify-center rounded border-0 bg-blue-500 px-4 py-1 text-xs font-semibold uppercase leading-loose tracking-wide text-white no-underline transition duration-100 hover:bg-blue-700 disabled:opacity-50"
+            disabled={currentPage <= 1}
+          >
+            Prev
+          </button>
+        )}
+        {showButtons && (
+          <button
+            onClick={() => navigate(route({ page: currentPage + 1 }))}
+            className="mx-1 cursor-pointer justify-center rounded border-0 bg-blue-500 px-4 py-1 text-xs font-semibold uppercase leading-loose tracking-wide text-white no-underline transition duration-100 hover:bg-blue-700 disabled:opacity-50"
+            disabled={currentPage >= totalPages}
+          >
+            Next
+          </button>
+        )}
       </div>
-      {showButtons && (
-        <button
-          onClick={() => navigate(route({ page: currentPage + 1 }))}
-          className="mx-1 flex cursor-pointer justify-center rounded border-0 bg-blue-500 px-4 py-1 text-xs font-semibold uppercase leading-loose tracking-wide text-white no-underline transition duration-100 hover:bg-blue-700 disabled:opacity-50"
-          disabled={currentPage >= totalPages}
-        >
-          Next
-        </button>
-      )}
+      <div className="text-sm">
+        Showing <strong>{displayCount}</strong> of <strong>{total}</strong>
+      </div>
     </div>
   );
 };
