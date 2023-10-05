@@ -61,7 +61,7 @@ const SiteHeader = () => {
           </div>
           <Link
             to={routes.events()}
-            className="inline-flex items-center px-14 py-3 mt-2 ml-2 font-medium transition duration-500 ease-in-out transform border rounded-lg bg-blue-900 hover:bg-blue-700 text-white"
+            className="inline-flex items-center px-14 py-3 mt-2 ml-2 border rounded-lg font-semibold tracking-tighter text-white transition duration-500 ease-in-out transform bg-transparent bg-gradient-to-r from-blue-500 to-blue-800 text-md focus:shadow-outline"
           >
             Login
           </Link>
