@@ -46,7 +46,7 @@ const EventsList = ({ events }: FindEvents) => {
       header: () => 'Name',
       cell: info => (
         <Link
-          to={routes.event({ id: info.row.original.id })}
+          to={routes.event({ eventId: info.row.original.id })}
           className="text-blue-500 hover:text-blue-800"
         >
           {info.getValue()}
@@ -74,14 +74,14 @@ const EventsList = ({ events }: FindEvents) => {
       cell: info => (
         <nav className="flex justify-end items-center h-4 pr-1">
           <Link
-            to={routes.event({ id: info.row.original.id })}
+            to={routes.event({ eventId: info.row.original.id })}
             title={`Show event ${info.row.original.id} detail`}
             className="bg-transparent hover:bg-gray-500 hover:text-white text-xs rounded-sm py-1 px-2"
           >
             Show
           </Link>
           <Link
-            to={routes.editEvent({ id: info.row.original.id })}
+            to={routes.editEvent({ eventId: info.row.original.id })}
             title={`Edit event ${info.row.original.id}`}
             className="text-blue-500 hover:bg-blue-500 hover:text-white bg-transparent text-xs rounded-sm py-1 px-2 rw-button-blue"
           >
