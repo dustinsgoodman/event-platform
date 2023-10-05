@@ -12,10 +12,9 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
     <>
       <SiteHeader
         showLogin={false}
-        links={[{ link: routes.events(), label: 'Events' }]}
+        links={[]}
       />
       {children}
-      <SiteFooter />
     </>
   );
 };
