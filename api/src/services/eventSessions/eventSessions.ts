@@ -6,8 +6,8 @@ import type {
 
 import { db } from 'src/lib/db';
 
-export const eventSessions: QueryResolvers['eventSessions'] = () => {
-  return db.eventSession.findMany();
+export const eventSessions: QueryResolvers['eventSessions'] = ({ eventId }) => {
+  return db.eventSession.findMany({ where: { eventId }});
 };
 
 export const eventSession: QueryResolvers['eventSession'] = ({ id }) => {
