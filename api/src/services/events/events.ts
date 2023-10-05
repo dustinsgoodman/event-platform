@@ -6,8 +6,27 @@ import type {
 
 import { db } from 'src/lib/db';
 
-export const events: QueryResolvers['events'] = () => {
-  return db.event.findMany();
+export const events: QueryResolvers['events'] = async ({ pagination }) => {
+  const page = pagination?.page ?? 1;
+  const perPage = pagination?.perPage ?? 25;
+
+  const [events, count] = await db.$transaction([
+    db.event.findMany({
+      take: perPage,
+      skip: (page - 1) * perPage,
+    }),
+    db.event.count(),
+  ]);
+
+  return {
+    nodes: events,
+    pagination: {
+      page,
+      perPage,
+      total: count,
+      totalPages: Math.ceil(count / perPage),
+    },
+  };
 };
 
 export const event: QueryResolvers['event'] = ({ id }) => {

@@ -24,6 +24,11 @@ export const schema = gql`
     registrants: [EventRegistrant]!
   }
 
+  type EventConnection {
+    nodes: [Event]!
+    pagination: Pagination
+  }
+
   enum EventVenueType {
     IN_PERSON
     ONLINE
@@ -31,7 +36,7 @@ export const schema = gql`
   }
 
   type Query {
-    events: [Event!]! @requireAuth
+    events(pagination: PaginationInput): EventConnection @requireAuth
     event(id: String!): Event @requireAuth
   }
 
