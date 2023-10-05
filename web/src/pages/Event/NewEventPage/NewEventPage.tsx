@@ -7,9 +7,7 @@ const NewEventPage = () => {
     <>
       <MetaTags title="New Event" description="New Event page" />
 
-      <div className="container mx-auto">
-        <NewEvent />
-      </div>
+      <NewEvent />
     </>
   );
 };

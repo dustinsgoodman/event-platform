@@ -1,22 +1,20 @@
-import { Link, routes } from '@redwoodjs/router';
+import { FC } from 'react';
+
 import { MetaTags } from '@redwoodjs/web';
 
-const EditEventSessionPage = () => {
+import EditEventSessionCell from 'src/components/EventSession/EditEventSessionCell';
+
+type EditEventSessionPageProps = {
+  eventId: string;
+  id: string;
+};
+
+const EditEventSessionPage: FC<EditEventSessionPageProps> = ({ id }) => {
   return (
     <>
-      <MetaTags title="EditEventSession" description="EditEventSession page" />
+      <MetaTags title="Edit Event Session" description="Edit event session" />
 
-      <h1>EditEventSessionPage</h1>
-      <p>
-        Find me in{' '}
-        <code>
-          ./web/src/pages/EditEventSessionPage/EditEventSessionPage.tsx
-        </code>
-      </p>
-      <p>
-        My default route is named <code>editEventSession</code>, link to me with
-        `<Link to={routes.editEventSession()}>EditEventSession</Link>`
-      </p>
+      <EditEventSessionCell id={id} />
     </>
   );
 };
