@@ -14,8 +14,13 @@ export const schema = gql`
     registrants: [EventRegistrant]!
   }
 
+  type EventSessionConnection {
+    nodes: [EventSession!]!
+    pagination: Pagination!
+  }
+
   type Query {
-    eventSessions(eventId: String!): [EventSession!]! @requireAuth
+    eventSessions(eventId: String!, pagination: PaginationInput): EventSessionConnection! @requireAuth
     eventSession(id: String!): EventSession @requireAuth
   }
 

@@ -9,17 +9,11 @@ import {
 } from './eventSessions';
 import type { StandardScenario } from './eventSessions.scenarios';
 
-// Generated boilerplate tests do not account for all circumstances
-// and can fail without adjustments, e.g. Float.
-//           Please refer to the RedwoodJS Testing Docs:
-//       https://redwoodjs.com/docs/testing#testing-services
-// https://redwoodjs.com/docs/testing#jest-expect-type-considerations
-
 describe('eventSessions', () => {
   scenario('returns all eventSessions', async (scenario: StandardScenario) => {
-    const result = await eventSessions();
+    const result = await eventSessions({ eventId: scenario.eventSession.one.eventId });
 
-    expect(result.length).toEqual(Object.keys(scenario.eventSession).length);
+    expect(result.nodes.length).toEqual(1);
   });
 
   scenario(
