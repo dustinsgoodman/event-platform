@@ -2,6 +2,8 @@ import { FC, useState } from 'react';
 
 import { Link, routes } from '@redwoodjs/router';
 
+import { MenuIcon } from 'src/components/Icons/Icons';
+
 type HeaderLinkProps = {
   link: string;
   label: string;
@@ -36,15 +38,7 @@ const PublicHeader = () => {
             aria-label="button"
             onClick={() => setNavbarOpen(!navbarOpen)}
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              width="1em"
-              height="1em"
-            >
-              <path d="M3 4H21V6H3V4ZM3 11H21V13H3V11ZM3 18H21V20H3V18Z"></path>
-            </svg>
+            <MenuIcon />
           </button>
         </div>
         <div
