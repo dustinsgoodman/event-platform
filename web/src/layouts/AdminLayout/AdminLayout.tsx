@@ -1,6 +1,5 @@
 import { routes } from '@redwoodjs/router';
 
-import SiteFooter from 'src/components/SiteFooter/SiteFooter';
 import SiteHeader from 'src/components/SiteHeader/SiteHeader';
 
 type AdminLayoutProps = {
@@ -11,9 +10,20 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
   return (
     <>
       <SiteHeader
-        links={[]}
+        title="Event Platform"
+        titleTo={routes.events()}
+        ctaLabel="Log out"
+        ctaLink={routes.home()}
+        links={[
+          {
+            label: 'Create New Event',
+            link: routes.newEvent(),
+          }
+        ]}
       />
-      {children}
+      <div className="container mx-auto">
+        {children}
+      </div>
     </>
   );
 };
