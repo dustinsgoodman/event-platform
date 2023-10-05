@@ -1,6 +1,6 @@
-import { FC, useState, Fragment } from 'react';
+import { FC, useState } from 'react';
 
-import { Link, routes } from '@redwoodjs/router';
+import { Link, navigate, routes } from '@redwoodjs/router';
 
 import DropdownMenu from 'src/components/DropdownMenu/DropdownMenu';
 import { MenuIcon, UserIcon } from 'src/components/Icons/Icons';
@@ -66,11 +66,11 @@ const AdminHeader: FC<AdminHeaderProps> = ({
                 {
                   items: [
                     {
-                      route: routes.events(),
+                      onClick: () => navigate(routes.events()),
                       children: <>Dashboard</>,
                     },
                     {
-                      route: routes.events(),
+                      onClick: () => navigate(routes.events()),
                       children: <>My Events</>,
                     },
                   ],
@@ -78,8 +78,9 @@ const AdminHeader: FC<AdminHeaderProps> = ({
                 {
                   items: [
                     {
-                      route: routes.home(),
-                      children: <>Log Out</>,
+                      onClick: () => navigate(routes.home()),
+                      children: 'Log Out',
+                      className: 'text-red-600 hover:text-red-800',
                     },
                   ],
                 },

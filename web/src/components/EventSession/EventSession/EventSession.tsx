@@ -73,9 +73,9 @@ const EventSession = ({ eventSession }: Props) => {
             <tr>
               <th className="px-3 py-2 text-right">Speakers</th>
               <td className="px-3 py-2">
-                <ul>
+                <ul className="m-0 list-none">
                   {eventSession.speakers.map((speaker) => (
-                    <li key={speaker.id}>
+                    <li key={speaker.id} className="m-0">
                       {speaker.firstName} {speaker.lastName}
                     </li>
                   ))}

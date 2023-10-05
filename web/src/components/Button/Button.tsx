@@ -42,7 +42,7 @@ const Button: FC<ButtonProps> = ({
   const commonProps = {
     onClick,
     className: clsx(
-      'inline-block focus:ring-4 font-medium text-center rounded-lg focus:outline-none hover:no-underline',
+      'inline-block focus:ring-4 font-medium text-center rounded-lg focus:outline-none hover:no-underline disabled:opacity-50',
       {
         'text-white bg-blue-700 hover:bg-blue-800 hover:text-white focus:ring-blue-300':
           theme === 'default',

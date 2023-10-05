@@ -1,11 +1,13 @@
 import { createColumnHelper } from '@tanstack/react-table';
 import type { FindEvents } from 'types/graphql';
 
-import { Link, routes } from '@redwoodjs/router';
+import { Link, navigate, routes } from '@redwoodjs/router';
 import { useMutation } from '@redwoodjs/web';
 import { toast } from '@redwoodjs/web/toast';
 
+import DropdownMenu from 'src/components/DropdownMenu/DropdownMenu';
 import { QUERY } from 'src/components/Event/EventsCell';
+import { VerticalMore } from 'src/components/Icons/Icons';
 import Pagination from 'src/components/Pagination/Pagination';
 import Table from 'src/components/Table/Table';
 import { timeTag } from 'src/lib/formatters';
@@ -71,32 +73,36 @@ const EventsList = ({ events }: FindEvents) => {
     columnHelper.display({
       id: 'actions',
       cell: (info) => (
-        <nav className="flex h-4 items-center justify-end pr-1">
-          <Link
-            to={routes.event({ eventId: info.row.original.id })}
-            title={`Show event ${info.row.original.id} detail`}
-            className="rounded-sm bg-transparent px-2 py-1 text-xs hover:bg-gray-500 hover:text-white"
-          >
-            Show
-          </Link>
-          <Link
-            to={routes.editEvent({ eventId: info.row.original.id })}
-            title={`Edit event ${info.row.original.id}`}
-            className="rw-button-blue rounded-sm bg-transparent px-2 py-1 text-xs text-blue-500 hover:bg-blue-500 hover:text-white"
-          >
-            Edit
-          </Link>
-          <button
-            type="button"
-            title={`Delete event ${info.row.original.id}`}
-            className="rw-button-red rounded-sm bg-transparent px-2 py-1 text-xs text-red-600 hover:bg-red-600 hover:text-white"
-            onClick={() =>
-              onDeleteClick(info.row.original.id, info.row.original.name)
-            }
-          >
-            Delete
-          </button>
-        </nav>
+        <DropdownMenu
+          theme="alternative"
+          compressed={true}
+          sections={[
+            {
+              items: [
+                {
+                  onClick: () =>
+                    navigate(routes.event({ eventId: info.row.original.id })),
+                  children: 'Show',
+                },
+                {
+                  onClick: () =>
+                    navigate(
+                      routes.editEvent({ eventId: info.row.original.id })
+                    ),
+                  children: 'Edit',
+                },
+                {
+                  onClick: () =>
+                    onDeleteClick(info.row.original.id, info.row.original.name),
+                  children: 'Delete',
+                  className: 'text-red-600 hover:text-red-800',
+                },
+              ],
+            },
+          ]}
+        >
+          <VerticalMore />
+        </DropdownMenu>
       ),
     }),
   ];

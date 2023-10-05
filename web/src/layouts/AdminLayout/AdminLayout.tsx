@@ -12,12 +12,7 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
       <AdminHeader
         title="Event Platform"
         titleTo={routes.events()}
-        links={[
-          {
-            label: 'Create New Event',
-            link: routes.newEvent(),
-          },
-        ]}
+        links={[]}
       />
       <div className="container mx-auto">{children}</div>
     </>
