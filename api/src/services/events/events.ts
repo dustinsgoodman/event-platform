@@ -14,6 +14,7 @@ export const events: QueryResolvers['events'] = async ({ pagination }) => {
     db.event.findMany({
       take: perPage,
       skip: (page - 1) * perPage,
+      orderBy: { startAt: 'asc' },
     }),
     db.event.count(),
   ]);
