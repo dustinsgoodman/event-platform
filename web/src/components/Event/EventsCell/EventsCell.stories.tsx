@@ -1,10 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react';
 
-import { Loading, Empty, Failure, Success } from "./EventsCell";
-import { standard } from "./EventsCell.mock";
+import { Loading, Empty, Failure, Success } from './EventsCell';
+import { standard } from './EventsCell.mock';
 
 const meta: Meta = {
-  title: "Cells/Event/EventsCell",
+  title: 'Cells/Event/EventsCell',
 };
 
 export default meta;
@@ -23,7 +23,7 @@ export const empty: StoryObj<typeof Empty> = {
 
 export const failure: StoryObj<typeof Failure> = {
   render: (args) => {
-    return Failure ? <Failure error={new Error("Oh no")} {...args} /> : <></>;
+    return Failure ? <Failure error={new Error('Oh no')} {...args} /> : <></>;
   },
 };
 

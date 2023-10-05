@@ -1,5 +1,6 @@
-import { routes, useParams } from "@redwoodjs/router";
-import SiteHeader from "src/components/SiteHeader/SiteHeader";
+import { routes, useParams } from '@redwoodjs/router';
+
+import SiteHeader from 'src/components/SiteHeader/SiteHeader';
 
 type EventAdminLayoutProps = {
   children?: React.ReactNode;
@@ -17,21 +18,19 @@ const EventAdminLayout = ({ children }: EventAdminLayoutProps) => {
         links={[
           {
             label: 'Sessions',
-            link: routes.eventSessions({ eventId: eventId })
+            link: routes.eventSessions({ eventId: eventId }),
           },
           {
             label: 'Speakers',
-            link: routes.eventSpeakers({ eventId: eventId })
+            link: routes.eventSpeakers({ eventId: eventId }),
           },
           {
             label: 'Registrants',
-            link: routes.eventRegistrants({ eventId: eventId })
-          }
+            link: routes.eventRegistrants({ eventId: eventId }),
+          },
         ]}
       />
-      <div className="container mx-auto">
-        {children}
-      </div>
+      <div className="container mx-auto">{children}</div>
     </>
   );
 };

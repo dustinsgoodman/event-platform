@@ -18,12 +18,10 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
           {
             label: 'Create New Event',
             link: routes.newEvent(),
-          }
+          },
         ]}
       />
-      <div className="container mx-auto">
-        {children}
-      </div>
+      <div className="container mx-auto">{children}</div>
     </>
   );
 };

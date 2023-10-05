@@ -1,9 +1,11 @@
 import type {
   FindEventSessionQuery,
   FindEventSessionQueryVariables,
-} from "types/graphql";
-import type { CellSuccessProps, CellFailureProps } from "@redwoodjs/web";
-import EventSession from "src/components/EventSession/EventSession/EventSession";
+} from 'types/graphql';
+
+import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web';
+
+import EventSession from 'src/components/EventSession/EventSession/EventSession';
 
 export const QUERY = gql`
   query FindEventSessionQuery($id: String!) {
@@ -32,7 +34,7 @@ export const Empty = () => <div>Empty</div>;
 export const Failure = ({
   error,
 }: CellFailureProps<FindEventSessionQueryVariables>) => (
-  <div style={{ color: "red" }}>Error: {error?.message}</div>
+  <div style={{ color: 'red' }}>Error: {error?.message}</div>
 );
 
 export const Success = ({

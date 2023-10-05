@@ -1,6 +1,5 @@
 import { Router, Route, Set } from '@redwoodjs/router';
 
-import ScaffoldLayout from 'src/layouts/ScaffoldLayout';
 import AdminLayout from 'src/layouts/AdminLayout/AdminLayout';
 import EventAdminLayout from 'src/layouts/EventAdminLayout/EventAdminLayout';
 

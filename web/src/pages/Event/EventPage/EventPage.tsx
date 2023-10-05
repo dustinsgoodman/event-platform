@@ -1,4 +1,4 @@
-import { MetaTags } from "@redwoodjs/web";
+import { MetaTags } from '@redwoodjs/web';
 
 import EventCell from 'src/components/Event/EventCell';
 

@@ -11,7 +11,7 @@ const FooterLink: FC<FooterLinkProps> = ({ link, label }) => {
   return (
     <Link
       to={link}
-      className="text-md hover:text-gray-400 transition-colors duration-300 hover:text-deep-purple-accent-400 font-semibold"
+      className="text-md hover:text-deep-purple-accent-400 font-semibold transition-colors duration-300 hover:text-gray-400"
     >
       {label}
     </Link>
@@ -37,16 +37,16 @@ const SiteFooter = () => {
 
   return (
     <footer className="pb-4 text-gray-900">
-      <div className="max-w-5xl xl:max-w-5xl mx-auto divide-y divide-gray-900 px-4 sm:px-6 md:px-8">
-        <div className="flex flex-col-reverse justify-between pt-5 pb-4 border-t lg:flex-row bg-top border-black">
-          <ul className="flex flex-col space-y-2 lg:mb-0 sm:space-y-0 sm:space-x-5 sm:flex-row">
+      <div className="mx-auto max-w-5xl divide-y divide-gray-900 px-4 sm:px-6 md:px-8 xl:max-w-5xl">
+        <div className="flex flex-col-reverse justify-between border-t border-black bg-top pb-4 pt-5 lg:flex-row">
+          <ul className="flex flex-col space-y-2 sm:flex-row sm:space-x-5 sm:space-y-0 lg:mb-0">
             {footerLinks.map((footerLink) => (
               <li key={footerLink.label}>
                 <FooterLink {...footerLink} />
               </li>
             ))}
           </ul>
-          <ul className="flex flex-col mb-3 space-y-2 lg:mb-0 sm:space-y-0 sm:space-x-5 sm:flex-row">
+          <ul className="mb-3 flex flex-col space-y-2 sm:flex-row sm:space-x-5 sm:space-y-0 lg:mb-0">
             <span className="text-md font-semibold tracking-tight">
               © {currentYear} Event Platform, Inc.
             </span>

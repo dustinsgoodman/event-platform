@@ -19,20 +19,20 @@ const ScaffoldLayout = ({
   return (
     <div className="bg-white text-gray-600">
       <Toaster toastOptions={{ className: 'rw-toast', duration: 6000 }} />
-      <header className="flex justify-between py-4 px-8">
-        <h1 className="font-semibold text-xl">
+      <header className="flex justify-between px-8 py-4">
+        <h1 className="text-xl font-semibold">
           <Link to={routes[titleTo]()} className="text-gray-600 no-underline">
             {title}
           </Link>
         </h1>
         <Link
           to={routes[buttonTo]()}
-          className="flex justify-center py-1 px-4 border-0 rounded text-xs font-semibold uppercase tracking-wide leading-loose no-underline cursor-pointer transition duration-100 bg-green-500 text-white hover:bg-green-700"
+          className="flex cursor-pointer justify-center rounded border-0 bg-green-500 px-4 py-1 text-xs font-semibold uppercase leading-loose tracking-wide text-white no-underline transition duration-100 hover:bg-green-700"
         >
-          <div className="text-xl leading-5 mr-1">+</div> {buttonLabel}
+          <div className="mr-1 text-xl leading-5">+</div> {buttonLabel}
         </Link>
       </header>
-      <main className="text-xl leading-5 mr-1">{children}</main>
+      <main className="mr-1 text-xl leading-5">{children}</main>
     </div>
   );
 };

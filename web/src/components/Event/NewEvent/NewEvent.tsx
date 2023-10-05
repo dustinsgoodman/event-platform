@@ -30,9 +30,9 @@ const NewEvent = () => {
   };
 
   return (
-    <div className="rounded-lg overflow-hidden w-full border border-gray-200">
-      <header className="bg-gray-200 text-gray-700 py-3 px-4">
-        <h2 className="font-semibold text-sm">New Event</h2>
+    <div className="w-full overflow-hidden rounded-lg border border-gray-200">
+      <header className="bg-gray-200 px-4 py-3 text-gray-700">
+        <h2 className="text-sm font-semibold">New Event</h2>
       </header>
       <div className="bg-gray-100 p-4">
         <EventForm onSave={onSave} loading={loading} error={error} />

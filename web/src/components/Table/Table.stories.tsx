@@ -1,7 +1,7 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react';
 
-import Table from "./Table";
-import { TableData, standard } from "./Table.mock";
+import Table from './Table';
+import { TableData, standard } from './Table.mock';
 
 const meta: Meta<typeof Table> = {
   component: Table,
@@ -16,5 +16,5 @@ export const Primary: Story = {
   args: {
     data,
     columns,
-  }
+  },
 };
