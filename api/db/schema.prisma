@@ -34,6 +34,23 @@ model Event {
   // general timestamps
   createdAt           DateTime       @default(now())
   updatedAt           DateTime       @default(now()) @updatedAt
+  // relationships
+  sessions            EventSession[]
+}
+
+model EventSession {
+  id          String   @id @default(uuid())
+  // key public metadata
+  name        String
+  description String?
+  startAt     DateTime
+  endAt       DateTime
+  capacity    Int?
+  event       Event    @relation(fields: [eventId], references: [id])
+  // general timestamps
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @default(now()) @updatedAt
+  eventId     String
 }
 
 enum EventVenueType {
