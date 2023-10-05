@@ -2,27 +2,27 @@ import type {
   QueryResolvers,
   MutationResolvers,
   EventSessionRelationResolvers,
-} from 'types/graphql'
+} from 'types/graphql';
 
-import { db } from 'src/lib/db'
+import { db } from 'src/lib/db';
 
 export const eventSessions: QueryResolvers['eventSessions'] = () => {
-  return db.eventSession.findMany()
-}
+  return db.eventSession.findMany();
+};
 
 export const eventSession: QueryResolvers['eventSession'] = ({ id }) => {
   return db.eventSession.findUnique({
     where: { id },
-  })
-}
+  });
+};
 
 export const createEventSession: MutationResolvers['createEventSession'] = ({
   input,
 }) => {
   return db.eventSession.create({
     data: input,
-  })
-}
+  });
+};
 
 export const updateEventSession: MutationResolvers['updateEventSession'] = ({
   id,
@@ -31,25 +31,27 @@ export const updateEventSession: MutationResolvers['updateEventSession'] = ({
   return db.eventSession.update({
     data: input,
     where: { id },
-  })
-}
+  });
+};
 
 export const deleteEventSession: MutationResolvers['deleteEventSession'] = ({
   id,
 }) => {
   return db.eventSession.delete({
     where: { id },
-  })
-}
+  });
+};
 
 export const EventSession: EventSessionRelationResolvers = {
   event: (_obj, { root }) => {
-    return db.eventSession.findUnique({ where: { id: root?.id } }).event()
+    return db.eventSession.findUnique({ where: { id: root?.id } }).event();
   },
   speakers: (_obj, { root }) => {
-    return db.eventSession.findUnique({ where: { id: root?.id } }).speakers()
+    return db.eventSession.findUnique({ where: { id: root?.id } }).speakers();
   },
   registrants: (_obj, { root }) => {
-    return db.eventSession.findUnique({ where: { id: root?.id } }).registrants()
+    return db.eventSession
+      .findUnique({ where: { id: root?.id } })
+      .registrants();
   },
-}
+};

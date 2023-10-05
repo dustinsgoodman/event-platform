@@ -1,6 +1,6 @@
-import type { Prisma, Event } from '@prisma/client'
+import type { Prisma, Event } from '@prisma/client';
 
-import type { ScenarioData } from '@redwoodjs/testing/api'
+import type { ScenarioData } from '@redwoodjs/testing/api';
 
 export const standard = defineScenario<Prisma.EventCreateArgs>({
   event: {
@@ -23,6 +23,6 @@ export const standard = defineScenario<Prisma.EventCreateArgs>({
       },
     },
   },
-})
+});
 
-export type StandardScenario = ScenarioData<Event, 'event'>
+export type StandardScenario = ScenarioData<Event, 'event'>;

@@ -70,4 +70,4 @@ export const schema = gql`
     ): EventRegistrant! @requireAuth
     deleteEventRegistrant(id: String!): EventRegistrant! @requireAuth
   }
-`
+`;

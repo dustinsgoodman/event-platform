@@ -1,4 +1,4 @@
-import type { EventSession } from '@prisma/client'
+import type { EventSession } from '@prisma/client';
 
 import {
   eventSessions,
@@ -6,8 +6,8 @@ import {
   createEventSession,
   updateEventSession,
   deleteEventSession,
-} from './eventSessions'
-import type { StandardScenario } from './eventSessions.scenarios'
+} from './eventSessions';
+import type { StandardScenario } from './eventSessions.scenarios';
 
 // Generated boilerplate tests do not account for all circumstances
 // and can fail without adjustments, e.g. Float.
@@ -17,19 +17,19 @@ import type { StandardScenario } from './eventSessions.scenarios'
 
 describe('eventSessions', () => {
   scenario('returns all eventSessions', async (scenario: StandardScenario) => {
-    const result = await eventSessions()
+    const result = await eventSessions();
 
-    expect(result.length).toEqual(Object.keys(scenario.eventSession).length)
-  })
+    expect(result.length).toEqual(Object.keys(scenario.eventSession).length);
+  });
 
   scenario(
     'returns a single eventSession',
     async (scenario: StandardScenario) => {
-      const result = await eventSession({ id: scenario.eventSession.one.id })
+      const result = await eventSession({ id: scenario.eventSession.one.id });
 
-      expect(result).toEqual(scenario.eventSession.one)
+      expect(result).toEqual(scenario.eventSession.one);
     }
-  )
+  );
 
   scenario('creates a eventSession', async (scenario: StandardScenario) => {
     const result = await createEventSession({
@@ -39,32 +39,32 @@ describe('eventSessions', () => {
         endAt: '2023-09-02T18:06:47.379Z',
         eventId: scenario.eventSession.two.eventId,
       },
-    })
+    });
 
-    expect(result.name).toEqual('String')
-    expect(result.startAt).toEqual(new Date('2023-09-02T18:06:47.379Z'))
-    expect(result.endAt).toEqual(new Date('2023-09-02T18:06:47.379Z'))
-    expect(result.eventId).toEqual(scenario.eventSession.two.eventId)
-  })
+    expect(result.name).toEqual('String');
+    expect(result.startAt).toEqual(new Date('2023-09-02T18:06:47.379Z'));
+    expect(result.endAt).toEqual(new Date('2023-09-02T18:06:47.379Z'));
+    expect(result.eventId).toEqual(scenario.eventSession.two.eventId);
+  });
 
   scenario('updates a eventSession', async (scenario: StandardScenario) => {
     const original = (await eventSession({
       id: scenario.eventSession.one.id,
-    })) as EventSession
+    })) as EventSession;
     const result = await updateEventSession({
       id: original.id,
       input: { name: 'String2' },
-    })
+    });
 
-    expect(result.name).toEqual('String2')
-  })
+    expect(result.name).toEqual('String2');
+  });
 
   scenario('deletes a eventSession', async (scenario: StandardScenario) => {
     const original = (await deleteEventSession({
       id: scenario.eventSession.one.id,
-    })) as EventSession
-    const result = await eventSession({ id: original.id })
+    })) as EventSession;
+    const result = await eventSession({ id: original.id });
 
-    expect(result).toEqual(null)
-  })
-})
+    expect(result).toEqual(null);
+  });
+});

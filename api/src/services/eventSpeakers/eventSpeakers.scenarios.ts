@@ -1,6 +1,6 @@
-import type { Prisma, EventSpeaker } from '@prisma/client'
+import type { Prisma, EventSpeaker } from '@prisma/client';
 
-import type { ScenarioData } from '@redwoodjs/testing/api'
+import type { ScenarioData } from '@redwoodjs/testing/api';
 
 export const standard = defineScenario<Prisma.EventSpeakerCreateArgs>({
   eventSpeaker: {
@@ -37,6 +37,6 @@ export const standard = defineScenario<Prisma.EventSpeakerCreateArgs>({
       },
     },
   },
-})
+});
 
-export type StandardScenario = ScenarioData<EventSpeaker, 'eventSpeaker'>
+export type StandardScenario = ScenarioData<EventSpeaker, 'eventSpeaker'>;

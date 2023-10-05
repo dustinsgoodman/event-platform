@@ -52,4 +52,4 @@ export const schema = gql`
     ): EventSpeaker! @requireAuth
     deleteEventSpeaker(id: String!): EventSpeaker! @requireAuth
   }
-`
+`;

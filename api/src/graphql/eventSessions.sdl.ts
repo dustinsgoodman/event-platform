@@ -46,4 +46,4 @@ export const schema = gql`
     ): EventSession! @requireAuth
     deleteEventSession(id: String!): EventSession! @requireAuth
   }
-`
+`;
