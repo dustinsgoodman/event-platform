@@ -8,7 +8,7 @@ import EventSessionsPage from "./EventSessionsPage";
 describe("EventSessionsPage", () => {
   it("renders successfully", () => {
     expect(() => {
-      render(<EventSessionsPage id={"42"} />);
+      render(<EventSessionsPage eventId="42" />);
     }).not.toThrow();
   });
 });

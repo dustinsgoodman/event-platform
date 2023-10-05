@@ -6,7 +6,7 @@ import Event from 'src/components/Event/Event';
 
 export const QUERY = gql`
   query FindEventById($id: String!) {
-    event: event(id: $id) {
+    event(id: $id) {
       id
       name
       description
