@@ -8629,6 +8629,8 @@ __metadata:
   dependencies:
     "@redwoodjs/api": 6.2.2
     "@redwoodjs/graphql-server": 6.2.2
+    date-fns: ^2.30.0
+    graphql-scalars: ^1.22.2
   languageName: unknown
   linkType: soft
 
@@ -14298,7 +14300,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graphql-scalars@npm:1.22.2":
+"graphql-scalars@npm:1.22.2, graphql-scalars@npm:^1.22.2":
   version: 1.22.2
   resolution: "graphql-scalars@npm:1.22.2"
   dependencies:
