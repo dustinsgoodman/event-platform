@@ -5,9 +5,13 @@ export const schema = gql`
     description: String
     startAt: DateTime!
     endAt: DateTime!
+    formattedStartAt: String
+    formattedEndAt: String
     capacity: Int
     createdAt: DateTime!
     updatedAt: DateTime!
+    formattedCreatedAt: String
+    formattedUpdatedAt: String
     event: Event!
     speakers: [EventSpeaker]!
     registrants: [EventRegistrant]!

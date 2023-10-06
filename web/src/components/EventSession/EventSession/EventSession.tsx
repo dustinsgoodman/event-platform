@@ -6,8 +6,6 @@ import { Link, routes, navigate } from '@redwoodjs/router';
 import { useMutation } from '@redwoodjs/web';
 import { toast } from '@redwoodjs/web/toast';
 
-import { timeTag } from 'src/lib/formatters';
-
 const DELETE_EVENT_SESSION_MUTATION = gql`
   mutation DeleteEventSessionMutation($id: String!) {
     deleteEventSession(id: $id) {
@@ -63,11 +61,11 @@ const EventSession: FC<EventSessionProps> = ({ eventSession, eventId }) => {
             </tr>
             <tr>
               <th className="px-3 py-2 text-right">Starts At</th>
-              <td className="px-3 py-2">{timeTag(eventSession.startAt)}</td>
+              <td className="px-3 py-2">{eventSession.formattedStartAt}</td>
             </tr>
             <tr>
               <th className="px-3 py-2 text-right">Ends At</th>
-              <td className="px-3 py-2">{timeTag(eventSession.endAt)}</td>
+              <td className="px-3 py-2">{eventSession.formattedEndAt}</td>
             </tr>
             <tr>
               <th className="px-3 py-2 text-right">Capacity</th>

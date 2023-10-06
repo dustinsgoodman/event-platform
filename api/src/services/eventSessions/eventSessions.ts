@@ -5,6 +5,7 @@ import type {
 } from 'types/graphql';
 
 import { db } from 'src/lib/db';
+import { formatDateTime } from 'src/lib/formatters';
 
 export const eventSessions: QueryResolvers['eventSessions'] = async ({
   eventId,
@@ -19,6 +20,7 @@ export const eventSessions: QueryResolvers['eventSessions'] = async ({
       take: perPage,
       skip: (page - 1) * perPage,
       orderBy: { startAt: 'asc' },
+      include: { event: true },
     }),
     db.eventSession.count({
       where: { eventId },
@@ -39,6 +41,7 @@ export const eventSessions: QueryResolvers['eventSessions'] = async ({
 export const eventSession: QueryResolvers['eventSession'] = ({ id }) => {
   return db.eventSession.findUnique({
     where: { id },
+    include: { event: true },
   });
 };
 
@@ -47,6 +50,7 @@ export const createEventSession: MutationResolvers['createEventSession'] = ({
 }) => {
   return db.eventSession.create({
     data: input,
+    include: { event: true },
   });
 };
 
@@ -57,6 +61,7 @@ export const updateEventSession: MutationResolvers['updateEventSession'] = ({
   return db.eventSession.update({
     data: input,
     where: { id },
+    include: { event: true },
   });
 };
 
@@ -65,10 +70,23 @@ export const deleteEventSession: MutationResolvers['deleteEventSession'] = ({
 }) => {
   return db.eventSession.delete({
     where: { id },
+    include: { event: true },
   });
 };
 
 export const EventSession: EventSessionRelationResolvers = {
+  formattedStartAt: (_obj, { root }) => {
+    return formatDateTime(root.startAt, root.event.timezone);
+  },
+  formattedEndAt: (_obj, { root }) => {
+    return formatDateTime(root.endAt, root.event.timezone);
+  },
+  formattedCreatedAt: (_obj, { root }) => {
+    return formatDateTime(root.createdAt, root.event.timezone);
+  },
+  formattedUpdatedAt: (_obj, { root }) => {
+    return formatDateTime(root.updatedAt, root.event.timezone);
+  },
   event: (_obj, { root }) => {
     return db.eventSession.findUnique({ where: { id: root?.id } }).event();
   },

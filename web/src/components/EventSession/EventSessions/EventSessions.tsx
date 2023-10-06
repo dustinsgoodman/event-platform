@@ -12,7 +12,6 @@ import { QUERY } from 'src/components/Event/EventsCell';
 import { VerticalMore } from 'src/components/Icons/Icons';
 import Pagination from 'src/components/Pagination/Pagination';
 import Table from 'src/components/Table/Table';
-import { timeTag } from 'src/lib/formatters';
 
 const DELETE_EVENT_SESSION_MUTATION = gql`
   mutation DeleteEventSessionMutation($id: String!) {
@@ -76,13 +75,13 @@ const EventSessionsList: FC<EventSessionsListProps> = ({
           .map((speaker) => `${speaker.firstName} ${speaker.lastName}`)
           .join(', '),
     }),
-    columnHelper.accessor('startAt', {
+    columnHelper.accessor('formattedStartAt', {
       header: () => 'Session Starts At',
-      cell: (info) => timeTag(info.getValue()),
+      cell: (info) => info.getValue(),
     }),
-    columnHelper.accessor('endAt', {
+    columnHelper.accessor('formattedEndAt', {
       header: () => 'Session Ends At',
-      cell: (info) => timeTag(info.getValue()),
+      cell: (info) => info.getValue(),
     }),
     columnHelper.display({
       id: 'actions',

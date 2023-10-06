@@ -39,20 +39,6 @@ export const jsonTruncate = (obj: unknown) => {
   return truncate(JSON.stringify(obj, null, 2));
 };
 
-export const timeTag = (dateTime?: string) => {
-  let output: string | JSX.Element = '';
-
-  if (dateTime) {
-    output = (
-      <time dateTime={dateTime} title={dateTime}>
-        {new Date(dateTime).toUTCString()}
-      </time>
-    );
-  }
-
-  return output;
-};
-
 export const checkboxInputTag = (checked: boolean) => {
   return <input type="checkbox" checked={checked} disabled />;
 };

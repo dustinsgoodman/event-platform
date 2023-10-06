@@ -1,10 +1,9 @@
-import { render, waitFor, screen } from '@redwoodjs/testing/web';
+import { render, screen } from '@redwoodjs/testing/web';
 
 import {
   formatEnum,
   jsonTruncate,
   truncate,
-  timeTag,
   jsonDisplay,
   checkboxInputTag,
 } from './formatters';
@@ -78,18 +77,6 @@ describe('jsonTruncate', () => {
         bool: false,
       })
     ).toMatch(/.+\n.+\w\.\.\.$/s);
-  });
-});
-
-describe('timeTag', () => {
-  it('renders a date', async () => {
-    render(<div>{timeTag(new Date('1970-08-20').toUTCString())}</div>);
-
-    await waitFor(() => screen.getByText(/1970.*00:00:00/));
-  });
-
-  it('can take an empty input string', async () => {
-    expect(timeTag('')).toEqual('');
   });
 });
 

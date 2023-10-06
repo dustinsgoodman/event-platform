@@ -10,7 +10,6 @@ import { QUERY } from 'src/components/Event/EventsCell';
 import { VerticalMore } from 'src/components/Icons/Icons';
 import Pagination from 'src/components/Pagination/Pagination';
 import Table from 'src/components/Table/Table';
-import { timeTag } from 'src/lib/formatters';
 
 const DELETE_EVENT_MUTATION = gql`
   mutation DeleteEventMutation($id: String!) {

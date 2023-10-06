@@ -11,8 +11,8 @@ export const QUERY = gql`
       nodes {
         id
         name
-        startAt
-        endAt
+        formattedStartAt
+        formattedEndAt
         # track
         speakers {
           id

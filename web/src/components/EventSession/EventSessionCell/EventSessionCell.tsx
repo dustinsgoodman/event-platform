@@ -14,8 +14,8 @@ export const QUERY = gql`
       id
       name
       description
-      startAt
-      endAt
+      formattedStartAt
+      formattedEndAt
       capacity
       # track
       speakers {
