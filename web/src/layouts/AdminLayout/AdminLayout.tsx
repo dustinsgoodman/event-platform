@@ -14,7 +14,7 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
         titleTo={routes.events()}
         links={[]}
       />
-      <div className="container mx-auto">{children}</div>
+      <div className="container mx-auto py-4">{children}</div>
     </>
   );
 };

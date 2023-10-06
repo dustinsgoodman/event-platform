@@ -28,7 +28,7 @@ const EventAdminLayout = ({ children }: EventAdminLayoutProps) => {
           },
         ]}
       />
-      <div className="container mx-auto">{children}</div>
+      <div className="container mx-auto py-4">{children}</div>
     </>
   );
 };
