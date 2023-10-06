@@ -15,20 +15,18 @@ const EventsPage: FC<Props> = ({ page }) => {
     <>
       <MetaTags title="Events" description="Events page" />
 
-      <div className="container mx-auto py-4">
-        <div className="mb-2 flex items-center justify-between">
-          <h2>My Events</h2>
-          <Button
-            component={Link}
-            to={routes.newEvent()}
-            theme="alternative"
-            size="sm"
-          >
-            Create New Event
-          </Button>
-        </div>
-        <EventsCell page={page} />
+      <div className="mb-2 flex items-center justify-between">
+        <h2>My Events</h2>
+        <Button
+          component={Link}
+          to={routes.newEvent()}
+          theme="alternative"
+          size="sm"
+        >
+          Create New Event
+        </Button>
       </div>
+      <EventsCell page={page} />
     </>
   );
 };
