@@ -1,3 +1,5 @@
+import { FC } from 'react';
+
 import type { FindEventSessionQuery } from 'types/graphql';
 
 import { Link, routes, navigate } from '@redwoodjs/router';
@@ -14,11 +16,12 @@ const DELETE_EVENT_SESSION_MUTATION = gql`
   }
 `;
 
-interface Props {
+type EventSessionProps = {
   eventSession: NonNullable<FindEventSessionQuery['eventSession']>;
-}
+  eventId: string;
+};
 
-const EventSession = ({ eventSession }: Props) => {
+const EventSession: FC<EventSessionProps> = ({ eventSession, eventId }) => {
   const [deleteEventSession] = useMutation(DELETE_EVENT_SESSION_MUTATION, {
     onCompleted: () => {
       toast.success('Event session deleted');
@@ -87,14 +90,14 @@ const EventSession = ({ eventSession }: Props) => {
       </div>
       <nav className="mx-2 my-3 flex justify-center">
         <Link
-          to={routes.eventSessions({ eventId: eventSession.eventId })}
+          to={routes.eventSessions({ eventId })}
           className="mx-1 flex cursor-pointer justify-center rounded border-0 bg-blue-500 px-4 py-1 text-xs font-semibold uppercase leading-loose tracking-wide text-white no-underline transition duration-100 hover:bg-blue-700"
         >
           Back to Sessions
         </Link>
         <Link
           to={routes.editEventSession({
-            eventId: eventSession.eventId,
+            eventId,
             id: eventSession.id,
           })}
           className="mx-1 flex cursor-pointer justify-center rounded border-0 bg-blue-500 px-4 py-1 text-xs font-semibold uppercase leading-loose tracking-wide text-white no-underline transition duration-100 hover:bg-blue-700"

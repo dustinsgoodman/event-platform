@@ -1,5 +1,6 @@
 import type { EventSessionsQuery } from 'types/graphql';
 
+import { useParams } from '@redwoodjs/router';
 import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web';
 
 import EventSessions from '../EventSessions/EventSessions';
@@ -9,7 +10,6 @@ export const QUERY = gql`
     eventSessions(eventId: $eventId, pagination: $pagination) {
       nodes {
         id
-        eventId
         name
         startAt
         endAt
@@ -53,5 +53,6 @@ export const Failure = ({ error }: CellFailureProps) => (
 export const Success = ({
   eventSessions,
 }: CellSuccessProps<EventSessionsQuery>) => {
-  return <EventSessions eventSessions={eventSessions} />;
+  const { eventId } = useParams();
+  return <EventSessions eventSessions={eventSessions} eventId={eventId} />;
 };

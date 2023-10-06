@@ -3,7 +3,7 @@ import type {
   UpdateEventSessionInput,
 } from 'types/graphql';
 
-import { navigate, routes } from '@redwoodjs/router';
+import { navigate, routes, useParams } from '@redwoodjs/router';
 import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web';
 import { useMutation } from '@redwoodjs/web';
 import { toast } from '@redwoodjs/web/toast';
@@ -14,13 +14,15 @@ export const QUERY = gql`
   query EditEventSessionById($id: String!) {
     eventSession(id: $id) {
       id
-      eventId
       name
       description
       startAt
       endAt
       capacity
       # track
+      event {
+        id
+      }
       speakers {
         id
         firstName
@@ -38,7 +40,9 @@ const UPDATE_EVENT_SESSION_MUTATION = gql`
   ) {
     updateEventSession(id: $id, input: $input) {
       id
-      eventId
+      event {
+        id
+      }
       name
       description
       startAt
@@ -65,12 +69,13 @@ export const Failure = ({ error }: CellFailureProps) => (
 export const Success = ({
   eventSession,
 }: CellSuccessProps<EditEventSessionById>) => {
+  const { eventId } = useParams();
   const [updateEventSession, { loading, error }] = useMutation(
     UPDATE_EVENT_SESSION_MUTATION,
     {
       onCompleted: () => {
         toast.success('Event session updated');
-        navigate(routes.eventSessions({ eventId: eventSession.eventId }));
+        navigate(routes.eventSessions({ eventId }));
       },
       onError: (error) => {
         toast.error(error.message);
@@ -95,6 +100,7 @@ export const Success = ({
       <div className="bg-gray-100 p-4">
         <EventSessionForm
           eventSession={eventSession}
+          eventId={eventId}
           onSave={onSave}
           error={error}
           loading={loading}

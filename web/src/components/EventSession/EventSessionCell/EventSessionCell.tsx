@@ -3,6 +3,7 @@ import type {
   FindEventSessionQueryVariables,
 } from 'types/graphql';
 
+import { useParams } from '@redwoodjs/router';
 import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web';
 
 import EventSession from 'src/components/EventSession/EventSession/EventSession';
@@ -11,7 +12,6 @@ export const QUERY = gql`
   query FindEventSessionQuery($id: String!) {
     eventSession(id: $id) {
       id
-      eventId
       name
       description
       startAt
@@ -40,5 +40,6 @@ export const Failure = ({
 export const Success = ({
   eventSession,
 }: CellSuccessProps<FindEventSessionQuery, FindEventSessionQueryVariables>) => {
-  return <EventSession eventSession={eventSession} />;
+  const { eventId } = useParams();
+  return <EventSession eventSession={eventSession} eventId={eventId} />;
 };

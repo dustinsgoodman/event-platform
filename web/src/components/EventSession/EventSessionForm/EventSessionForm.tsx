@@ -26,7 +26,7 @@ const formatDatetime = (value) => {
 type FormEvent = NonNullable<EditEventSessionById['eventSession']>;
 
 interface EventSessionFormProps {
-  eventId: EditEventSessionById['eventSession']['eventId'];
+  eventId: string;
   eventSession?: EditEventSessionById['eventSession'];
   onSave: (data: UpdateEventSessionInput, id?: FormEvent['id']) => void;
   error: RWGqlError;
@@ -50,7 +50,7 @@ const EventSessionForm = (props: EventSessionFormProps) => {
 
         <HiddenField
           name="eventId"
-          defaultValue={props.eventId || props.eventSession.eventId}
+          defaultValue={props.eventId}
           validation={{ required: true }}
         />
 

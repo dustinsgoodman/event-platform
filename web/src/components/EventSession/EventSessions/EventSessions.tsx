@@ -1,3 +1,5 @@
+import { FC } from 'react';
+
 import { createColumnHelper } from '@tanstack/react-table';
 import type { EventSessionsQuery } from 'types/graphql';
 
@@ -20,7 +22,15 @@ const DELETE_EVENT_SESSION_MUTATION = gql`
   }
 `;
 
-const EventSessionsList = ({ eventSessions }: EventSessionsQuery) => {
+type EventSessionsListProps = {
+  eventSessions: EventSessionsQuery['eventSessions'];
+  eventId: string;
+};
+
+const EventSessionsList: FC<EventSessionsListProps> = ({
+  eventSessions,
+  eventId,
+}) => {
   const [deleteEventSession] = useMutation(DELETE_EVENT_SESSION_MUTATION, {
     onCompleted: () => {
       toast.success('Event session deleted');
@@ -49,7 +59,7 @@ const EventSessionsList = ({ eventSessions }: EventSessionsQuery) => {
       cell: (info) => (
         <Link
           to={routes.eventSession({
-            eventId: info.row.original.eventId,
+            eventId: eventId,
             id: info.row.original.id,
           })}
           className="text-blue-500 hover:text-blue-800"
@@ -87,7 +97,7 @@ const EventSessionsList = ({ eventSessions }: EventSessionsQuery) => {
                   onClick: () =>
                     navigate(
                       routes.eventSession({
-                        eventId: info.row.original.eventId,
+                        eventId: eventId,
                         id: info.row.original.id,
                       })
                     ),
@@ -97,7 +107,7 @@ const EventSessionsList = ({ eventSessions }: EventSessionsQuery) => {
                   onClick: () =>
                     navigate(
                       routes.editEventSession({
-                        eventId: info.row.original.eventId,
+                        eventId: eventId,
                         id: info.row.original.id,
                       })
                     ),
