@@ -1,13 +1,13 @@
 export const schema = gql`
   input PaginationInput {
-    page: Int
-    perPage: Int
+    page: NonNegativeInt
+    perPage: NonNegativeInt
   }
 
   type Pagination {
-    page: Int!
-    perPage: Int!
-    total: Int!
-    totalPages: Int!
+    page: NonNegativeInt!
+    perPage: NonNegativeInt!
+    total: NonNegativeInt!
+    totalPages: NonNegativeInt!
   }
 `;

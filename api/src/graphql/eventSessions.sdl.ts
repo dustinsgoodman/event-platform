@@ -1,6 +1,6 @@
 export const schema = gql`
   type EventSession {
-    id: String!
+    id: UUID!
     name: String!
     description: String
     startAt: DateTime!
@@ -9,7 +9,6 @@ export const schema = gql`
     createdAt: DateTime!
     updatedAt: DateTime!
     event: Event!
-    eventId: String!
     speakers: [EventSpeaker]!
     registrants: [EventRegistrant]!
   }

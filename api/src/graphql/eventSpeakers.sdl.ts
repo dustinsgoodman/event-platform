@@ -1,22 +1,20 @@
 export const schema = gql`
   type EventSpeaker {
-    id: String!
+    id: UUID!
     firstName: String!
     lastName: String!
     jobTitle: String
     company: String
-    profilePicture: String
+    profilePicture: URL
     bio: String!
-    dateOfBirth: DateTime!
-    ipAddress: String!
-    language: String!
+    dateOfBirth: Date!
+    ipAddress: IPv4!
+    language: Locale!
     createdAt: DateTime!
     updatedAt: DateTime!
     event: Event!
-    eventId: String!
     sessions: [EventSession]!
     registrant: EventRegistrant
-    registrantId: String!
   }
 
   type Query {

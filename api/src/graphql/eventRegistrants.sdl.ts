@@ -1,16 +1,16 @@
 export const schema = gql`
   type EventRegistrant {
-    id: String!
-    email: String!
+    id: UUID!
+    email: EmailAddress!
     firstName: String!
     lastName: String!
     displayName: String
     jobTitle: String
     company: String
-    profilePicture: String
-    dateOfBirth: DateTime!
-    language: String!
-    ipAddress: String!
+    profilePicture: URL
+    dateOfBirth: Date!
+    language: Locale!
+    ipAddress: IPv4!
     notes: String!
     createdAt: DateTime!
     updatedAt: DateTime!
