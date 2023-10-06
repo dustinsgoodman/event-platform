@@ -8630,6 +8630,7 @@ __metadata:
     "@redwoodjs/api": 6.2.2
     "@redwoodjs/graphql-server": 6.2.2
     date-fns: ^2.30.0
+    date-fns-tz: ^2.0.0
     graphql-scalars: ^1.22.2
   languageName: unknown
   linkType: soft
@@ -11356,6 +11357,15 @@ __metadata:
   version: 2.2.2
   resolution: "dataloader@npm:2.2.2"
   checksum: 125ec69f821478cf7c6b4360095db6cab939fe57876a0d2060c428091a8deee7152345189923b71a6afa694aaec463779f34b585317164016fd6f54f52cd94ba
+  languageName: node
+  linkType: hard
+
+"date-fns-tz@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "date-fns-tz@npm:2.0.0"
+  peerDependencies:
+    date-fns: ">=2.0.0"
+  checksum: 31cacb83c675ef8c2cf31d21c298ab6d74c5e975412dd804664d031ac0f2f03ed5bfb2a950fa15a321bbbcb90b833c300823fbceba0133680065a71894cc1170
   languageName: node
   linkType: hard
 

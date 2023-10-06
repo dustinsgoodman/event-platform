@@ -11,10 +11,10 @@ export const QUERY = gql`
       nodes {
         id
         name
-        startAt
-        endAt
-        registrationStartAt
-        registrationEndAt
+        formattedStartAt
+        formattedEndAt
+        formattedRegistrationStartAt
+        formattedRegistrationEndAt
       }
       pagination {
         totalPages

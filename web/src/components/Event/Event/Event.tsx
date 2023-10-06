@@ -1,49 +1,15 @@
 import type { FindEventById } from 'types/graphql';
 
-import { Link, routes, navigate } from '@redwoodjs/router';
-import { useMutation } from '@redwoodjs/web';
-import { toast } from '@redwoodjs/web/toast';
-
-import { formatEnum, timeTag } from 'src/lib/formatters';
-
-const DELETE_EVENT_MUTATION = gql`
-  mutation DeleteEventMutation($id: String!) {
-    deleteEvent(id: $id) {
-      id
-    }
-  }
-`;
+import { formatEnum } from 'src/lib/formatters';
 
 interface Props {
   event: NonNullable<FindEventById['event']>;
 }
 
 const Event = ({ event }: Props) => {
-  const [deleteEvent] = useMutation(DELETE_EVENT_MUTATION, {
-    onCompleted: () => {
-      toast.success('Event deleted');
-      navigate(routes.events());
-    },
-    onError: (error) => {
-      toast.error(error.message);
-    },
-  });
-
-  const onDeleteClick = (
-    id: FindEventById['event']['id'],
-    name: FindEventById['event']['name']
-  ) => {
-    if (confirm(`Are you sure you want to delete event ${name}?`)) {
-      deleteEvent({ variables: { id } });
-    }
-  };
-
   return (
     <div className="container mx-auto">
       <div className="w-full overflow-hidden rounded-lg border border-gray-200">
-        <header className="bg-gray-200 px-4 py-3 text-gray-700">
-          <h2 className="text-sm font-semibold">Event Details</h2>
-        </header>
         <table className="w-full text-sm">
           <tbody>
             <tr>
@@ -64,11 +30,11 @@ const Event = ({ event }: Props) => {
             </tr>
             <tr>
               <th className="px-3 py-2 text-right">Starts At</th>
-              <td className="px-3 py-2">{timeTag(event.startAt)}</td>
+              <td className="px-3 py-2">{event.formattedStartAt}</td>
             </tr>
             <tr>
               <th className="px-3 py-2 text-right">Ends At</th>
-              <td className="px-3 py-2">{timeTag(event.endAt)}</td>
+              <td className="px-3 py-2">{event.formattedEndAt}</td>
             </tr>
             <tr>
               <th className="px-3 py-2 text-right">Venue Type</th>
@@ -101,12 +67,12 @@ const Event = ({ event }: Props) => {
             <tr>
               <th className="px-3 py-2 text-right">Registration Starts At</th>
               <td className="px-3 py-2">
-                {timeTag(event.registrationStartAt)}
+                {event.formattedRegistrationStartAt}
               </td>
             </tr>
             <tr>
               <th className="px-3 py-2 text-right">Registration Ends At</th>
-              <td className="px-3 py-2">{timeTag(event.registrationEndAt)}</td>
+              <td className="px-3 py-2">{event.formattedRegistrationEndAt}</td>
             </tr>
             <tr>
               <th className="px-3 py-2 text-right">Currency</th>
@@ -118,30 +84,15 @@ const Event = ({ event }: Props) => {
             </tr>
             <tr>
               <th className="px-3 py-2 text-right">Created At</th>
-              <td className="px-3 py-2">{timeTag(event.createdAt)}</td>
+              <td className="px-3 py-2">{event.formattedCreatedAt}</td>
             </tr>
             <tr>
               <th className="px-3 py-2 text-right">Updated At</th>
-              <td className="px-3 py-2">{timeTag(event.updatedAt)}</td>
+              <td className="px-3 py-2">{event.formattedUpdatedAt}</td>
             </tr>
           </tbody>
         </table>
       </div>
-      <nav className="mx-2 my-3 flex justify-center">
-        <Link
-          to={routes.editEvent({ eventId: event.id })}
-          className="mx-1 flex cursor-pointer justify-center rounded border-0 bg-blue-500 px-4 py-1 text-xs font-semibold uppercase leading-loose tracking-wide text-white no-underline transition duration-100 hover:bg-blue-700"
-        >
-          Edit
-        </Link>
-        <button
-          type="button"
-          className="mx-1 flex cursor-pointer justify-center rounded border-0 bg-red-500 px-4 py-1 text-xs font-semibold uppercase leading-loose tracking-wide text-white no-underline transition duration-100 hover:bg-red-700"
-          onClick={() => onDeleteClick(event.id, event.name)}
-        >
-          Delete
-        </button>
-      </nav>
     </div>
   );
 };

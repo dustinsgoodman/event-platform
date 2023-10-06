@@ -23,6 +23,8 @@ export const schema = gql`
     capacity: NonNegativeInt
     createdAt: DateTime!
     updatedAt: DateTime!
+    formattedCreatedAt: String
+    formattedUpdatedAt: String
     sessions: [EventSession]!
     speakers: [EventSpeaker]!
     registrants: [EventRegistrant]!

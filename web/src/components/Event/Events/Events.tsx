@@ -54,21 +54,21 @@ const EventsList = ({ events }: FindEvents) => {
         </Link>
       ),
     }),
-    columnHelper.accessor('startAt', {
+    columnHelper.accessor('formattedStartAt', {
       header: () => 'Event Starts At',
-      cell: (info) => timeTag(info.getValue()),
+      cell: (info) => info.getValue(),
     }),
-    columnHelper.accessor('endAt', {
+    columnHelper.accessor('formattedEndAt', {
       header: () => 'Event Ends At',
-      cell: (info) => timeTag(info.getValue()),
+      cell: (info) => info.getValue(),
     }),
-    columnHelper.accessor('registrationStartAt', {
+    columnHelper.accessor('formattedRegistrationStartAt', {
       header: () => 'Registration Starts At',
-      cell: (info) => timeTag(info.getValue()),
+      cell: (info) => info.getValue(),
     }),
-    columnHelper.accessor('registrationEndAt', {
+    columnHelper.accessor('formattedRegistrationEndAt', {
       header: () => 'Registration Ends At',
-      cell: (info) => timeTag(info.getValue()),
+      cell: (info) => info.getValue(),
     }),
     columnHelper.display({
       id: 'actions',

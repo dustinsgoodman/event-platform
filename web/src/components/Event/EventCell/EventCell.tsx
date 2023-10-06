@@ -11,8 +11,8 @@ export const QUERY = gql`
       name
       description
       timezone
-      startAt
-      endAt
+      formattedStartAt
+      formattedEndAt
       venueType
       venueName
       address
@@ -20,12 +20,12 @@ export const QUERY = gql`
       city
       stateOrProvince
       postalCode
-      registrationStartAt
-      registrationEndAt
+      formattedRegistrationStartAt
+      formattedRegistrationEndAt
       currency
       capacity
-      createdAt
-      updatedAt
+      formattedCreatedAt
+      formattedUpdatedAt
     }
   }
 `;
