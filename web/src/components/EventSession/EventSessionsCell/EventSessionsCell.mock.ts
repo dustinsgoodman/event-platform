@@ -1,4 +1,5 @@
 export const standard = (/* vars, { ctx, req } */) => ({
+  eventId: '97d64e90-2c53-41cf-a6a5-af399f75ecc5',
   eventSessions: {
     nodes: [
       {
@@ -59,6 +60,7 @@ export const standard = (/* vars, { ctx, req } */) => ({
       },
     ],
     pagination: {
+      total: 7,
       totalPages: 1,
       page: 1,
       perPage: 25,

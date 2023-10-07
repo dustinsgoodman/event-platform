@@ -19,6 +19,7 @@ export const standard = defineScenario<Prisma.EventSessionCreateArgs>({
           },
         },
       },
+      include: { event: true },
     },
     two: {
       data: {

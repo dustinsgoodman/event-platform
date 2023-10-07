@@ -7,7 +7,12 @@ import EventSessions from './EventSessions';
 describe('EventSessions', () => {
   it('renders successfully', () => {
     expect(() => {
-      render(<EventSessions eventSessions={standard().eventSessions} />);
+      render(
+        <EventSessions
+          eventSessions={standard().eventSessions}
+          eventId={standard().eventId}
+        />
+      );
     }).not.toThrow();
   });
 });

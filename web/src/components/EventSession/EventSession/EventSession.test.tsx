@@ -7,7 +7,12 @@ import EventSession from './EventSession';
 describe('EventSession', () => {
   it('renders successfully', () => {
     expect(() => {
-      render(<EventSession eventSession={standard().eventSession} />);
+      render(
+        <EventSession
+          eventSession={standard().eventSession}
+          eventId={standard().eventSession.eventId}
+        />
+      );
     }).not.toThrow();
   });
 });

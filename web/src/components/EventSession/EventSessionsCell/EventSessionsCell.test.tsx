@@ -1,3 +1,4 @@
+import { ParamsProvider } from '@redwoodjs/router';
 import { render } from '@redwoodjs/testing/web';
 
 import { Loading, Empty, Failure, Success } from './EventSessionsCell';
@@ -36,7 +37,16 @@ describe('EventSessionsCell', () => {
 
   it('renders Success successfully', async () => {
     expect(() => {
-      render(<Success eventSessions={standard().eventSessions} />);
+      render(
+        <ParamsProvider
+          allParams={{
+            eventId: standard().eventId,
+          }}
+        >
+          {' '}
+          <Success eventSessions={standard().eventSessions} />
+        </ParamsProvider>
+      );
     }).not.toThrow();
   });
 });

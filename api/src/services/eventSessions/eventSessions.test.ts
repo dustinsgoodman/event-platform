@@ -40,7 +40,7 @@ describe('eventSessions', () => {
     expect(result.name).toEqual('String');
     expect(result.startAt).toEqual(new Date('2023-09-02T18:06:47.379Z'));
     expect(result.endAt).toEqual(new Date('2023-09-02T18:06:47.379Z'));
-    expect(result.eventId).toEqual(scenario.eventSession.two.eventId);
+    expect(result.event.id).toEqual(scenario.eventSession.two.eventId);
   });
 
   scenario('updates a eventSession', async (scenario: StandardScenario) => {

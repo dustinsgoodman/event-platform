@@ -1,3 +1,4 @@
+import { ParamsProvider } from '@redwoodjs/router';
 import { render } from '@redwoodjs/testing/web';
 
 import EventAdminLayout from './EventAdminLayout';
@@ -8,7 +9,15 @@ import EventAdminLayout from './EventAdminLayout';
 describe('EventAdminLayout', () => {
   it('renders successfully', () => {
     expect(() => {
-      render(<EventAdminLayout />);
+      render(
+        <ParamsProvider
+          allParams={{
+            eventId: '123',
+          }}
+        >
+          <EventAdminLayout />
+        </ParamsProvider>
+      );
     }).not.toThrow();
   });
 });

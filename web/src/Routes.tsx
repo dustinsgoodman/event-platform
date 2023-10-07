@@ -15,7 +15,7 @@ const Routes = () => {
       <Set wrap={EventAdminLayout}>
         <Route path="/events/{eventId}/sessions/new" page={EventSessionNewEventSessionPage} name="newEventSession" />
         <Route path="/events/{eventId}/sessions/{id}/edit" page={EventSessionEditEventSessionPage} name="editEventSession" />
-        <Route path="/events/{eventId}/session/{id}" page={EventSessionEventSessionPage} name="eventSession" />
+        <Route path="/events/{eventId}/sessions/{id}" page={EventSessionEventSessionPage} name="eventSession" />
         <Route path="/events/{eventId}/sessions" page={EventSessionEventSessionsPage} name="eventSessions" />
 
         <Route path="/events/{eventId}/speakers" page={EventSpeakerEventSpeakersPage} name="eventSpeakers" />

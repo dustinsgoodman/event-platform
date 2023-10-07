@@ -8,7 +8,7 @@ import DropdownMenu from './DropdownMenu';
 describe('DropdownMenu', () => {
   it('renders successfully', () => {
     expect(() => {
-      render(<DropdownMenu />);
+      render(<DropdownMenu sections={[]}>Hello</DropdownMenu>);
     }).not.toThrow();
   });
 });
