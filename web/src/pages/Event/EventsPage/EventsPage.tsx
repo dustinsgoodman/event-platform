@@ -1,10 +1,10 @@
 import { FC } from 'react';
 
-import { Link, routes } from '@redwoodjs/router';
+import { routes } from '@redwoodjs/router';
 import { MetaTags } from '@redwoodjs/web';
 
-import Button from 'src/components/Button/Button';
 import EventsCell from 'src/components/Event/EventsCell';
+import IndexHeader from 'src/components/IndexHeader/IndexHeader';
 
 type Props = {
   page?: number;
@@ -15,17 +15,8 @@ const EventsPage: FC<Props> = ({ page }) => {
     <>
       <MetaTags title="Events" description="Events page" />
 
-      <div className="mb-2 flex items-center justify-between">
-        <h2>My Events</h2>
-        <Button
-          component={Link}
-          to={routes.newEvent()}
-          theme="alternative"
-          size="sm"
-        >
-          Create New Event
-        </Button>
-      </div>
+      <IndexHeader entityType="Event" entityCreateRoute={routes.newEvent()} />
+
       <EventsCell page={page} />
     </>
   );
