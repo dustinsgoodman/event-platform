@@ -1,13 +1,14 @@
+import { FC } from 'react';
+
 import { MetaTags } from '@redwoodjs/web';
 
 import EventSessionCell from 'src/components/EventSession/EventSessionCell';
 
 type EventSessionPageProps = {
-  eventId: string;
   id: string;
 };
 
-const EventSessionPage = ({ id }: EventSessionPageProps) => {
+const EventSessionPage: FC<EventSessionPageProps> = ({ id }) => {
   return (
     <>
       <MetaTags title="EventSession" description="EventSession page" />
