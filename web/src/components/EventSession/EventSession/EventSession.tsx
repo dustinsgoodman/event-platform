@@ -2,12 +2,9 @@ import { FC } from 'react';
 
 import type { FindEventSessionQuery } from 'types/graphql';
 
-import { navigate, routes } from '@redwoodjs/router';
-import { useMutation } from '@redwoodjs/web';
-import { toast } from '@redwoodjs/web/toast';
+import { routes } from '@redwoodjs/router';
 
-import DropdownMenu from 'src/components/DropdownMenu/DropdownMenu';
-import { HorizontalMore } from 'src/components/Icons/Icons';
+import DetailHeader from 'src/components/DetailHeader/DetailHeader';
 
 const DELETE_EVENT_SESSION_MUTATION = gql`
   mutation DeleteEventSessionMutation($id: String!) {
@@ -23,58 +20,19 @@ type EventSessionProps = {
 };
 
 const EventSession: FC<EventSessionProps> = ({ eventSession, eventId }) => {
-  const [deleteEventSession] = useMutation(DELETE_EVENT_SESSION_MUTATION, {
-    onCompleted: () => {
-      toast.success('Event session deleted');
-      navigate(routes.events());
-    },
-    onError: (error) => {
-      toast.error(error.message);
-    },
-  });
-
-  const onDeleteClick = (
-    id: FindEventSessionQuery['eventSession']['id'],
-    name: FindEventSessionQuery['eventSession']['name']
-  ) => {
-    if (confirm(`Are you sure you want to delete event session ${name}?`)) {
-      deleteEventSession({ variables: { id } });
-    }
-  };
-
   return (
     <>
-      <div className="mb-2 flex items-center justify-between">
-        <h2>Event Session Details</h2>
-        <DropdownMenu
-          theme="alternative"
-          compressed={true}
-          sections={[
-            {
-              items: [
-                {
-                  onClick: () =>
-                    navigate(
-                      routes.editEventSession({
-                        eventId,
-                        id: eventSession.id,
-                      })
-                    ),
-                  children: 'Edit',
-                },
-                {
-                  onClick: () =>
-                    onDeleteClick(eventSession.id, eventSession.name),
-                  children: 'Delete',
-                  className: 'text-red-600 hover:text-red-800',
-                },
-              ],
-            },
-          ]}
-        >
-          <HorizontalMore />
-        </DropdownMenu>
-      </div>
+      <DetailHeader
+        mutation={DELETE_EVENT_SESSION_MUTATION}
+        entityType="Event Session"
+        entityId={eventSession.id}
+        entityName={eventSession.name}
+        entityIndexRoute={routes.eventSessions({ eventId })}
+        entityEditRoute={routes.editEventSession({
+          eventId,
+          id: eventSession.id,
+        })}
+      />
 
       <div className="container mx-auto">
         <div className="w-full overflow-hidden rounded-lg border border-gray-200">
