@@ -25,7 +25,7 @@ type Story = StoryObj<typeof DetailHeader>;
 export const Primary: Story = {
   args: {
     mutation: gql`
-      mutation DeleteEventMutation($id: String!) {
+      mutation DeleteEventMutation($id: UUID!) {
         deleteEvent(id: $id) {
           id
         }

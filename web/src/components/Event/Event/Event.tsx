@@ -8,7 +8,7 @@ import DetailHeader from 'src/components/DetailHeader/DetailHeader';
 import { formatEnum } from 'src/lib/formatters';
 
 const DELETE_EVENT_MUTATION = gql`
-  mutation DeleteEventMutation($id: String!) {
+  mutation DeleteEventMutation($id: UUID!) {
     deleteEvent(id: $id) {
       id
     }

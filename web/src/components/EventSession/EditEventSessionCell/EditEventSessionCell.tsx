@@ -11,7 +11,7 @@ import { toast } from '@redwoodjs/web/toast';
 import EventSessionForm from 'src/components/EventSession/EventSessionForm/EventSessionForm';
 
 export const QUERY = gql`
-  query EditEventSessionById($id: String!) {
+  query EditEventSessionById($id: UUID!) {
     eventSession(id: $id) {
       id
       name
@@ -35,7 +35,7 @@ export const QUERY = gql`
 
 const UPDATE_EVENT_SESSION_MUTATION = gql`
   mutation UpdateEventSessionMutation(
-    $id: String!
+    $id: UUID!
     $input: UpdateEventSessionInput!
   ) {
     updateEventSession(id: $id, input: $input) {

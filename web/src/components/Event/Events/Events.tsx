@@ -12,7 +12,7 @@ import Pagination from 'src/components/Pagination/Pagination';
 import Table from 'src/components/Table/Table';
 
 const DELETE_EVENT_MUTATION = gql`
-  mutation DeleteEventMutation($id: String!) {
+  mutation DeleteEventMutation($id: UUID!) {
     deleteEvent(id: $id) {
       id
     }

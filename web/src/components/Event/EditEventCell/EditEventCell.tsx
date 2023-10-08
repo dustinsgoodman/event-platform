@@ -8,7 +8,7 @@ import { toast } from '@redwoodjs/web/toast';
 import EventForm from 'src/components/Event/EventForm';
 
 export const QUERY = gql`
-  query EditEventById($id: String!) {
+  query EditEventById($id: UUID!) {
     event: event(id: $id) {
       id
       name
@@ -33,7 +33,7 @@ export const QUERY = gql`
   }
 `;
 const UPDATE_EVENT_MUTATION = gql`
-  mutation UpdateEventMutation($id: String!, $input: UpdateEventInput!) {
+  mutation UpdateEventMutation($id: UUID!, $input: UpdateEventInput!) {
     updateEvent(id: $id, input: $input) {
       id
       name
