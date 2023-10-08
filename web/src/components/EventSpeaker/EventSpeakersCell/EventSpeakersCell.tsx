@@ -1,14 +1,20 @@
 import type { EventSpeakersQuery } from 'types/graphql';
 
+import { useParams } from '@redwoodjs/router';
 import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web';
+
+import EventSpeakers from 'src/components/EventSpeaker/EventSpeakers/EventSpeakers';
 
 export const QUERY = gql`
   query EventSpeakersQuery($eventId: UUID!, $pagination: PaginationInput) {
     eventSpeakers(eventId: $eventId, pagination: $pagination) {
       nodes {
         id
+        fullName
         firstName
         lastName
+        jobTitle
+        company
       }
       pagination {
         totalPages
@@ -42,11 +48,6 @@ export const Failure = ({ error }: CellFailureProps) => (
 export const Success = ({
   eventSpeakers,
 }: CellSuccessProps<EventSpeakersQuery>) => {
-  return (
-    <ul>
-      {eventSpeakers.nodes.map((item) => {
-        return <li key={item.id}>{JSON.stringify(item)}</li>;
-      })}
-    </ul>
-  );
+  const { eventId } = useParams();
+  return <EventSpeakers eventSpeakers={eventSpeakers} eventId={eventId} />;
 };
