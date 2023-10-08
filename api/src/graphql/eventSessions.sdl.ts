@@ -24,10 +24,10 @@ export const schema = gql`
 
   type Query {
     eventSessions(
-      eventId: String!
+      eventId: UUID!
       pagination: PaginationInput
     ): EventSessionConnection! @requireAuth
-    eventSession(id: String!): EventSession @requireAuth
+    eventSession(id: UUID!): EventSession @requireAuth
   }
 
   input CreateEventSessionInput {
@@ -52,9 +52,9 @@ export const schema = gql`
     createEventSession(input: CreateEventSessionInput!): EventSession!
       @requireAuth
     updateEventSession(
-      id: String!
+      id: UUID!
       input: UpdateEventSessionInput!
     ): EventSession! @requireAuth
-    deleteEventSession(id: String!): EventSession! @requireAuth
+    deleteEventSession(id: UUID!): EventSession! @requireAuth
   }
 `;

@@ -43,7 +43,7 @@ export const schema = gql`
 
   type Query {
     events(pagination: PaginationInput): EventConnection! @requireAuth
-    event(id: String!): Event @requireAuth
+    event(id: UUID!): Event @requireAuth
   }
 
   input CreateEventInput {
@@ -86,7 +86,7 @@ export const schema = gql`
 
   type Mutation {
     createEvent(input: CreateEventInput!): Event! @requireAuth
-    updateEvent(id: String!, input: UpdateEventInput!): Event! @requireAuth
-    deleteEvent(id: String!): Event! @requireAuth
+    updateEvent(id: UUID!, input: UpdateEventInput!): Event! @requireAuth
+    deleteEvent(id: UUID!): Event! @requireAuth
   }
 `;
