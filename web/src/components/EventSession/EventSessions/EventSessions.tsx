@@ -8,7 +8,7 @@ import { useMutation } from '@redwoodjs/web';
 import { toast } from '@redwoodjs/web/toast';
 
 import DropdownMenu from 'src/components/DropdownMenu/DropdownMenu';
-import { QUERY } from 'src/components/Event/EventsCell';
+import { QUERY } from 'src/components/EventSession/EventSessionsCell';
 import { VerticalMore } from 'src/components/Icons/Icons';
 import Pagination from 'src/components/Pagination/Pagination';
 import Table from 'src/components/Table/Table';
