@@ -70,6 +70,9 @@ export const deleteEventSpeaker: MutationResolvers['deleteEventSpeaker'] = ({
 };
 
 export const EventSpeaker: EventSpeakerRelationResolvers = {
+  fullName: (_obj, { root }) => {
+    return `${root.firstName} ${root.lastName}`;
+  },
   event: (_obj, { root }) => {
     return db.eventSpeaker.findUnique({ where: { id: root?.id } }).event();
   },

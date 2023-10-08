@@ -3,6 +3,7 @@ export const schema = gql`
     id: UUID!
     firstName: String!
     lastName: String!
+    fullName: String
     jobTitle: String
     company: String
     profilePicture: URL
