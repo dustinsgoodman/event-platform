@@ -6,5 +6,9 @@
   "Session": {
     "index": "Sessions",
     "create": "Create New Session"
+  },
+  "Speaker": {
+    "index": "Speakers",
+    "create": "Create New Speaker"
   }
 }

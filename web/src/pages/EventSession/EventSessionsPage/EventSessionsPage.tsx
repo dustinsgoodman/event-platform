@@ -1,3 +1,5 @@
+import { type FC } from 'react';
+
 import { routes } from '@redwoodjs/router';
 import { MetaTags } from '@redwoodjs/web';
 
@@ -9,7 +11,7 @@ type EventSessionsPageProps = {
   page?: number;
 };
 
-const EventSessionsPage = ({ eventId, page }: EventSessionsPageProps) => {
+const EventSessionsPage: FC<EventSessionsPageProps> = ({ eventId, page }) => {
   return (
     <>
       <MetaTags title="Sessions" description="EventSessions page" />
