@@ -17,9 +17,17 @@ export const schema = gql`
     registrant: EventRegistrant
   }
 
+  type EventSpeakerConnection {
+    nodes: [EventSpeaker!]!
+    pagination: Pagination!
+  }
+
   type Query {
-    eventSpeakers: [EventSpeaker!]! @requireAuth
-    eventSpeaker(id: String!): EventSpeaker @requireAuth
+    eventSpeakers(
+      eventId: UUID!
+      pagination: PaginationInput
+    ): EventSpeakerConnection! @requireAuth
+    eventSpeaker(id: UUID!): EventSpeaker @requireAuth
   }
 
   input CreateEventSpeakerInput {
@@ -51,9 +59,9 @@ export const schema = gql`
     createEventSpeaker(input: CreateEventSpeakerInput!): EventSpeaker!
       @requireAuth
     updateEventSpeaker(
-      id: String!
+      id: UUID!
       input: UpdateEventSpeakerInput!
     ): EventSpeaker! @requireAuth
-    deleteEventSpeaker(id: String!): EventSpeaker! @requireAuth
+    deleteEventSpeaker(id: UUID!): EventSpeaker! @requireAuth
   }
 `;
