@@ -6,8 +6,13 @@ import { navigate } from '@redwoodjs/router';
 import { useMutation } from '@redwoodjs/web';
 import { toast } from '@redwoodjs/web/toast';
 
+import Button from 'src/components/Button/Button';
 import DropdownMenu from 'src/components/DropdownMenu/DropdownMenu';
-import { HorizontalMore } from 'src/components/Icons/Icons';
+import {
+  DeleteIcon,
+  EditIcon,
+  HorizontalMore,
+} from 'src/components/Icons/Icons';
 
 type DetailHeaderProps = {
   mutation: DocumentNode;
@@ -49,27 +54,54 @@ const DetailHeader: FC<DetailHeaderProps> = ({
   return (
     <div className="mb-2 flex items-center justify-between">
       <h2>{entityType} Details</h2>
-      <DropdownMenu
-        theme="alternative"
-        compressed={true}
-        sections={[
-          {
-            items: [
-              {
-                onClick: () => navigate(entityEditRoute),
-                children: 'Edit',
-              },
-              {
-                onClick: onDeleteClick,
-                children: 'Delete',
-                className: 'text-red-600 hover:text-red-800',
-              },
-            ],
-          },
-        ]}
-      >
-        <HorizontalMore />
-      </DropdownMenu>
+      <div className="hidden gap-x-1 md:flex">
+        <Button component="a" href={entityEditRoute} size="sm">
+          <EditIcon />
+          Edit
+        </Button>
+        <Button
+          component="button"
+          onClick={onDeleteClick}
+          theme="red"
+          size="sm"
+        >
+          <DeleteIcon />
+          Delete
+        </Button>
+      </div>
+      <div className="md:hidden">
+        <DropdownMenu
+          theme="alternative"
+          compressed={true}
+          sections={[
+            {
+              items: [
+                {
+                  onClick: () => navigate(entityEditRoute),
+                  children: (
+                    <>
+                      <EditIcon />
+                      Edit
+                    </>
+                  ),
+                },
+                {
+                  onClick: onDeleteClick,
+                  children: (
+                    <>
+                      <DeleteIcon />
+                      Delete
+                    </>
+                  ),
+                  className: 'text-red-600 hover:text-red-800',
+                },
+              ],
+            },
+          ]}
+        >
+          <HorizontalMore />
+        </DropdownMenu>
+      </div>
     </div>
   );
 };

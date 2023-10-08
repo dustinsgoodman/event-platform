@@ -91,7 +91,7 @@ const DropdownMenu: FC<DropdownMenuProps> = ({
                           item.className
                         )}
                       >
-                        <span className="flex items-center space-x-2 px-4">
+                        <span className="flex items-center gap-x-1 px-4">
                           {item.children}
                         </span>
                       </button>
