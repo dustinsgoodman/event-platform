@@ -30,7 +30,7 @@ describe('EditEventSessionCell', () => {
 
   it('renders Success successfully', async () => {
     expect(() => {
-      render(<Success editEventSession={standard().editEventSession} />);
+      render(<Success eventSession={standard().editEventSession} />);
     }).not.toThrow();
   });
 });
