@@ -1,4 +1,5 @@
 import { routes, useParams } from '@redwoodjs/router';
+import { Toaster } from '@redwoodjs/web/toast';
 
 import AdminHeader from 'src/components/AdminHeader/AdminHeader';
 
@@ -10,6 +11,7 @@ const EventAdminLayout = ({ children }: EventAdminLayoutProps) => {
   const { eventId } = useParams();
   return (
     <>
+      <Toaster toastOptions={{ duration: 6000 }} />
       <AdminHeader
         title="Event Dashboard"
         titleTo={routes.event({ eventId: eventId })}

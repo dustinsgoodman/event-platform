@@ -1,4 +1,5 @@
 import { routes } from '@redwoodjs/router';
+import { Toaster } from '@redwoodjs/web/toast';
 
 import AdminHeader from 'src/components/AdminHeader/AdminHeader';
 
@@ -9,6 +10,7 @@ type AdminLayoutProps = {
 const AdminLayout = ({ children }: AdminLayoutProps) => {
   return (
     <>
+      <Toaster toastOptions={{ duration: 6000 }} />
       <AdminHeader
         title="Event Platform"
         titleTo={routes.events()}
