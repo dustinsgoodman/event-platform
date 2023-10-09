@@ -1,5 +1,7 @@
 import { FC, useState } from 'react';
 
+import { useTranslation } from 'react-i18next';
+
 import { Link, routes } from '@redwoodjs/router';
 
 import { MenuIcon } from 'src/components/Icons/Icons';
@@ -20,6 +22,7 @@ const HeaderLink: FC<HeaderLinkProps> = ({ link, label }) => {
   );
 };
 const PublicHeader = () => {
+  const { t } = useTranslation();
   const [navbarOpen, setNavbarOpen] = useState<boolean>(false);
 
   return (
@@ -57,7 +60,7 @@ const PublicHeader = () => {
               to={routes.events()}
               className="text-md focus:shadow-outline transform rounded-lg border bg-transparent bg-gradient-to-r from-blue-500 to-blue-800 px-14 py-3 font-semibold tracking-tighter text-white transition duration-500 ease-in-out hover:text-white hover:no-underline"
             >
-              Login
+              {t('common.login')}
             </Link>
           </span>
         </div>

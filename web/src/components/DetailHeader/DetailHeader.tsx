@@ -1,6 +1,7 @@
 import { FC } from 'react';
 
 import type { DocumentNode } from 'graphql';
+import { useTranslation } from 'react-i18next';
 
 import { navigate } from '@redwoodjs/router';
 import { useMutation } from '@redwoodjs/web';
@@ -31,9 +32,11 @@ const DetailHeader: FC<DetailHeaderProps> = ({
   entityIndexRoute,
   entityEditRoute,
 }) => {
+  const { t } = useTranslation();
+
   const [deleteFn] = useMutation(mutation, {
     onCompleted: () => {
-      toast.success(`${entityType} deleted`);
+      toast.success(t('Entity.deleted', { entityType }));
       navigate(entityIndexRoute);
     },
     onError: (error) => {
@@ -44,7 +47,10 @@ const DetailHeader: FC<DetailHeaderProps> = ({
   const onDeleteClick = () => {
     if (
       confirm(
-        `Are you sure you want to delete ${entityType.toLowerCase()} "${entityName}"?`
+        t('Entity.deleteConfirmation', {
+          entityType: entityType.toLowerCase(),
+          entityName,
+        })
       )
     ) {
       deleteFn({ variables: { id: entityId } });
@@ -53,11 +59,11 @@ const DetailHeader: FC<DetailHeaderProps> = ({
 
   return (
     <div className="mb-2 flex items-center justify-between">
-      <h2>{entityType} Details</h2>
+      <h2>{t('Entity.details', { entityType })}</h2>
       <div className="hidden gap-x-1 md:flex">
         <Button component="a" href={entityEditRoute} size="sm">
           <EditIcon />
-          Edit
+          {t('common.edit')}
         </Button>
         <Button
           component="button"
@@ -66,7 +72,7 @@ const DetailHeader: FC<DetailHeaderProps> = ({
           size="sm"
         >
           <DeleteIcon />
-          Delete
+          {t('common.delete')}
         </Button>
       </div>
       <div className="md:hidden">
@@ -81,7 +87,7 @@ const DetailHeader: FC<DetailHeaderProps> = ({
                   children: (
                     <>
                       <EditIcon />
-                      Edit
+                      {t('common.edit')}
                     </>
                   ),
                 },
@@ -90,7 +96,7 @@ const DetailHeader: FC<DetailHeaderProps> = ({
                   children: (
                     <>
                       <DeleteIcon />
-                      Delete
+                      {t('common.delete')}
                     </>
                   ),
                   className: 'text-red-600 hover:text-red-800',

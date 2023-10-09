@@ -2,7 +2,25 @@
   "common": {
     "show": "Show",
     "edit": "Edit",
-    "delete": "Delete"
+    "delete": "Delete",
+    "login": "Log In",
+    "logout": "Log Out"
+  },
+  "Entity": {
+    "details": "{{entityType}} Details",
+    "deleteConfirmation": "Are you sure you want to delete {{entityType}} \"{{entityName}}\"?",
+    "deleted": "{{entityType}} deleted"
+  },
+  "Navigation": {
+    "currentUser": "Signed in as <email>{{email}}</email>",
+    "menuAria": "Toggle Navigation Menu",
+    "dashboard": "Dashboard",
+    "events": "My Events"
+  },
+  "Pagination": {
+    "previous": "Previous",
+    "next": "Next",
+    "details": "Showing <bold>{{displayCount}}</bold> of <bold>{{total}}</bold>"
   },
   "Event": {
     "index": "My Events",
@@ -23,5 +41,10 @@
       "jobTitle": "Job Title",
       "company": "Company"
     }
+  },
+  "Legal": {
+    "tos": "Terms of Service",
+    "privacy": "Privacy Policy",
+    "cookies": "Cookie Policy"
   }
 }
