@@ -37,6 +37,10 @@ export const beforeQuery = ({ page }) => {
   };
 };
 
+export const isEmpty = (data, { isDataEmpty }) => {
+  return isDataEmpty(data.events.nodes);
+};
+
 export const Loading = () => <div>Loading...</div>;
 
 export const Empty = () => {

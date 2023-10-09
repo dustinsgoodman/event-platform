@@ -1,18 +1,28 @@
+import { type FC } from 'react';
+
+import { routes } from '@redwoodjs/router';
 import { MetaTags } from '@redwoodjs/web';
 
-const EventSpeakersPage = () => {
+import EventSpeakersCell from 'src/components/EventSpeaker/EventSpeakersCell';
+import IndexHeader from 'src/components/IndexHeader/IndexHeader';
+
+type EventSpeakersPageProps = {
+  eventId: string;
+  page?: number;
+};
+
+const EventSpeakersPage: FC<EventSpeakersPageProps> = ({ eventId, page }) => {
   return (
     <>
-      <MetaTags title="EventSpeakers" description="EventSpeakers page" />
+      <MetaTags title="Speakers" description="EventSpeakers page" />
 
-      <h1>EventSpeakersPage</h1>
-      <p>
-        Find me in{' '}
-        <code>./web/src/pages/EventSpeakersPage/EventSpeakersPage.tsx</code>
-      </p>
-      <p>
-        My default route is named <code>eventSpeakers</code>, link to me with `
-      </p>
+      <div className="container mx-auto py-4">
+        <IndexHeader
+          entityType="Speaker"
+          entityCreateRoute={routes.newEventSpeaker({ eventId })}
+        />
+        <EventSpeakersCell eventId={eventId} page={page} />
+      </div>
     </>
   );
 };

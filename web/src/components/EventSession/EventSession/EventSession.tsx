@@ -7,7 +7,7 @@ import { routes } from '@redwoodjs/router';
 import DetailHeader from 'src/components/DetailHeader/DetailHeader';
 
 const DELETE_EVENT_SESSION_MUTATION = gql`
-  mutation DeleteEventSessionMutation($id: String!) {
+  mutation DeleteEventSessionMutation($id: UUID!) {
     deleteEventSession(id: $id) {
       id
     }

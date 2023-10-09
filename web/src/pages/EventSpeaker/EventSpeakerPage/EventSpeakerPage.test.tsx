@@ -1,14 +1,14 @@
 import { render } from '@redwoodjs/testing/web';
 
-import EventSpeakersPage from './EventSpeakersPage';
+import EventSpeakerPage from './EventSpeakerPage';
 
 //   Improve this test with help from the Redwood Testing Doc:
 //   https://redwoodjs.com/docs/testing#testing-pages-layouts
 
-describe('EventSpeakersPage', () => {
+describe('EventSpeakerPage', () => {
   it('renders successfully', () => {
     expect(() => {
-      render(<EventSpeakersPage eventId="42" />);
+      render(<EventSpeakerPage />);
     }).not.toThrow();
   });
 });

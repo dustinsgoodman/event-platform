@@ -1,0 +1,27 @@
+{
+  "common": {
+    "show": "Show",
+    "edit": "Edit",
+    "delete": "Delete"
+  },
+  "Event": {
+    "index": "My Events",
+    "create": "Create New Event"
+  },
+  "Session": {
+    "index": "Sessions",
+    "create": "Create New Session"
+  },
+  "Speaker": {
+    "index": "Speakers",
+    "create": "Create New Speaker",
+    "deleted": "Speaker deleted",
+    "deleteConfirmation": "Are you sure you want to delete event speaker {{name}}?",
+    "fields": {
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "jobTitle": "Job Title",
+      "company": "Company"
+    }
+  }
+}

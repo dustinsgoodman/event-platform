@@ -9,7 +9,7 @@ import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web';
 import EventSession from 'src/components/EventSession/EventSession/EventSession';
 
 export const QUERY = gql`
-  query FindEventSessionQuery($id: String!) {
+  query FindEventSessionQuery($id: UUID!) {
     eventSession(id: $id) {
       id
       name

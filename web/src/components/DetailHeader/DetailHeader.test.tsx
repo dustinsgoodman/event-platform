@@ -11,7 +11,7 @@ describe('DetailHeader', () => {
       render(
         <DetailHeader
           mutation={gql`
-            mutation DeleteEventMutation($id: String!) {
+            mutation DeleteEventMutation($id: UUID!) {
               deleteEvent(id: $id) {
                 id
               }

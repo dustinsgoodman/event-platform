@@ -1,14 +1,14 @@
 import { render } from '@redwoodjs/testing/web';
 
-import EventSpeakersPage from './EventSpeakersPage';
+import IndexHeader from './IndexHeader';
 
 //   Improve this test with help from the Redwood Testing Doc:
-//   https://redwoodjs.com/docs/testing#testing-pages-layouts
+//    https://redwoodjs.com/docs/testing#testing-components
 
-describe('EventSpeakersPage', () => {
+describe('IndexHeader', () => {
   it('renders successfully', () => {
     expect(() => {
-      render(<EventSpeakersPage eventId="42" />);
+      render(<IndexHeader />);
     }).not.toThrow();
   });
 });

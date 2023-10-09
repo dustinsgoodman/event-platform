@@ -18,6 +18,9 @@ const Routes = () => {
         <Route path="/events/{eventId}/sessions/{id}" page={EventSessionEventSessionPage} name="eventSession" />
         <Route path="/events/{eventId}/sessions" page={EventSessionEventSessionsPage} name="eventSessions" />
 
+        <Route path="/events/{eventId}/speakers/new" page={EventSpeakerNewEventSpeakerPage} name="newEventSpeaker" />
+        <Route path="/events/{eventId}/speakers/{id}/edit" page={EventSpeakerEditEventSpeakerPage} name="editEventSpeaker" />
+        <Route path="/events/{eventId}/speakers/{id}" page={EventSpeakerEventSpeakerPage} name="eventSpeaker" />
         <Route path="/events/{eventId}/speakers" page={EventSpeakerEventSpeakersPage} name="eventSpeakers" />
 
         <Route path="/events/{eventId}/registrants" page={EventRegistrantEventRegistrantsPage} name="eventRegistrants" />

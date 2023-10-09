@@ -6,8 +6,35 @@ import type {
 
 import { db } from 'src/lib/db';
 
-export const eventSpeakers: QueryResolvers['eventSpeakers'] = () => {
-  return db.eventSpeaker.findMany();
+export const eventSpeakers: QueryResolvers['eventSpeakers'] = async ({
+  eventId,
+  pagination,
+}) => {
+  const page = pagination?.page ?? 1;
+  const perPage = pagination?.perPage ?? 25;
+
+  const [speakers, count] = await db.$transaction([
+    db.eventSpeaker.findMany({
+      where: { eventId },
+      take: perPage,
+      skip: (page - 1) * perPage,
+      orderBy: { firstName: 'asc' },
+      include: { event: true },
+    }),
+    db.eventSession.count({
+      where: { eventId },
+    }),
+  ]);
+
+  return {
+    nodes: speakers,
+    pagination: {
+      page,
+      perPage,
+      total: count,
+      totalPages: Math.max(1, Math.ceil(count / perPage)),
+    },
+  };
 };
 
 export const eventSpeaker: QueryResolvers['eventSpeaker'] = ({ id }) => {
@@ -43,6 +70,9 @@ export const deleteEventSpeaker: MutationResolvers['deleteEventSpeaker'] = ({
 };
 
 export const EventSpeaker: EventSpeakerRelationResolvers = {
+  fullName: (_obj, { root }) => {
+    return `${root.firstName} ${root.lastName}`;
+  },
   event: (_obj, { root }) => {
     return db.eventSpeaker.findUnique({ where: { id: root?.id } }).event();
   },

@@ -1,24 +1,20 @@
-import type { EventSessionsQuery } from 'types/graphql';
+import type { EventSpeakersQuery } from 'types/graphql';
 
 import { useParams } from '@redwoodjs/router';
 import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web';
 
-import EventSessions from '../EventSessions/EventSessions';
+import EventSpeakers from 'src/components/EventSpeaker/EventSpeakers/EventSpeakers';
 
 export const QUERY = gql`
-  query EventSessionsQuery($eventId: UUID!, $pagination: PaginationInput) {
-    eventSessions(eventId: $eventId, pagination: $pagination) {
+  query EventSpeakersQuery($eventId: UUID!, $pagination: PaginationInput) {
+    eventSpeakers(eventId: $eventId, pagination: $pagination) {
       nodes {
         id
-        name
-        formattedStartAt
-        formattedEndAt
-        # track
-        speakers {
-          id
-          firstName
-          lastName
-        }
+        fullName
+        firstName
+        lastName
+        jobTitle
+        company
       }
       pagination {
         totalPages
@@ -43,7 +39,7 @@ export const beforeQuery = ({ eventId, page }) => {
 };
 
 export const isEmpty = (data, { isDataEmpty }) => {
-  return isDataEmpty(data.eventSessions.nodes);
+  return isDataEmpty(data.eventSpeakers.nodes);
 };
 
 export const Loading = () => <div>Loading...</div>;
@@ -55,8 +51,8 @@ export const Failure = ({ error }: CellFailureProps) => (
 );
 
 export const Success = ({
-  eventSessions,
-}: CellSuccessProps<EventSessionsQuery>) => {
+  eventSpeakers,
+}: CellSuccessProps<EventSpeakersQuery>) => {
   const { eventId } = useParams();
-  return <EventSessions eventSessions={eventSessions} eventId={eventId} />;
+  return <EventSpeakers eventSpeakers={eventSpeakers} eventId={eventId} />;
 };

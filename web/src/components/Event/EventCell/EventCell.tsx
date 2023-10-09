@@ -5,7 +5,7 @@ import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web';
 import Event from 'src/components/Event/Event';
 
 export const QUERY = gql`
-  query FindEventById($id: String!) {
+  query FindEventById($id: UUID!) {
     event(id: $id) {
       id
       name
