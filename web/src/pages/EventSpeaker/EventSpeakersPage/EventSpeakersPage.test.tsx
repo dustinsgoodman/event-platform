@@ -8,7 +8,7 @@ import EventSpeakersPage from './EventSpeakersPage';
 describe('EventSpeakersPage', () => {
   it('renders successfully', () => {
     expect(() => {
-      render(<EventSpeakersPage />);
+      render(<EventSpeakersPage eventId="42" />);
     }).not.toThrow();
   });
 });

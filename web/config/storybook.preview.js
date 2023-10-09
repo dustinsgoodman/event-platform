@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import { I18nextProvider } from 'react-i18next';
 import i18n from 'web/src/i18n';
 

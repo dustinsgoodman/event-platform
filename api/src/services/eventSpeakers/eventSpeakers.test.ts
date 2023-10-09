@@ -17,9 +17,11 @@ import type { StandardScenario } from './eventSpeakers.scenarios';
 
 describe('eventSpeakers', () => {
   scenario('returns all eventSpeakers', async (scenario: StandardScenario) => {
-    const result = await eventSpeakers();
+    const result = await eventSpeakers({
+      eventId: scenario.eventSpeaker.one.eventId,
+    });
 
-    expect(result.length).toEqual(Object.keys(scenario.eventSpeaker).length);
+    expect(result.nodes.length).toEqual(1);
   });
 
   scenario(

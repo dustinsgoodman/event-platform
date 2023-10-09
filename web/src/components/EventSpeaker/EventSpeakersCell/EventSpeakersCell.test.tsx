@@ -1,3 +1,4 @@
+import { ParamsProvider } from '@redwoodjs/router';
 import { render } from '@redwoodjs/testing/web';
 
 import { Loading, Empty, Failure, Success } from './EventSpeakersCell';
@@ -36,7 +37,15 @@ describe('EventSpeakersCell', () => {
 
   it('renders Success successfully', async () => {
     expect(() => {
-      render(<Success eventSpeakers={standard().eventSpeakers} />);
+      render(
+        <ParamsProvider
+          allParams={{
+            eventId: standard().eventId,
+          }}
+        >
+          <Success eventSpeakers={standard().eventSpeakers} />
+        </ParamsProvider>
+      );
     }).not.toThrow();
   });
 });
