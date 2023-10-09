@@ -2,6 +2,7 @@
   "common": {
     "show": "Show",
     "edit": "Edit",
+    "save": "Save",
     "delete": "Delete",
     "login": "Log In",
     "logout": "Log Out"
@@ -28,7 +29,23 @@
   },
   "Session": {
     "index": "Sessions",
-    "create": "Create New Session"
+    "new": "New Session",
+    "create": "Create New Session",
+    "created": "Session created",
+    "show": "Session",
+    "edit": "Edit Session: {{name}}",
+    "updated": "Session updated",
+    "deleteConfirmation": "Are you sure you want to delete session {{name}}?",
+    "deleted": "Session deleted",
+    "fields": {
+      "id": "ID",
+      "name": "Name",
+      "description": "Description",
+      "speakers": "Speakers",
+      "startAt": "Starts At",
+      "endAt": "Ends At",
+      "capacity": "Capacity"
+    }
   },
   "Speaker": {
     "index": "Speakers",

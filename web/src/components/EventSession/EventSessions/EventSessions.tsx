@@ -1,17 +1,17 @@
 import { FC } from 'react';
 
 import { createColumnHelper } from '@tanstack/react-table';
+import { useTranslation } from 'react-i18next';
 import type { EventSessionsQuery } from 'types/graphql';
 
-import { Link, routes, navigate } from '@redwoodjs/router';
+import { Link, routes } from '@redwoodjs/router';
 import { useMutation } from '@redwoodjs/web';
 import { toast } from '@redwoodjs/web/toast';
 
-import DropdownMenu from 'src/components/DropdownMenu/DropdownMenu';
 import { QUERY } from 'src/components/EventSession/EventSessionsCell';
-import { VerticalMore } from 'src/components/Icons/Icons';
 import Pagination from 'src/components/Pagination/Pagination';
 import Table from 'src/components/Table/Table';
+import TableActionMenu from 'src/components/TableActionMenu/TableActionMenu';
 
 const DELETE_EVENT_SESSION_MUTATION = gql`
   mutation DeleteEventSessionMutation($id: UUID!) {
@@ -30,9 +30,11 @@ const EventSessionsList: FC<EventSessionsListProps> = ({
   eventSessions,
   eventId,
 }) => {
+  const { t } = useTranslation();
+
   const [deleteEventSession] = useMutation(DELETE_EVENT_SESSION_MUTATION, {
     onCompleted: () => {
-      toast.success('Event session deleted');
+      toast.success(t('Session.deleted'));
     },
     onError: (error) => {
       toast.error(error.message);
@@ -45,7 +47,7 @@ const EventSessionsList: FC<EventSessionsListProps> = ({
     id: EventSessionsQuery['eventSessions']['nodes'][0]['id'],
     name: EventSessionsQuery['eventSessions']['nodes'][0]['name']
   ) => {
-    if (confirm(`Are you sure you want to delete event session ${name}?`)) {
+    if (confirm(t('Session.deleteConfirmation', { name }))) {
       deleteEventSession({ variables: { id } });
     }
   };
@@ -54,7 +56,7 @@ const EventSessionsList: FC<EventSessionsListProps> = ({
     createColumnHelper<EventSessionsQuery['eventSessions']['nodes'][0]>();
   const columns = [
     columnHelper.accessor('name', {
-      header: () => 'Name',
+      header: () => t('Session.fields.name'),
       cell: (info) => (
         <Link
           to={routes.eventSession({
@@ -68,7 +70,7 @@ const EventSessionsList: FC<EventSessionsListProps> = ({
       ),
     }),
     columnHelper.accessor('speakers', {
-      header: () => 'Speakers',
+      header: () => t('Session.fields.speakers'),
       cell: (info) =>
         info
           .getValue()
@@ -76,54 +78,29 @@ const EventSessionsList: FC<EventSessionsListProps> = ({
           .join(', '),
     }),
     columnHelper.accessor('formattedStartAt', {
-      header: () => 'Session Starts At',
+      header: () => t('Session.fields.startAt'),
       cell: (info) => info.getValue(),
     }),
     columnHelper.accessor('formattedEndAt', {
-      header: () => 'Session Ends At',
+      header: () => t('Session.fields.endAt'),
       cell: (info) => info.getValue(),
     }),
     columnHelper.display({
       id: 'actions',
       cell: (info) => (
-        <DropdownMenu
-          theme="alternative"
-          compressed={true}
-          sections={[
-            {
-              items: [
-                {
-                  onClick: () =>
-                    navigate(
-                      routes.eventSession({
-                        eventId: eventId,
-                        id: info.row.original.id,
-                      })
-                    ),
-                  children: 'Show',
-                },
-                {
-                  onClick: () =>
-                    navigate(
-                      routes.editEventSession({
-                        eventId: eventId,
-                        id: info.row.original.id,
-                      })
-                    ),
-                  children: 'Edit',
-                },
-                {
-                  onClick: () =>
-                    onDeleteClick(info.row.original.id, info.row.original.name),
-                  children: 'Delete',
-                  className: 'text-red-600 hover:text-red-800',
-                },
-              ],
-            },
-          ]}
-        >
-          <VerticalMore />
-        </DropdownMenu>
+        <TableActionMenu
+          entityShowRoute={routes.eventSession({
+            eventId: eventId,
+            id: info.row.original.id,
+          })}
+          entityEditRoute={routes.editEventSession({
+            eventId: eventId,
+            id: info.row.original.id,
+          })}
+          entityDeleteFn={() =>
+            onDeleteClick(info.row.original.id, info.row.original.name)
+          }
+        />
       ),
     }),
   ];

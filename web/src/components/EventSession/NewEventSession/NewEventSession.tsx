@@ -1,5 +1,6 @@
 import { FC } from 'react';
 
+import { useTranslation } from 'react-i18next';
 import { CreateEventSessionInput } from 'types/graphql';
 
 import { navigate, routes } from '@redwoodjs/router';
@@ -21,11 +22,13 @@ type NewEventSessionProps = {
 };
 
 const NewEventSession: FC<NewEventSessionProps> = ({ eventId }) => {
+  const { t } = useTranslation();
+
   const [createEventSession, { loading, error }] = useMutation(
     CREATE_EVENT_SESSION_MUTATION,
     {
       onCompleted: () => {
-        toast.success('Event session created');
+        toast.success(t('Session.created'));
         navigate(routes.eventSessions({ eventId }));
       },
       onError: (error) => {
@@ -41,7 +44,7 @@ const NewEventSession: FC<NewEventSessionProps> = ({ eventId }) => {
   return (
     <div className="w-full overflow-hidden rounded-lg border border-gray-200">
       <header className="bg-gray-200 px-4 py-3 text-gray-700">
-        <h2 className="text-sm font-semibold">New Event Session</h2>
+        <h2 className="text-sm font-semibold">{t('Session.new')}</h2>
       </header>
       <div className="bg-gray-100 p-4">
         <EventSessionForm

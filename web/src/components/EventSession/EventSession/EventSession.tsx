@@ -1,5 +1,6 @@
 import { FC } from 'react';
 
+import { useTranslation } from 'react-i18next';
 import type { FindEventSessionQuery } from 'types/graphql';
 
 import { routes } from '@redwoodjs/router';
@@ -20,11 +21,13 @@ type EventSessionProps = {
 };
 
 const EventSession: FC<EventSessionProps> = ({ eventSession, eventId }) => {
+  const { t } = useTranslation();
+
   return (
     <>
       <DetailHeader
         mutation={DELETE_EVENT_SESSION_MUTATION}
-        entityType="Event Session"
+        entityType={t('Session.show')}
         entityId={eventSession.id}
         entityName={eventSession.name}
         entityIndexRoute={routes.eventSessions({ eventId })}
@@ -39,31 +42,45 @@ const EventSession: FC<EventSessionProps> = ({ eventSession, eventId }) => {
           <table className="w-full text-sm">
             <tbody>
               <tr>
-                <th className="px-3 py-2 text-right">ID</th>
+                <th className="px-3 py-2 text-right">
+                  {t('Session.fields.id')}
+                </th>
                 <td className="px-3 py-2">{eventSession.id}</td>
               </tr>
               <tr>
-                <th className="px-3 py-2 text-right">Name</th>
+                <th className="px-3 py-2 text-right">
+                  {t('Session.fields.name')}
+                </th>
                 <td className="px-3 py-2">{eventSession.name}</td>
               </tr>
               <tr>
-                <th className="px-3 py-2 text-right">Description</th>
+                <th className="px-3 py-2 text-right">
+                  {t('Session.fields.description')}
+                </th>
                 <td className="px-3 py-2">{eventSession.description}</td>
               </tr>
               <tr>
-                <th className="px-3 py-2 text-right">Starts At</th>
+                <th className="px-3 py-2 text-right">
+                  {t('Session.fields.startAt')}
+                </th>
                 <td className="px-3 py-2">{eventSession.formattedStartAt}</td>
               </tr>
               <tr>
-                <th className="px-3 py-2 text-right">Ends At</th>
+                <th className="px-3 py-2 text-right">
+                  {t('Session.fields.endAt')}
+                </th>
                 <td className="px-3 py-2">{eventSession.formattedEndAt}</td>
               </tr>
               <tr>
-                <th className="px-3 py-2 text-right">Capacity</th>
+                <th className="px-3 py-2 text-right">
+                  {t('Session.fields.capacity')}
+                </th>
                 <td className="px-3 py-2">{eventSession.capacity}</td>
               </tr>
               <tr>
-                <th className="px-3 py-2 text-right">Speakers</th>
+                <th className="px-3 py-2 text-right">
+                  {t('Session.fields.speakers')}
+                </th>
                 <td className="px-3 py-2">
                   <ul className="m-0 list-none">
                     {eventSession.speakers.map((speaker) => (

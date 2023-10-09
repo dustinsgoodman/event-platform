@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import type {
   EditEventSessionById,
   UpdateEventSessionInput,
@@ -11,11 +12,12 @@ import {
   TextField,
   DatetimeLocalField,
   NumberField,
-  Submit,
   TextAreaField,
   HiddenField,
 } from '@redwoodjs/forms';
 import type { RWGqlError } from '@redwoodjs/forms';
+
+import Button from 'src/components/Button/Button';
 
 const formatDatetime = (value) => {
   if (value) {
@@ -34,6 +36,8 @@ interface EventSessionFormProps {
 }
 
 const EventSessionForm = (props: EventSessionFormProps) => {
+  const { t } = useTranslation();
+
   const onSubmit = (data: FormEvent) => {
     props.onSave(data, props?.eventSession?.id);
   };
@@ -59,7 +63,7 @@ const EventSessionForm = (props: EventSessionFormProps) => {
           className="mt-6 block text-left font-semibold text-gray-600"
           errorClassName="block mt-6 text-gray-600 font-semibold text-left text-red-600"
         >
-          Name
+          {t('Session.fields.name')}
         </Label>
         <TextField
           name="name"
@@ -78,7 +82,7 @@ const EventSessionForm = (props: EventSessionFormProps) => {
           className="mt-6 block text-left font-semibold text-gray-600"
           errorClassName="block mt-6 text-gray-600 font-semibold text-left text-red-600"
         >
-          Description
+          {t('Session.fields.description')}
         </Label>
         <TextAreaField
           name="description"
@@ -96,7 +100,7 @@ const EventSessionForm = (props: EventSessionFormProps) => {
           className="mt-6 block text-left font-semibold text-gray-600"
           errorClassName="block mt-6 text-gray-600 font-semibold text-left text-red-600"
         >
-          Session Starts At
+          {t('Session.fields.startAt')}
         </Label>
         <DatetimeLocalField
           name="startAt"
@@ -115,7 +119,7 @@ const EventSessionForm = (props: EventSessionFormProps) => {
           className="mt-6 block text-left font-semibold text-gray-600"
           errorClassName="block mt-6 text-gray-600 font-semibold text-left text-red-600"
         >
-          Session Ends At
+          {t('Session.fields.endAt')}
         </Label>
         <DatetimeLocalField
           name="endAt"
@@ -134,7 +138,7 @@ const EventSessionForm = (props: EventSessionFormProps) => {
           className="mt-6 block text-left font-semibold text-gray-600"
           errorClassName="block mt-6 text-gray-600 font-semibold text-left text-red-600"
         >
-          Capacity
+          {t('Session.fields.capacity')}
         </Label>
         <NumberField
           name="capacity"
@@ -148,12 +152,9 @@ const EventSessionForm = (props: EventSessionFormProps) => {
         />
 
         <div className="mx-2 my-3 mt-8 flex">
-          <Submit
-            disabled={props.loading}
-            className="mx-1 flex cursor-pointer justify-center rounded border-0 bg-blue-500 px-4 py-1 text-xs font-semibold uppercase leading-loose tracking-wide text-white no-underline transition duration-100 hover:bg-blue-700"
-          >
-            Save
-          </Submit>
+          <Button component="button" type="save" disabled={props.loading}>
+            {t('common.save')}
+          </Button>
         </div>
       </Form>
     </div>
