@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import type {
   EditEventSessionById,
   UpdateEventSessionInput,
@@ -69,13 +70,15 @@ export const Failure = ({ error }: CellFailureProps) => (
 export const Success = ({
   eventSession,
 }: CellSuccessProps<EditEventSessionById>) => {
+  const { t } = useTranslation();
   const { eventId } = useParams();
+
   const [updateEventSession, { loading, error }] = useMutation(
     UPDATE_EVENT_SESSION_MUTATION,
     {
       onCompleted: () => {
-        toast.success('Event session updated');
-        navigate(routes.eventSessions({ eventId }));
+        toast.success(t('Session.updated'));
+        navigate(routes.eventSession({ eventId, id: eventSession.id }));
       },
       onError: (error) => {
         toast.error(error.message);
@@ -94,7 +97,7 @@ export const Success = ({
     <div className="w-full overflow-hidden rounded-lg border border-gray-200">
       <header className="bg-gray-200 px-4 py-3 text-gray-700">
         <h2 className="text-sm font-semibold">
-          Edit Event {eventSession?.name}
+          {t('Session.edit', { name: eventSession.name })}
         </h2>
       </header>
       <div className="bg-gray-100 p-4">

@@ -1,4 +1,7 @@
+import { useTranslation } from 'react-i18next';
+
 import { routes, useParams } from '@redwoodjs/router';
+import { Toaster } from '@redwoodjs/web/toast';
 
 import AdminHeader from 'src/components/AdminHeader/AdminHeader';
 
@@ -7,23 +10,26 @@ type EventAdminLayoutProps = {
 };
 
 const EventAdminLayout = ({ children }: EventAdminLayoutProps) => {
+  const { t } = useTranslation();
   const { eventId } = useParams();
+
   return (
     <>
+      <Toaster toastOptions={{ duration: 6000 }} />
       <AdminHeader
-        title="Event Dashboard"
+        title={t('Navigation.eventDashboard')}
         titleTo={routes.event({ eventId: eventId })}
         links={[
           {
-            label: 'Sessions',
+            label: t('Navigation.sessions'),
             link: routes.eventSessions({ eventId: eventId }),
           },
           {
-            label: 'Speakers',
+            label: t('Navigation.speakers'),
             link: routes.eventSpeakers({ eventId: eventId }),
           },
           {
-            label: 'Registrants',
+            label: t('Navigation.registrants'),
             link: routes.eventRegistrants({ eventId: eventId }),
           },
         ]}

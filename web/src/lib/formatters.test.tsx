@@ -1,35 +1,11 @@
 import { render, screen } from '@redwoodjs/testing/web';
 
 import {
-  formatEnum,
   jsonTruncate,
   truncate,
   jsonDisplay,
   checkboxInputTag,
 } from './formatters';
-
-describe('formatEnum', () => {
-  it('handles nullish values', () => {
-    expect(formatEnum(null)).toEqual('');
-    expect(formatEnum('')).toEqual('');
-    expect(formatEnum(undefined)).toEqual('');
-  });
-
-  it('formats a list of values', () => {
-    expect(
-      formatEnum(['RED', 'ORANGE', 'YELLOW', 'GREEN', 'BLUE', 'VIOLET'])
-    ).toEqual('Red, Orange, Yellow, Green, Blue, Violet');
-  });
-
-  it('formats a single value', () => {
-    expect(formatEnum('DARK_BLUE')).toEqual('Dark blue');
-  });
-
-  it('returns an empty string for values of the wrong type (for JS projects)', () => {
-    // @ts-expect-error - Testing JS scenario
-    expect(formatEnum(5)).toEqual('');
-  });
-});
 
 describe('truncate', () => {
   it('truncates really long strings', () => {

@@ -12,6 +12,7 @@ type ButtonProps = {
   href?: string;
   to?: string;
   onClick?: () => void;
+  disabled?: boolean;
   children: ReactNode;
   theme?:
     | 'default'
@@ -32,6 +33,7 @@ const Button: FC<ButtonProps> = ({
   component,
   href,
   onClick,
+  disabled,
   children,
   theme = 'default',
   size = 'md',
@@ -41,6 +43,7 @@ const Button: FC<ButtonProps> = ({
 
   const commonProps = {
     onClick,
+    disabled,
     className: clsx(
       'inline-flex items-center gap-x-1 focus:ring-4 font-medium text-center rounded-lg focus:outline-none hover:no-underline disabled:opacity-50',
       {
@@ -67,6 +70,9 @@ const Button: FC<ButtonProps> = ({
         'px-5 py-2.5 text-sm': size === 'md',
         'px-5 py-3 text-base': size === 'lg',
         'px-6 py-3.5 text-base': size === 'xl',
+      },
+      {
+        'opacity-70': disabled,
       }
     ),
     ...rest,

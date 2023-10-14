@@ -1,5 +1,7 @@
 import { FC, useState } from 'react';
 
+import { Trans, useTranslation } from 'react-i18next';
+
 import { Link, navigate, routes } from '@redwoodjs/router';
 
 import DropdownMenu from 'src/components/DropdownMenu/DropdownMenu';
@@ -31,6 +33,7 @@ const AdminHeader: FC<AdminHeaderProps> = ({
   titleTo = routes.home(),
   links = [],
 }) => {
+  const { t } = useTranslation();
   const [navbarOpen, setNavbarOpen] = useState<boolean>(false);
 
   return (
@@ -43,7 +46,7 @@ const AdminHeader: FC<AdminHeaderProps> = ({
           <button
             className="ml-auto cursor-pointer content-end px-3 py-1 pb-4 leading-none text-black outline-none focus:outline-none md:hidden"
             type="button"
-            aria-label="button"
+            aria-label={t('Navigation.menuAria')}
             onClick={() => setNavbarOpen(!navbarOpen)}
           >
             <MenuIcon />
@@ -67,11 +70,11 @@ const AdminHeader: FC<AdminHeaderProps> = ({
                   items: [
                     {
                       onClick: () => navigate(routes.events()),
-                      children: <>Dashboard</>,
+                      children: t('Navigation.dashboard'),
                     },
                     {
                       onClick: () => navigate(routes.events()),
-                      children: <>My Events</>,
+                      children: t('Navigation.events'),
                     },
                   ],
                 },
@@ -79,19 +82,22 @@ const AdminHeader: FC<AdminHeaderProps> = ({
                   items: [
                     {
                       onClick: () => navigate(routes.home()),
-                      children: 'Log Out',
+                      children: t('common.logout'),
                       className: 'text-red-600 hover:text-red-800',
                     },
                   ],
                 },
               ]}
               header={
-                <>
-                  <div>Signed in as</div>
-                  <div className="truncate font-medium">
-                    john@eventplatform.com
-                  </div>
-                </>
+                <Trans
+                  i18nKey="Navigation.currentUser"
+                  values={{
+                    email: 'john@eventplatform.com',
+                  }}
+                  components={{
+                    email: <div className="truncate font-medium" />,
+                  }}
+                />
               }
             >
               <UserIcon /> <span>John Doe</span>

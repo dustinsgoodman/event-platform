@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import type { EditEventById, UpdateEventInput } from 'types/graphql';
 
 import { navigate, routes } from '@redwoodjs/router';
@@ -67,9 +68,11 @@ export const Failure = ({ error }: CellFailureProps) => (
 );
 
 export const Success = ({ event }: CellSuccessProps<EditEventById>) => {
+  const { t } = useTranslation();
+
   const [updateEvent, { loading, error }] = useMutation(UPDATE_EVENT_MUTATION, {
     onCompleted: () => {
-      toast.success('Event updated');
+      toast.success(t('Event.updated'));
       navigate(routes.events());
     },
     onError: (error) => {
@@ -87,7 +90,9 @@ export const Success = ({ event }: CellSuccessProps<EditEventById>) => {
   return (
     <div className="w-full overflow-hidden rounded-lg border border-gray-200">
       <header className="bg-gray-200 px-4 py-3 text-gray-700">
-        <h2 className="text-sm font-semibold">Edit Event {event?.name}</h2>
+        <h2 className="text-sm font-semibold">
+          {t('Event.edit', { name: event.name })}
+        </h2>
       </header>
       <div className="bg-gray-100 p-4">
         <EventForm

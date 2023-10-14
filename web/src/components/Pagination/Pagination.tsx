@@ -1,5 +1,7 @@
 import { FC } from 'react';
 
+import { Trans, useTranslation } from 'react-i18next';
+
 import { navigate } from '@redwoodjs/router';
 
 import Button from 'src/components/Button/Button';
@@ -20,6 +22,7 @@ const Pagination: FC<PaginationProps> = ({
   paginationInfo,
   hideButtons,
 }) => {
+  const { t } = useTranslation();
   const { totalPages, total, page: currentPage, perPage } = paginationInfo;
   const showButtons = !hideButtons && totalPages !== 1;
 
@@ -38,7 +41,7 @@ const Pagination: FC<PaginationProps> = ({
             disabled={currentPage <= 1}
             size="sm"
           >
-            Prev
+            {t('Pagination.previous')}
           </Button>
         )}
         {showButtons && (
@@ -48,12 +51,19 @@ const Pagination: FC<PaginationProps> = ({
             disabled={currentPage >= totalPages}
             size="sm"
           >
-            Next
+            {t('Pagination.next')}
           </Button>
         )}
       </div>
       <div className="text-sm">
-        Showing <strong>{displayCount}</strong> of <strong>{total}</strong>
+        <Trans
+          i18nKey="Pagination.details"
+          values={{
+            displayCount,
+            total,
+          }}
+          components={{ bold: <strong /> }}
+        />
       </div>
     </div>
   );

@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import type { CreateEventInput } from 'types/graphql';
 
 import { navigate, routes } from '@redwoodjs/router';
@@ -15,9 +16,11 @@ const CREATE_EVENT_MUTATION = gql`
 `;
 
 const NewEvent = () => {
+  const { t } = useTranslation();
+
   const [createEvent, { loading, error }] = useMutation(CREATE_EVENT_MUTATION, {
     onCompleted: () => {
-      toast.success('Event created');
+      toast.success(t('Event.created'));
       navigate(routes.events());
     },
     onError: (error) => {
@@ -32,7 +35,7 @@ const NewEvent = () => {
   return (
     <div className="w-full overflow-hidden rounded-lg border border-gray-200">
       <header className="bg-gray-200 px-4 py-3 text-gray-700">
-        <h2 className="text-sm font-semibold">New Event</h2>
+        <h2 className="text-sm font-semibold">{t('Event.new')}</h2>
       </header>
       <div className="bg-gray-100 p-4">
         <EventForm onSave={onSave} loading={loading} error={error} />

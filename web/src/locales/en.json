@@ -2,15 +2,90 @@
   "common": {
     "show": "Show",
     "edit": "Edit",
-    "delete": "Delete"
+    "save": "Save",
+    "delete": "Delete",
+    "login": "Log In",
+    "logout": "Log Out"
+  },
+  "Entity": {
+    "details": "{{entityType}} Details",
+    "deleteConfirmation": "Are you sure you want to delete {{entityType}} \"{{entityName}}\"?",
+    "deleted": "{{entityType}} deleted"
+  },
+  "Navigation": {
+    "currentUser": "Signed in as <email>{{email}}</email>",
+    "menuAria": "Toggle Navigation Menu",
+    "dashboard": "Dashboard",
+    "events": "My Events",
+    "eventDashboard": "Event Dashboard",
+    "sessions": "Sessions",
+    "speakers": "Speakers",
+    "registrants": "Registrants"
+  },
+  "Pagination": {
+    "previous": "Previous",
+    "next": "Next",
+    "details": "Showing <bold>{{displayCount}}</bold> of <bold>{{total}}</bold>"
   },
   "Event": {
     "index": "My Events",
-    "create": "Create New Event"
+    "new": "New Event",
+    "create": "Create New Event",
+    "created": "Event created",
+    "edit": "Edit Event: {{name}}",
+    "updated": "Event updated",
+    "deleteConfirmation": "Are you sure you want to delete event {{name}}?",
+    "deleted": "Event deleted",
+    "fields": {
+      "id": "ID",
+      "name": "Name",
+      "description": "Description",
+      "timezone": "Time Zone",
+      "startAt": "Event Starts At",
+      "endAt": "Event Ends At",
+      "registrationStartAt": "Registration Starts At",
+      "registrationEndAt": "Registration Ends At",
+      "venueType": "Venue Type",
+      "venueName": "Venue Name",
+      "address": "Address",
+      "country": "Country",
+      "city": "City",
+      "stateOrProvince": "State/Province",
+      "postalCode": "Postal Code",
+      "currency": "Currency",
+      "capacity": "Capacity",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At"
+    },
+    "timezone": {
+      "default": "Select the timezone the event occurs in"
+    },
+    "venueType": {
+      "default": "Select the venue type",
+      "IN_PERSON": "In Person",
+      "ONLINE": "Online",
+      "HYBRID": "Hybrid"
+    }
   },
   "Session": {
     "index": "Sessions",
-    "create": "Create New Session"
+    "new": "New Session",
+    "create": "Create New Session",
+    "created": "Session created",
+    "show": "Session",
+    "edit": "Edit Session: {{name}}",
+    "updated": "Session updated",
+    "deleteConfirmation": "Are you sure you want to delete session {{name}}?",
+    "deleted": "Session deleted",
+    "fields": {
+      "id": "ID",
+      "name": "Name",
+      "description": "Description",
+      "speakers": "Speakers",
+      "startAt": "Starts At",
+      "endAt": "Ends At",
+      "capacity": "Capacity"
+    }
   },
   "Speaker": {
     "index": "Speakers",
@@ -23,5 +98,10 @@
       "jobTitle": "Job Title",
       "company": "Company"
     }
+  },
+  "Legal": {
+    "tos": "Terms of Service",
+    "privacy": "Privacy Policy",
+    "cookies": "Cookie Policy"
   }
 }

@@ -1,3 +1,4 @@
+import { type ReactNode } from 'react';
 // this mock makes sure any components using the translate hook can use it without a warning being shown
 jest.mock('react-i18next', () => ({
   useTranslation: () => {
@@ -8,4 +9,5 @@ jest.mock('react-i18next', () => ({
       },
     };
   },
+  Trans: ({ children }: { children: ReactNode }) => children,
 }));

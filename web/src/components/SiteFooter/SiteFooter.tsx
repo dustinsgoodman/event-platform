@@ -1,5 +1,7 @@
 import { FC } from 'react';
 
+import { useTranslation } from 'react-i18next';
+
 import { Link, routes } from '@redwoodjs/router';
 
 type FooterLinkProps = {
@@ -19,19 +21,21 @@ const FooterLink: FC<FooterLinkProps> = ({ link, label }) => {
 };
 
 const SiteFooter = () => {
+  const { t } = useTranslation();
+
   const currentYear = new Date().getFullYear();
   const footerLinks: FooterLinkProps[] = [
     {
       link: routes.home(),
-      label: 'Terms of Service',
+      label: t('Legal.tos'),
     },
     {
       link: routes.home(),
-      label: 'Privacy Policy',
+      label: t('Legal.privacy'),
     },
     {
       link: routes.home(),
-      label: 'Cookie Policy',
+      label: t('Legal.cookies'),
     },
   ];
 
