@@ -1,4 +1,5 @@
 import { createColumnHelper } from '@tanstack/react-table';
+import { useTranslation } from 'react-i18next';
 import type { FindEvents } from 'types/graphql';
 
 import { Link, navigate, routes } from '@redwoodjs/router';
@@ -20,9 +21,11 @@ const DELETE_EVENT_MUTATION = gql`
 `;
 
 const EventsList = ({ events }: FindEvents) => {
+  const { t } = useTranslation();
+
   const [deleteEvent] = useMutation(DELETE_EVENT_MUTATION, {
     onCompleted: () => {
-      toast.success('Event deleted');
+      toast.success(t('Event.deleted'));
     },
     onError: (error) => {
       toast.error(error.message);
@@ -35,7 +38,7 @@ const EventsList = ({ events }: FindEvents) => {
     id: FindEvents['events']['nodes'][0]['id'],
     name: FindEvents['events']['nodes'][0]['name']
   ) => {
-    if (confirm(`Are you sure you want to delete event ${name}?`)) {
+    if (confirm(t('Event.deleteConfirmation', { name }))) {
       deleteEvent({ variables: { id } });
     }
   };
@@ -43,7 +46,7 @@ const EventsList = ({ events }: FindEvents) => {
   const columnHelper = createColumnHelper<FindEvents['events']['nodes'][0]>();
   const columns = [
     columnHelper.accessor('name', {
-      header: () => 'Name',
+      header: () => t('Event.fields.name'),
       cell: (info) => (
         <Link
           to={routes.event({ eventId: info.row.original.id })}
@@ -54,19 +57,19 @@ const EventsList = ({ events }: FindEvents) => {
       ),
     }),
     columnHelper.accessor('formattedStartAt', {
-      header: () => 'Event Starts At',
+      header: () => t('Event.fields.startAt'),
       cell: (info) => info.getValue(),
     }),
     columnHelper.accessor('formattedEndAt', {
-      header: () => 'Event Ends At',
+      header: () => t('Event.fields.endAt'),
       cell: (info) => info.getValue(),
     }),
     columnHelper.accessor('formattedRegistrationStartAt', {
-      header: () => 'Registration Starts At',
+      header: () => t('Event.fields.registrationStartAt'),
       cell: (info) => info.getValue(),
     }),
     columnHelper.accessor('formattedRegistrationEndAt', {
-      header: () => 'Registration Ends At',
+      header: () => t('Event.fields.registrationEndAt'),
       cell: (info) => info.getValue(),
     }),
     columnHelper.display({
@@ -81,19 +84,19 @@ const EventsList = ({ events }: FindEvents) => {
                 {
                   onClick: () =>
                     navigate(routes.event({ eventId: info.row.original.id })),
-                  children: 'Show',
+                  children: t('common.show'),
                 },
                 {
                   onClick: () =>
                     navigate(
                       routes.editEvent({ eventId: info.row.original.id })
                     ),
-                  children: 'Edit',
+                  children: t('common.edit'),
                 },
                 {
                   onClick: () =>
                     onDeleteClick(info.row.original.id, info.row.original.name),
-                  children: 'Delete',
+                  children: t('common.delete'),
                   className: 'text-red-600 hover:text-red-800',
                 },
               ],

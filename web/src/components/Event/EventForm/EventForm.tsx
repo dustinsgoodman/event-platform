@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import type { EditEventById, UpdateEventInput } from 'types/graphql';
 
 import {
@@ -8,11 +9,12 @@ import {
   TextField,
   DatetimeLocalField,
   NumberField,
-  Submit,
   TextAreaField,
   SelectField,
 } from '@redwoodjs/forms';
 import type { RWGqlError } from '@redwoodjs/forms';
+
+import Button from 'src/components/Button/Button';
 
 const formatDatetime = (value) => {
   if (value) {
@@ -30,6 +32,8 @@ interface EventFormProps {
 }
 
 const EventForm = (props: EventFormProps) => {
+  const { t } = useTranslation();
+
   const onSubmit = (data: FormEvent) => {
     props.onSave(data, props?.event?.id);
   };
@@ -49,7 +53,7 @@ const EventForm = (props: EventFormProps) => {
           className="mt-6 block text-left font-semibold text-gray-600"
           errorClassName="block mt-6 text-gray-600 font-semibold text-left text-red-600"
         >
-          Name
+          {t('Event.fields.name')}
         </Label>
         <TextField
           name="name"
@@ -68,7 +72,7 @@ const EventForm = (props: EventFormProps) => {
           className="mt-6 block text-left font-semibold text-gray-600"
           errorClassName="block mt-6 text-gray-600 font-semibold text-left text-red-600"
         >
-          Description
+          {t('Event.fields.description')}
         </Label>
         <TextAreaField
           name="description"
@@ -86,7 +90,7 @@ const EventForm = (props: EventFormProps) => {
           className="mt-6 block text-left font-semibold text-gray-600"
           errorClassName="block mt-6 text-gray-600 font-semibold text-left text-red-600"
         >
-          Timezone
+          {t('Event.fields.timezone')}
         </Label>
         <SelectField
           name="timezone"
@@ -96,7 +100,7 @@ const EventForm = (props: EventFormProps) => {
           validation={{ required: true }}
           disabled={true}
         >
-          <option>Select the timezone the event occurs in</option>
+          <option>{t('Event.timezone.default')}</option>
           <option value="America/New_York">America/New York</option>
         </SelectField>
         <FieldError
@@ -109,7 +113,7 @@ const EventForm = (props: EventFormProps) => {
           className="mt-6 block text-left font-semibold text-gray-600"
           errorClassName="block mt-6 text-gray-600 font-semibold text-left text-red-600"
         >
-          Event Starts At
+          {t('Event.fields.startAt')}
         </Label>
         <DatetimeLocalField
           name="startAt"
@@ -128,7 +132,7 @@ const EventForm = (props: EventFormProps) => {
           className="mt-6 block text-left font-semibold text-gray-600"
           errorClassName="block mt-6 text-gray-600 font-semibold text-left text-red-600"
         >
-          Event Ends At
+          {t('Event.fields.endAt')}
         </Label>
         <DatetimeLocalField
           name="endAt"
@@ -147,7 +151,7 @@ const EventForm = (props: EventFormProps) => {
           className="mt-6 block text-left font-semibold text-gray-600"
           errorClassName="block mt-6 text-gray-600 font-semibold text-left text-red-600"
         >
-          Registration Starts At
+          {t('Event.fields.registrationStartAt')}
         </Label>
         <DatetimeLocalField
           name="registrationStartAt"
@@ -166,7 +170,7 @@ const EventForm = (props: EventFormProps) => {
           className="mt-6 block text-left font-semibold text-gray-600"
           errorClassName="block mt-6 text-gray-600 font-semibold text-left text-red-600"
         >
-          Registration Ends At
+          {t('Event.fields.registrationEndAt')}
         </Label>
         <DatetimeLocalField
           name="registrationEndAt"
@@ -185,7 +189,7 @@ const EventForm = (props: EventFormProps) => {
           className="mt-6 block text-left font-semibold text-gray-600"
           errorClassName="block mt-6 text-gray-600 font-semibold text-left text-red-600"
         >
-          Venue type
+          {t('Event.fields.venueType')}
         </Label>
         <SelectField
           name="venueType"
@@ -194,10 +198,10 @@ const EventForm = (props: EventFormProps) => {
           errorClassName="block mt-2 w-full p-2 bg-white border border-gray-200 rounded outline-none border-red-600 text-red-600 focus:border-red-600 focus:text-red-600"
           validation={{ required: true }}
         >
-          <option>Select the venue type</option>
-          <option value="IN_PERSON">In Person</option>
-          <option value="ONLINE">Online</option>
-          <option value="HYBRID">Hybrid</option>
+          <option>{t('Event.venueType.default')}</option>
+          <option value="IN_PERSON">{t('Event.venueType.IN_PERSON')}</option>
+          <option value="ONLINE">{t('Event.venueType.ONLINE')}</option>
+          <option value="HYBRID">{t('Event.venueType.HYBRID')}</option>
         </SelectField>
         <FieldError
           name="venueType"
@@ -209,7 +213,7 @@ const EventForm = (props: EventFormProps) => {
           className="mt-6 block text-left font-semibold text-gray-600"
           errorClassName="block mt-6 text-gray-600 font-semibold text-left text-red-600"
         >
-          Venue name
+          {t('Event.fields.venueName')}
         </Label>
         <TextField
           name="venueName"
@@ -227,7 +231,7 @@ const EventForm = (props: EventFormProps) => {
           className="mt-6 block text-left font-semibold text-gray-600"
           errorClassName="block mt-6 text-gray-600 font-semibold text-left text-red-600"
         >
-          Address
+          {t('Event.fields.address')}
         </Label>
         <TextField
           name="address"
@@ -245,7 +249,7 @@ const EventForm = (props: EventFormProps) => {
           className="mt-6 block text-left font-semibold text-gray-600"
           errorClassName="block mt-6 text-gray-600 font-semibold text-left text-red-600"
         >
-          Country
+          {t('Event.fields.country')}
         </Label>
         <TextField
           name="country"
@@ -263,7 +267,7 @@ const EventForm = (props: EventFormProps) => {
           className="mt-6 block text-left font-semibold text-gray-600"
           errorClassName="block mt-6 text-gray-600 font-semibold text-left text-red-600"
         >
-          City
+          {t('Event.fields.city')}
         </Label>
         <TextField
           name="city"
@@ -281,7 +285,7 @@ const EventForm = (props: EventFormProps) => {
           className="mt-6 block text-left font-semibold text-gray-600"
           errorClassName="block mt-6 text-gray-600 font-semibold text-left text-red-600"
         >
-          State/Province
+          {t('Event.fields.stateOrProvince')}
         </Label>
         <TextField
           name="stateOrProvince"
@@ -299,7 +303,7 @@ const EventForm = (props: EventFormProps) => {
           className="mt-6 block text-left font-semibold text-gray-600"
           errorClassName="block mt-6 text-gray-600 font-semibold text-left text-red-600"
         >
-          Postal Code
+          {t('Event.fields.postalCode')}
         </Label>
         <TextField
           name="postalCode"
@@ -317,7 +321,7 @@ const EventForm = (props: EventFormProps) => {
           className="mt-6 block text-left font-semibold text-gray-600"
           errorClassName="block mt-6 text-gray-600 font-semibold text-left text-red-600"
         >
-          Currency
+          {t('Event.fields.currency')}
         </Label>
         <SelectField
           name="currency"
@@ -339,7 +343,7 @@ const EventForm = (props: EventFormProps) => {
           className="mt-6 block text-left font-semibold text-gray-600"
           errorClassName="block mt-6 text-gray-600 font-semibold text-left text-red-600"
         >
-          Capacity
+          {t('Event.fields.capacity')}
         </Label>
         <NumberField
           name="capacity"
@@ -353,12 +357,9 @@ const EventForm = (props: EventFormProps) => {
         />
 
         <div className="mx-2 my-3 mt-8 flex">
-          <Submit
-            disabled={props.loading}
-            className="mx-1 flex cursor-pointer justify-center rounded border-0 bg-blue-500 px-4 py-1 text-xs font-semibold uppercase leading-loose tracking-wide text-white no-underline transition duration-100 hover:bg-blue-700"
-          >
-            Save
-          </Submit>
+          <Button component="button" type="save" disabled={props.loading}>
+            {t('common.save')}
+          </Button>
         </div>
       </Form>
     </div>

@@ -16,7 +16,11 @@
     "currentUser": "Signed in as <email>{{email}}</email>",
     "menuAria": "Toggle Navigation Menu",
     "dashboard": "Dashboard",
-    "events": "My Events"
+    "events": "My Events",
+    "eventDashboard": "Event Dashboard",
+    "sessions": "Sessions",
+    "speakers": "Speakers",
+    "registrants": "Registrants"
   },
   "Pagination": {
     "previous": "Previous",
@@ -25,7 +29,43 @@
   },
   "Event": {
     "index": "My Events",
-    "create": "Create New Event"
+    "new": "New Event",
+    "create": "Create New Event",
+    "created": "Event created",
+    "edit": "Edit Event: {{name}}",
+    "updated": "Event updated",
+    "deleteConfirmation": "Are you sure you want to delete event {{name}}?",
+    "deleted": "Event deleted",
+    "fields": {
+      "id": "ID",
+      "name": "Name",
+      "description": "Description",
+      "timezone": "Time Zone",
+      "startAt": "Event Starts At",
+      "endAt": "Event Ends At",
+      "registrationStartAt": "Registration Starts At",
+      "registrationEndAt": "Registration Ends At",
+      "venueType": "Venue Type",
+      "venueName": "Venue Name",
+      "address": "Address",
+      "country": "Country",
+      "city": "City",
+      "stateOrProvince": "State/Province",
+      "postalCode": "Postal Code",
+      "currency": "Currency",
+      "capacity": "Capacity",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At"
+    },
+    "timezone": {
+      "default": "Select the timezone the event occurs in"
+    },
+    "venueType": {
+      "default": "Select the venue type",
+      "IN_PERSON": "In Person",
+      "ONLINE": "Online",
+      "HYBRID": "Hybrid"
+    }
   },
   "Session": {
     "index": "Sessions",
